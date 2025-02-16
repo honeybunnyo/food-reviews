@@ -20,7 +20,7 @@ const Card = ({ title, date, url }) => {
         </div>
       <div className='p-2'>
         <HeadingTwo content={title}/>
-        <p className='text-sm text-gray-500'>{date}</p>
+        <p className='text-md text-gray-500'>{date}</p>
       </div>
     </Link>
   )
