@@ -1,7 +1,10 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
+import Tiptap from './MenuBar'
 
 const Page = () => {
+  const [content, setContent] = useState('<p>Start writing...</p>');
+
   const postUploadApi = () => {
     fetch('/api/upload')
     .then((res) => res.json())
@@ -21,14 +24,17 @@ const Page = () => {
         </select>
         <br/>
 
-        <div class="mb-5">
-          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-          <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+        <Tiptap content={content} setContent={setContent}/>
+        <input type="hidden" name="content" value={content} />
+
+        {/* <div className="mb-5">
+          <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+          <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
         </div>
         
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
-        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter content..."></textarea>
-        <br/>
+        <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
+        <textarea id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter content..."></textarea>
+        <br/> */}
 
         {/* File upload */}
         <label htmlFor="file_upload" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload file</label>
@@ -41,7 +47,7 @@ const Page = () => {
         {/* Submit button */}
         <button 
           type="submit" 
-          class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+          className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
         > POST
         </button>
 
