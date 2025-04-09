@@ -27,15 +27,33 @@ const page = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(username);
     console.log(password);
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append('password', password);
 
-    // TODO: Check username and pw then upload content
-
+    // TODO: Check username and pw -> then upload content
+    // TODO: ADD FILE UPLOAD  
+    const res = await fetch('http://localhost:3001/upload', {
+      method: 'POST',
+      body: formData,
+    });
+  
+    const data = await res.json();
+    console.log(data);
   };
 
+
+  const postUploadApi = () => {
+    fetch('/api/upload')
+    .then((res) => res.json())
+    .then((data) => {
+      console.log('data', data)
+    })
+  }
   return (
     <form className="m-10" autoComplete="off" onSubmit={handleSubmit}>
       <ContentDropdown content={formData.content} setContent={handleChange('content')} />
