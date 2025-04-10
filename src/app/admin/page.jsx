@@ -6,6 +6,7 @@ import InputField from './../components/InputField/InputField';
 import PasswordField from './../components/InputField/PasswordField';
 import RatingField from './../components/InputField/RatingField';
 import TextAreaField from './../components/InputField/TextAreaField';
+import ImageField from './../components/InputField/ImageField';
 
 const page = () => {
   const [formData, setFormData] = useState({
@@ -29,31 +30,24 @@ const page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username);
-    console.log(password);
+    console.log('handle submit');
     const formData = new FormData();
     formData.append('username', username);
     formData.append('password', password);
 
     // TODO: Check username and pw -> then upload content
     // TODO: ADD FILE UPLOAD  
-    const res = await fetch('http://localhost:3001/upload', {
+    const res = await fetch('http://localhost:3000/api/upload', {
       method: 'POST',
       body: formData,
     });
   
     const data = await res.json();
+    console.log('data');
     console.log(data);
+
   };
 
-
-  const postUploadApi = () => {
-    fetch('/api/upload')
-    .then((res) => res.json())
-    .then((data) => {
-      console.log('data', data)
-    })
-  }
   return (
     <form className="m-10" autoComplete="off" onSubmit={handleSubmit}>
       <ContentDropdown content={formData.content} setContent={handleChange('content')} />
@@ -76,6 +70,10 @@ const page = () => {
       )}
 
       <RatingField rating={formData.rating} setRating={handleChange('rating')} />
+    
+      {/* <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+      <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"></input> */}
+      <ImageField/>
       <PasswordField setUsername={setUsername} setPassword={setPassword}/>
       <button type="submit" className="text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
         Upload

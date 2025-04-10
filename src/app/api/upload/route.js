@@ -1,52 +1,53 @@
-// app/api/upload/route.js
+// app/api/upload/route.ts
 
-import aws from 'aws-sdk';
-import formidable from 'formidable-serverless';
+import { NextResponse } from 'next/server'
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+export async function POST(req) {
+  try {
+    // Read form data
+    const formData = await req.formData()
+    const username = formData.get('username')
+    const password = formData.get('password')
 
-const s3 = new aws.S3({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.S3_REGION,
-});
-
-export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).end('Method not allowed');
-
-  const form = new formidable.IncomingForm();
-
-  form.parse(req, async (err, fields, files) => {
-    const { username, password } = fields;
-
-    if (
-      username !== process.env.USERNAME ||
-      password !== process.env.PASSWORD
-    ) {
-      return res.status(403).json({ message: 'Invalid credentials' });
+    // Basic auth logic (replace with real validation later)
+    if (username !== 'admin' || password !== 'secret') {
+      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 
-    const file = files.file;
+    // Extract other fields (example)
+    const content = formData.get('content')
+    const title = formData.get('title')
+    const description = formData.get('description')
+    const recipe = formData.get('recipe')
+    const method = formData.get('method')
+    const entree = formData.get('entree')
+    const main = formData.get('main')
+    const dessert = formData.get('dessert')
+    const rating = formData.get('rating')
 
-    const fileContent = require('fs').readFileSync(file.filepath);
-
-    const params = {
-      Bucket: process.env.S3_BUCKET_NAME,
-      Key: `uploads/${Date.now()}-${file.originalFilename}`,
-      Body: fileContent,
-      ContentType: file.mimetype,
-    };
-
-    try {
-      const data = await s3.upload(params).promise();
-      return res.status(200).json({ message: 'Success', url: data.Location });
-    } catch (uploadErr) {
-      console.error(uploadErr);
-      return res.status(500).json({ message: 'Upload failed' });
+    // Optional: If you handle file uploads later
+    const file = formData.get('file') as File | null
+    if (file) {
+      console.log(`Received file: ${file.name} (${file.size} bytes)`)
+      // You can stream it to S3 or store it somewhere
     }
-  });
+
+    // Log or save content to DB here
+    console.log('Content received:', {
+      content,
+      title,
+      description,
+      recipe,
+      method,
+      entree,
+      main,
+      dessert,
+      rating,
+    })
+
+    return NextResponse.json({ message: 'Upload successful!' })
+  } catch (err) {
+    console.error(err)
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+  }
 }
