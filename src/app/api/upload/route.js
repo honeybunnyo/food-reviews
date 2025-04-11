@@ -1,53 +1,35 @@
-// app/api/upload/route.ts
-
 import { NextResponse } from 'next/server'
+import { prisma } from '../../lib/prisma'
 
 export async function POST(req) {
   try {
-    // Read form data
     const formData = await req.formData()
-    const username = formData.get('username')
-    const password = formData.get('password')
+    const username = formData.get('username')?.toString() || ''
+    const password = formData.get('password')?.toString() || ''
 
-    // Basic auth logic (replace with real validation later)
-    if (username !== 'admin' || password !== 'secret') {
+    console.log(process.env.USER)
+    console.log(process.env.PASSWORD)
+
+    // Auth check
+    if (username !== process.env.USER || password !== process.env.PASSWORD) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 
-    // Extract other fields (example)
-    const content = formData.get('content')
-    const title = formData.get('title')
-    const description = formData.get('description')
-    const recipe = formData.get('recipe')
-    const method = formData.get('method')
-    const entree = formData.get('entree')
-    const main = formData.get('main')
-    const dessert = formData.get('dessert')
-    const rating = formData.get('rating')
-
-    // Optional: If you handle file uploads later
-    const file = formData.get('file') as File | null
-    if (file) {
-      console.log(`Received file: ${file.name} (${file.size} bytes)`)
-      // You can stream it to S3 or store it somewhere
+    const data = {
+      title: formData.get('title')?.toString() || '',
+      description: formData.get('description')?.toString() || '',
+      recipe: formData.get('recipe')?.toString() || '',
+      method: formData.get('method')?.toString() || '',
+      rating: parseInt(formData.get('rating')?.toString() || '0'),
     }
 
-    // Log or save content to DB here
-    console.log('Content received:', {
-      content,
-      title,
-      description,
-      recipe,
-      method,
-      entree,
-      main,
-      dessert,
-      rating,
-    })
+    // Insert into DB
+    const result = await prisma.RecipeUpload.create({ data })
 
-    return NextResponse.json({ message: 'Upload successful!' })
-  } catch (err) {
-    console.error(err)
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    return NextResponse.json({ message: 'Upload saved!', result })
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 })
   }
 }
+

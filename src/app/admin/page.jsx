@@ -30,20 +30,22 @@ const page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('handle submit');
-    const formData = new FormData();
-    formData.append('username', username);
-    formData.append('password', password);
+    const formToSend = new FormData();
+    formToSend.append('username', username);
+    formToSend.append('password', password);
+
+    Object.entries(formData).forEach(([key, value]) => {
+      formToSend.append(key, value);
+    });
 
     // TODO: Check username and pw -> then upload content
     // TODO: ADD FILE UPLOAD  
     const res = await fetch('http://localhost:3000/api/upload', {
       method: 'POST',
-      body: formData,
+      body: formToSend,
     });
   
     const data = await res.json();
-    console.log('data');
     console.log(data);
 
   };

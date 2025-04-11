@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model RecipeUpload {
+  id          String   @id @default(uuid())
+  created_at  DateTime @default(now())
+  title       String
+  description String
+  recipe      String
+  method      String
+  rating      Int
+}
+
+model RestaurantUpload {
+  id          String   @id @default(uuid())
+  created_at  DateTime @default(now())
+  title       String
+  description String
+  entree      String
+  main        String
+  dessert     String
+  rating      Int
+  review      String
+  location    String
+  price_range String
+}
