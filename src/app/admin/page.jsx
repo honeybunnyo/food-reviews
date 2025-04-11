@@ -23,6 +23,7 @@ const page = () => {
   
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [imageFile, setImageFile] = useState(null);
 
   const handleChange = (field) => (value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -33,21 +34,21 @@ const page = () => {
     const formToSend = new FormData();
     formToSend.append('username', username);
     formToSend.append('password', password);
-
     Object.entries(formData).forEach(([key, value]) => {
       formToSend.append(key, value);
     });
+    formData.append('imageUrl', imageFile)
 
-    // TODO: Check username and pw -> then upload content
-    // TODO: ADD FILE UPLOAD  
     const res = await fetch('http://localhost:3000/api/upload', {
       method: 'POST',
       body: formToSend,
     });
-  
     const data = await res.json();
     console.log(data);
+  };
 
+  const handleImageSelect = (file) => {
+    setImageFile(file)
   };
 
   return (
@@ -72,10 +73,8 @@ const page = () => {
       )}
 
       <RatingField rating={formData.rating} setRating={handleChange('rating')} />
-    
-      {/* <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-      <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"></input> */}
-      <ImageField/>
+      <label className="block text-sm font-medium mb-2">background image</label>
+      <ImageField imageFile={imageFile} handleImageSelect={handleImageSelect}/>
       <PasswordField setUsername={setUsername} setPassword={setPassword}/>
       <button type="submit" className="text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
         Upload

@@ -119,26 +119,28 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.RecipeUploadScalarFieldEnum = {
   id: 'id',
-  created_at: 'created_at',
+  createdAt: 'createdAt',
   title: 'title',
   description: 'description',
   recipe: 'recipe',
   method: 'method',
-  rating: 'rating'
+  rating: 'rating',
+  imageUrl: 'imageUrl'
 };
 
 exports.Prisma.RestaurantUploadScalarFieldEnum = {
   id: 'id',
-  created_at: 'created_at',
+  createdAt: 'createdAt',
   title: 'title',
+  rating: 'rating',
+  review: 'review',
+  location: 'location',
+  priceRange: 'priceRange',
   description: 'description',
   entree: 'entree',
   main: 'main',
   dessert: 'dessert',
-  rating: 'rating',
-  review: 'review',
-  location: 'location',
-  price_range: 'price_range'
+  imageUrl: 'imageUrl'
 };
 
 exports.Prisma.SortOrder = {
@@ -149,6 +151,11 @@ exports.Prisma.SortOrder = {
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 

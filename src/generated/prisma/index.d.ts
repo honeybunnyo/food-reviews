@@ -982,32 +982,35 @@ export namespace Prisma {
 
   export type RecipeUploadMinAggregateOutputType = {
     id: string | null
-    created_at: Date | null
+    createdAt: Date | null
     title: string | null
     description: string | null
     recipe: string | null
     method: string | null
     rating: number | null
+    imageUrl: string | null
   }
 
   export type RecipeUploadMaxAggregateOutputType = {
     id: string | null
-    created_at: Date | null
+    createdAt: Date | null
     title: string | null
     description: string | null
     recipe: string | null
     method: string | null
     rating: number | null
+    imageUrl: string | null
   }
 
   export type RecipeUploadCountAggregateOutputType = {
     id: number
-    created_at: number
+    createdAt: number
     title: number
     description: number
     recipe: number
     method: number
     rating: number
+    imageUrl: number
     _all: number
   }
 
@@ -1022,32 +1025,35 @@ export namespace Prisma {
 
   export type RecipeUploadMinAggregateInputType = {
     id?: true
-    created_at?: true
+    createdAt?: true
     title?: true
     description?: true
     recipe?: true
     method?: true
     rating?: true
+    imageUrl?: true
   }
 
   export type RecipeUploadMaxAggregateInputType = {
     id?: true
-    created_at?: true
+    createdAt?: true
     title?: true
     description?: true
     recipe?: true
     method?: true
     rating?: true
+    imageUrl?: true
   }
 
   export type RecipeUploadCountAggregateInputType = {
     id?: true
-    created_at?: true
+    createdAt?: true
     title?: true
     description?: true
     recipe?: true
     method?: true
     rating?: true
+    imageUrl?: true
     _all?: true
   }
 
@@ -1139,12 +1145,13 @@ export namespace Prisma {
 
   export type RecipeUploadGroupByOutputType = {
     id: string
-    created_at: Date
-    title: string
-    description: string
-    recipe: string
-    method: string
-    rating: number
+    createdAt: Date
+    title: string | null
+    description: string | null
+    recipe: string | null
+    method: string | null
+    rating: number | null
+    imageUrl: string | null
     _count: RecipeUploadCountAggregateOutputType | null
     _avg: RecipeUploadAvgAggregateOutputType | null
     _sum: RecipeUploadSumAggregateOutputType | null
@@ -1168,57 +1175,62 @@ export namespace Prisma {
 
   export type RecipeUploadSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
+    createdAt?: boolean
     title?: boolean
     description?: boolean
     recipe?: boolean
     method?: boolean
     rating?: boolean
+    imageUrl?: boolean
   }, ExtArgs["result"]["recipeUpload"]>
 
   export type RecipeUploadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
+    createdAt?: boolean
     title?: boolean
     description?: boolean
     recipe?: boolean
     method?: boolean
     rating?: boolean
+    imageUrl?: boolean
   }, ExtArgs["result"]["recipeUpload"]>
 
   export type RecipeUploadSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
+    createdAt?: boolean
     title?: boolean
     description?: boolean
     recipe?: boolean
     method?: boolean
     rating?: boolean
+    imageUrl?: boolean
   }, ExtArgs["result"]["recipeUpload"]>
 
   export type RecipeUploadSelectScalar = {
     id?: boolean
-    created_at?: boolean
+    createdAt?: boolean
     title?: boolean
     description?: boolean
     recipe?: boolean
     method?: boolean
     rating?: boolean
+    imageUrl?: boolean
   }
 
-  export type RecipeUploadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "title" | "description" | "recipe" | "method" | "rating", ExtArgs["result"]["recipeUpload"]>
+  export type RecipeUploadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "title" | "description" | "recipe" | "method" | "rating" | "imageUrl", ExtArgs["result"]["recipeUpload"]>
 
   export type $RecipeUploadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "RecipeUpload"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      created_at: Date
-      title: string
-      description: string
-      recipe: string
-      method: string
-      rating: number
+      createdAt: Date
+      title: string | null
+      description: string | null
+      recipe: string | null
+      method: string | null
+      rating: number | null
+      imageUrl: string | null
     }, ExtArgs["result"]["recipeUpload"]>
     composites: {}
   }
@@ -1643,12 +1655,13 @@ export namespace Prisma {
    */
   interface RecipeUploadFieldRefs {
     readonly id: FieldRef<"RecipeUpload", 'String'>
-    readonly created_at: FieldRef<"RecipeUpload", 'DateTime'>
+    readonly createdAt: FieldRef<"RecipeUpload", 'DateTime'>
     readonly title: FieldRef<"RecipeUpload", 'String'>
     readonly description: FieldRef<"RecipeUpload", 'String'>
     readonly recipe: FieldRef<"RecipeUpload", 'String'>
     readonly method: FieldRef<"RecipeUpload", 'String'>
     readonly rating: FieldRef<"RecipeUpload", 'Int'>
+    readonly imageUrl: FieldRef<"RecipeUpload", 'String'>
   }
     
 
@@ -1843,7 +1856,7 @@ export namespace Prisma {
     /**
      * The data needed to create a RecipeUpload.
      */
-    data: XOR<RecipeUploadCreateInput, RecipeUploadUncheckedCreateInput>
+    data?: XOR<RecipeUploadCreateInput, RecipeUploadUncheckedCreateInput>
   }
 
   /**
@@ -2028,105 +2041,115 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadAvgAggregateOutputType = {
+    id: number | null
     rating: number | null
   }
 
   export type RestaurantUploadSumAggregateOutputType = {
+    id: bigint | null
     rating: number | null
   }
 
   export type RestaurantUploadMinAggregateOutputType = {
-    id: string | null
-    created_at: Date | null
+    id: bigint | null
+    createdAt: Date | null
     title: string | null
+    rating: number | null
+    review: string | null
+    location: string | null
+    priceRange: string | null
     description: string | null
     entree: string | null
     main: string | null
     dessert: string | null
-    rating: number | null
-    review: string | null
-    location: string | null
-    price_range: string | null
+    imageUrl: string | null
   }
 
   export type RestaurantUploadMaxAggregateOutputType = {
-    id: string | null
-    created_at: Date | null
+    id: bigint | null
+    createdAt: Date | null
     title: string | null
+    rating: number | null
+    review: string | null
+    location: string | null
+    priceRange: string | null
     description: string | null
     entree: string | null
     main: string | null
     dessert: string | null
-    rating: number | null
-    review: string | null
-    location: string | null
-    price_range: string | null
+    imageUrl: string | null
   }
 
   export type RestaurantUploadCountAggregateOutputType = {
     id: number
-    created_at: number
+    createdAt: number
     title: number
+    rating: number
+    review: number
+    location: number
+    priceRange: number
     description: number
     entree: number
     main: number
     dessert: number
-    rating: number
-    review: number
-    location: number
-    price_range: number
+    imageUrl: number
     _all: number
   }
 
 
   export type RestaurantUploadAvgAggregateInputType = {
+    id?: true
     rating?: true
   }
 
   export type RestaurantUploadSumAggregateInputType = {
+    id?: true
     rating?: true
   }
 
   export type RestaurantUploadMinAggregateInputType = {
     id?: true
-    created_at?: true
+    createdAt?: true
     title?: true
+    rating?: true
+    review?: true
+    location?: true
+    priceRange?: true
     description?: true
     entree?: true
     main?: true
     dessert?: true
-    rating?: true
-    review?: true
-    location?: true
-    price_range?: true
+    imageUrl?: true
   }
 
   export type RestaurantUploadMaxAggregateInputType = {
     id?: true
-    created_at?: true
+    createdAt?: true
     title?: true
+    rating?: true
+    review?: true
+    location?: true
+    priceRange?: true
     description?: true
     entree?: true
     main?: true
     dessert?: true
-    rating?: true
-    review?: true
-    location?: true
-    price_range?: true
+    imageUrl?: true
   }
 
   export type RestaurantUploadCountAggregateInputType = {
     id?: true
-    created_at?: true
+    createdAt?: true
     title?: true
+    rating?: true
+    review?: true
+    location?: true
+    priceRange?: true
     description?: true
     entree?: true
     main?: true
     dessert?: true
-    rating?: true
-    review?: true
-    location?: true
-    price_range?: true
+    imageUrl?: true
     _all?: true
   }
 
@@ -2217,17 +2240,18 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadGroupByOutputType = {
-    id: string
-    created_at: Date
-    title: string
-    description: string
-    entree: string
-    main: string
-    dessert: string
-    rating: number
-    review: string
-    location: string
-    price_range: string
+    id: bigint
+    createdAt: Date
+    title: string | null
+    rating: number | null
+    review: string | null
+    location: string | null
+    priceRange: string | null
+    description: string | null
+    entree: string | null
+    main: string | null
+    dessert: string | null
+    imageUrl: string | null
     _count: RestaurantUploadCountAggregateOutputType | null
     _avg: RestaurantUploadAvgAggregateOutputType | null
     _sum: RestaurantUploadSumAggregateOutputType | null
@@ -2251,77 +2275,82 @@ export namespace Prisma {
 
   export type RestaurantUploadSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
+    createdAt?: boolean
     title?: boolean
+    rating?: boolean
+    review?: boolean
+    location?: boolean
+    priceRange?: boolean
     description?: boolean
     entree?: boolean
     main?: boolean
     dessert?: boolean
-    rating?: boolean
-    review?: boolean
-    location?: boolean
-    price_range?: boolean
+    imageUrl?: boolean
   }, ExtArgs["result"]["restaurantUpload"]>
 
   export type RestaurantUploadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
+    createdAt?: boolean
     title?: boolean
+    rating?: boolean
+    review?: boolean
+    location?: boolean
+    priceRange?: boolean
     description?: boolean
     entree?: boolean
     main?: boolean
     dessert?: boolean
-    rating?: boolean
-    review?: boolean
-    location?: boolean
-    price_range?: boolean
+    imageUrl?: boolean
   }, ExtArgs["result"]["restaurantUpload"]>
 
   export type RestaurantUploadSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    created_at?: boolean
+    createdAt?: boolean
     title?: boolean
+    rating?: boolean
+    review?: boolean
+    location?: boolean
+    priceRange?: boolean
     description?: boolean
     entree?: boolean
     main?: boolean
     dessert?: boolean
-    rating?: boolean
-    review?: boolean
-    location?: boolean
-    price_range?: boolean
+    imageUrl?: boolean
   }, ExtArgs["result"]["restaurantUpload"]>
 
   export type RestaurantUploadSelectScalar = {
     id?: boolean
-    created_at?: boolean
+    createdAt?: boolean
     title?: boolean
+    rating?: boolean
+    review?: boolean
+    location?: boolean
+    priceRange?: boolean
     description?: boolean
     entree?: boolean
     main?: boolean
     dessert?: boolean
-    rating?: boolean
-    review?: boolean
-    location?: boolean
-    price_range?: boolean
+    imageUrl?: boolean
   }
 
-  export type RestaurantUploadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "created_at" | "title" | "description" | "entree" | "main" | "dessert" | "rating" | "review" | "location" | "price_range", ExtArgs["result"]["restaurantUpload"]>
+  export type RestaurantUploadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "title" | "rating" | "review" | "location" | "priceRange" | "description" | "entree" | "main" | "dessert" | "imageUrl", ExtArgs["result"]["restaurantUpload"]>
 
   export type $RestaurantUploadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "RestaurantUpload"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: string
-      created_at: Date
-      title: string
-      description: string
-      entree: string
-      main: string
-      dessert: string
-      rating: number
-      review: string
-      location: string
-      price_range: string
+      id: bigint
+      createdAt: Date
+      title: string | null
+      rating: number | null
+      review: string | null
+      location: string | null
+      priceRange: string | null
+      description: string | null
+      entree: string | null
+      main: string | null
+      dessert: string | null
+      imageUrl: string | null
     }, ExtArgs["result"]["restaurantUpload"]>
     composites: {}
   }
@@ -2745,17 +2774,18 @@ export namespace Prisma {
    * Fields of the RestaurantUpload model
    */
   interface RestaurantUploadFieldRefs {
-    readonly id: FieldRef<"RestaurantUpload", 'String'>
-    readonly created_at: FieldRef<"RestaurantUpload", 'DateTime'>
+    readonly id: FieldRef<"RestaurantUpload", 'BigInt'>
+    readonly createdAt: FieldRef<"RestaurantUpload", 'DateTime'>
     readonly title: FieldRef<"RestaurantUpload", 'String'>
+    readonly rating: FieldRef<"RestaurantUpload", 'Int'>
+    readonly review: FieldRef<"RestaurantUpload", 'String'>
+    readonly location: FieldRef<"RestaurantUpload", 'String'>
+    readonly priceRange: FieldRef<"RestaurantUpload", 'String'>
     readonly description: FieldRef<"RestaurantUpload", 'String'>
     readonly entree: FieldRef<"RestaurantUpload", 'String'>
     readonly main: FieldRef<"RestaurantUpload", 'String'>
     readonly dessert: FieldRef<"RestaurantUpload", 'String'>
-    readonly rating: FieldRef<"RestaurantUpload", 'Int'>
-    readonly review: FieldRef<"RestaurantUpload", 'String'>
-    readonly location: FieldRef<"RestaurantUpload", 'String'>
-    readonly price_range: FieldRef<"RestaurantUpload", 'String'>
+    readonly imageUrl: FieldRef<"RestaurantUpload", 'String'>
   }
     
 
@@ -2950,7 +2980,7 @@ export namespace Prisma {
     /**
      * The data needed to create a RestaurantUpload.
      */
-    data: XOR<RestaurantUploadCreateInput, RestaurantUploadUncheckedCreateInput>
+    data?: XOR<RestaurantUploadCreateInput, RestaurantUploadUncheckedCreateInput>
   }
 
   /**
@@ -3138,12 +3168,13 @@ export namespace Prisma {
 
   export const RecipeUploadScalarFieldEnum: {
     id: 'id',
-    created_at: 'created_at',
+    createdAt: 'createdAt',
     title: 'title',
     description: 'description',
     recipe: 'recipe',
     method: 'method',
-    rating: 'rating'
+    rating: 'rating',
+    imageUrl: 'imageUrl'
   };
 
   export type RecipeUploadScalarFieldEnum = (typeof RecipeUploadScalarFieldEnum)[keyof typeof RecipeUploadScalarFieldEnum]
@@ -3151,16 +3182,17 @@ export namespace Prisma {
 
   export const RestaurantUploadScalarFieldEnum: {
     id: 'id',
-    created_at: 'created_at',
+    createdAt: 'createdAt',
     title: 'title',
+    rating: 'rating',
+    review: 'review',
+    location: 'location',
+    priceRange: 'priceRange',
     description: 'description',
     entree: 'entree',
     main: 'main',
     dessert: 'dessert',
-    rating: 'rating',
-    review: 'review',
-    location: 'location',
-    price_range: 'price_range'
+    imageUrl: 'imageUrl'
   };
 
   export type RestaurantUploadScalarFieldEnum = (typeof RestaurantUploadScalarFieldEnum)[keyof typeof RestaurantUploadScalarFieldEnum]
@@ -3180,6 +3212,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -3230,6 +3270,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'BigInt'
+   */
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt[]'
+   */
+  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3250,23 +3304,25 @@ export namespace Prisma {
     AND?: RecipeUploadWhereInput | RecipeUploadWhereInput[]
     OR?: RecipeUploadWhereInput[]
     NOT?: RecipeUploadWhereInput | RecipeUploadWhereInput[]
-    id?: StringFilter<"RecipeUpload"> | string
-    created_at?: DateTimeFilter<"RecipeUpload"> | Date | string
-    title?: StringFilter<"RecipeUpload"> | string
-    description?: StringFilter<"RecipeUpload"> | string
-    recipe?: StringFilter<"RecipeUpload"> | string
-    method?: StringFilter<"RecipeUpload"> | string
-    rating?: IntFilter<"RecipeUpload"> | number
+    id?: UuidFilter<"RecipeUpload"> | string
+    createdAt?: DateTimeFilter<"RecipeUpload"> | Date | string
+    title?: StringNullableFilter<"RecipeUpload"> | string | null
+    description?: StringNullableFilter<"RecipeUpload"> | string | null
+    recipe?: StringNullableFilter<"RecipeUpload"> | string | null
+    method?: StringNullableFilter<"RecipeUpload"> | string | null
+    rating?: IntNullableFilter<"RecipeUpload"> | number | null
+    imageUrl?: StringNullableFilter<"RecipeUpload"> | string | null
   }
 
   export type RecipeUploadOrderByWithRelationInput = {
     id?: SortOrder
-    created_at?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    recipe?: SortOrder
-    method?: SortOrder
-    rating?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    recipe?: SortOrderInput | SortOrder
+    method?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    imageUrl?: SortOrderInput | SortOrder
   }
 
   export type RecipeUploadWhereUniqueInput = Prisma.AtLeast<{
@@ -3274,22 +3330,24 @@ export namespace Prisma {
     AND?: RecipeUploadWhereInput | RecipeUploadWhereInput[]
     OR?: RecipeUploadWhereInput[]
     NOT?: RecipeUploadWhereInput | RecipeUploadWhereInput[]
-    created_at?: DateTimeFilter<"RecipeUpload"> | Date | string
-    title?: StringFilter<"RecipeUpload"> | string
-    description?: StringFilter<"RecipeUpload"> | string
-    recipe?: StringFilter<"RecipeUpload"> | string
-    method?: StringFilter<"RecipeUpload"> | string
-    rating?: IntFilter<"RecipeUpload"> | number
+    createdAt?: DateTimeFilter<"RecipeUpload"> | Date | string
+    title?: StringNullableFilter<"RecipeUpload"> | string | null
+    description?: StringNullableFilter<"RecipeUpload"> | string | null
+    recipe?: StringNullableFilter<"RecipeUpload"> | string | null
+    method?: StringNullableFilter<"RecipeUpload"> | string | null
+    rating?: IntNullableFilter<"RecipeUpload"> | number | null
+    imageUrl?: StringNullableFilter<"RecipeUpload"> | string | null
   }, "id">
 
   export type RecipeUploadOrderByWithAggregationInput = {
     id?: SortOrder
-    created_at?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    recipe?: SortOrder
-    method?: SortOrder
-    rating?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    recipe?: SortOrderInput | SortOrder
+    method?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    imageUrl?: SortOrderInput | SortOrder
     _count?: RecipeUploadCountOrderByAggregateInput
     _avg?: RecipeUploadAvgOrderByAggregateInput
     _max?: RecipeUploadMaxOrderByAggregateInput
@@ -3301,75 +3359,80 @@ export namespace Prisma {
     AND?: RecipeUploadScalarWhereWithAggregatesInput | RecipeUploadScalarWhereWithAggregatesInput[]
     OR?: RecipeUploadScalarWhereWithAggregatesInput[]
     NOT?: RecipeUploadScalarWhereWithAggregatesInput | RecipeUploadScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"RecipeUpload"> | string
-    created_at?: DateTimeWithAggregatesFilter<"RecipeUpload"> | Date | string
-    title?: StringWithAggregatesFilter<"RecipeUpload"> | string
-    description?: StringWithAggregatesFilter<"RecipeUpload"> | string
-    recipe?: StringWithAggregatesFilter<"RecipeUpload"> | string
-    method?: StringWithAggregatesFilter<"RecipeUpload"> | string
-    rating?: IntWithAggregatesFilter<"RecipeUpload"> | number
+    id?: UuidWithAggregatesFilter<"RecipeUpload"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"RecipeUpload"> | Date | string
+    title?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    description?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    recipe?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    method?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    rating?: IntNullableWithAggregatesFilter<"RecipeUpload"> | number | null
+    imageUrl?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
   }
 
   export type RestaurantUploadWhereInput = {
     AND?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
     OR?: RestaurantUploadWhereInput[]
     NOT?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
-    id?: StringFilter<"RestaurantUpload"> | string
-    created_at?: DateTimeFilter<"RestaurantUpload"> | Date | string
-    title?: StringFilter<"RestaurantUpload"> | string
-    description?: StringFilter<"RestaurantUpload"> | string
-    entree?: StringFilter<"RestaurantUpload"> | string
-    main?: StringFilter<"RestaurantUpload"> | string
-    dessert?: StringFilter<"RestaurantUpload"> | string
-    rating?: IntFilter<"RestaurantUpload"> | number
-    review?: StringFilter<"RestaurantUpload"> | string
-    location?: StringFilter<"RestaurantUpload"> | string
-    price_range?: StringFilter<"RestaurantUpload"> | string
+    id?: BigIntFilter<"RestaurantUpload"> | bigint | number
+    createdAt?: DateTimeFilter<"RestaurantUpload"> | Date | string
+    title?: StringNullableFilter<"RestaurantUpload"> | string | null
+    rating?: IntNullableFilter<"RestaurantUpload"> | number | null
+    review?: StringNullableFilter<"RestaurantUpload"> | string | null
+    location?: StringNullableFilter<"RestaurantUpload"> | string | null
+    priceRange?: StringNullableFilter<"RestaurantUpload"> | string | null
+    description?: StringNullableFilter<"RestaurantUpload"> | string | null
+    entree?: StringNullableFilter<"RestaurantUpload"> | string | null
+    main?: StringNullableFilter<"RestaurantUpload"> | string | null
+    dessert?: StringNullableFilter<"RestaurantUpload"> | string | null
+    imageUrl?: StringNullableFilter<"RestaurantUpload"> | string | null
   }
 
   export type RestaurantUploadOrderByWithRelationInput = {
     id?: SortOrder
-    created_at?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    entree?: SortOrder
-    main?: SortOrder
-    dessert?: SortOrder
-    rating?: SortOrder
-    review?: SortOrder
-    location?: SortOrder
-    price_range?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    review?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    priceRange?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    entree?: SortOrderInput | SortOrder
+    main?: SortOrderInput | SortOrder
+    dessert?: SortOrderInput | SortOrder
+    imageUrl?: SortOrderInput | SortOrder
   }
 
   export type RestaurantUploadWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
+    id?: bigint | number
     AND?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
     OR?: RestaurantUploadWhereInput[]
     NOT?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
-    created_at?: DateTimeFilter<"RestaurantUpload"> | Date | string
-    title?: StringFilter<"RestaurantUpload"> | string
-    description?: StringFilter<"RestaurantUpload"> | string
-    entree?: StringFilter<"RestaurantUpload"> | string
-    main?: StringFilter<"RestaurantUpload"> | string
-    dessert?: StringFilter<"RestaurantUpload"> | string
-    rating?: IntFilter<"RestaurantUpload"> | number
-    review?: StringFilter<"RestaurantUpload"> | string
-    location?: StringFilter<"RestaurantUpload"> | string
-    price_range?: StringFilter<"RestaurantUpload"> | string
+    createdAt?: DateTimeFilter<"RestaurantUpload"> | Date | string
+    title?: StringNullableFilter<"RestaurantUpload"> | string | null
+    rating?: IntNullableFilter<"RestaurantUpload"> | number | null
+    review?: StringNullableFilter<"RestaurantUpload"> | string | null
+    location?: StringNullableFilter<"RestaurantUpload"> | string | null
+    priceRange?: StringNullableFilter<"RestaurantUpload"> | string | null
+    description?: StringNullableFilter<"RestaurantUpload"> | string | null
+    entree?: StringNullableFilter<"RestaurantUpload"> | string | null
+    main?: StringNullableFilter<"RestaurantUpload"> | string | null
+    dessert?: StringNullableFilter<"RestaurantUpload"> | string | null
+    imageUrl?: StringNullableFilter<"RestaurantUpload"> | string | null
   }, "id">
 
   export type RestaurantUploadOrderByWithAggregationInput = {
     id?: SortOrder
-    created_at?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    entree?: SortOrder
-    main?: SortOrder
-    dessert?: SortOrder
-    rating?: SortOrder
-    review?: SortOrder
-    location?: SortOrder
-    price_range?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
+    review?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    priceRange?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    entree?: SortOrderInput | SortOrder
+    main?: SortOrderInput | SortOrder
+    dessert?: SortOrderInput | SortOrder
+    imageUrl?: SortOrderInput | SortOrder
     _count?: RestaurantUploadCountOrderByAggregateInput
     _avg?: RestaurantUploadAvgOrderByAggregateInput
     _max?: RestaurantUploadMaxOrderByAggregateInput
@@ -3381,188 +3444,203 @@ export namespace Prisma {
     AND?: RestaurantUploadScalarWhereWithAggregatesInput | RestaurantUploadScalarWhereWithAggregatesInput[]
     OR?: RestaurantUploadScalarWhereWithAggregatesInput[]
     NOT?: RestaurantUploadScalarWhereWithAggregatesInput | RestaurantUploadScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"RestaurantUpload"> | string
-    created_at?: DateTimeWithAggregatesFilter<"RestaurantUpload"> | Date | string
-    title?: StringWithAggregatesFilter<"RestaurantUpload"> | string
-    description?: StringWithAggregatesFilter<"RestaurantUpload"> | string
-    entree?: StringWithAggregatesFilter<"RestaurantUpload"> | string
-    main?: StringWithAggregatesFilter<"RestaurantUpload"> | string
-    dessert?: StringWithAggregatesFilter<"RestaurantUpload"> | string
-    rating?: IntWithAggregatesFilter<"RestaurantUpload"> | number
-    review?: StringWithAggregatesFilter<"RestaurantUpload"> | string
-    location?: StringWithAggregatesFilter<"RestaurantUpload"> | string
-    price_range?: StringWithAggregatesFilter<"RestaurantUpload"> | string
+    id?: BigIntWithAggregatesFilter<"RestaurantUpload"> | bigint | number
+    createdAt?: DateTimeWithAggregatesFilter<"RestaurantUpload"> | Date | string
+    title?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    rating?: IntNullableWithAggregatesFilter<"RestaurantUpload"> | number | null
+    review?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    location?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    priceRange?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    description?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    entree?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    main?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    dessert?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    imageUrl?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
   }
 
   export type RecipeUploadCreateInput = {
     id?: string
-    created_at?: Date | string
-    title: string
-    description: string
-    recipe: string
-    method: string
-    rating: number
+    createdAt?: Date | string
+    title?: string | null
+    description?: string | null
+    recipe?: string | null
+    method?: string | null
+    rating?: number | null
+    imageUrl?: string | null
   }
 
   export type RecipeUploadUncheckedCreateInput = {
     id?: string
-    created_at?: Date | string
-    title: string
-    description: string
-    recipe: string
-    method: string
-    rating: number
+    createdAt?: Date | string
+    title?: string | null
+    description?: string | null
+    recipe?: string | null
+    method?: string | null
+    rating?: number | null
+    imageUrl?: string | null
   }
 
   export type RecipeUploadUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    recipe?: StringFieldUpdateOperationsInput | string
-    method?: StringFieldUpdateOperationsInput | string
-    rating?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    recipe?: NullableStringFieldUpdateOperationsInput | string | null
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RecipeUploadUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    recipe?: StringFieldUpdateOperationsInput | string
-    method?: StringFieldUpdateOperationsInput | string
-    rating?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    recipe?: NullableStringFieldUpdateOperationsInput | string | null
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RecipeUploadCreateManyInput = {
     id?: string
-    created_at?: Date | string
-    title: string
-    description: string
-    recipe: string
-    method: string
-    rating: number
+    createdAt?: Date | string
+    title?: string | null
+    description?: string | null
+    recipe?: string | null
+    method?: string | null
+    rating?: number | null
+    imageUrl?: string | null
   }
 
   export type RecipeUploadUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    recipe?: StringFieldUpdateOperationsInput | string
-    method?: StringFieldUpdateOperationsInput | string
-    rating?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    recipe?: NullableStringFieldUpdateOperationsInput | string | null
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RecipeUploadUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    recipe?: StringFieldUpdateOperationsInput | string
-    method?: StringFieldUpdateOperationsInput | string
-    rating?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    recipe?: NullableStringFieldUpdateOperationsInput | string | null
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RestaurantUploadCreateInput = {
-    id?: string
-    created_at?: Date | string
-    title: string
-    description: string
-    entree: string
-    main: string
-    dessert: string
-    rating: number
-    review: string
-    location: string
-    price_range: string
+    id?: bigint | number
+    createdAt?: Date | string
+    title?: string | null
+    rating?: number | null
+    review?: string | null
+    location?: string | null
+    priceRange?: string | null
+    description?: string | null
+    entree?: string | null
+    main?: string | null
+    dessert?: string | null
+    imageUrl?: string | null
   }
 
   export type RestaurantUploadUncheckedCreateInput = {
-    id?: string
-    created_at?: Date | string
-    title: string
-    description: string
-    entree: string
-    main: string
-    dessert: string
-    rating: number
-    review: string
-    location: string
-    price_range: string
+    id?: bigint | number
+    createdAt?: Date | string
+    title?: string | null
+    rating?: number | null
+    review?: string | null
+    location?: string | null
+    priceRange?: string | null
+    description?: string | null
+    entree?: string | null
+    main?: string | null
+    dessert?: string | null
+    imageUrl?: string | null
   }
 
   export type RestaurantUploadUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    entree?: StringFieldUpdateOperationsInput | string
-    main?: StringFieldUpdateOperationsInput | string
-    dessert?: StringFieldUpdateOperationsInput | string
-    rating?: IntFieldUpdateOperationsInput | number
-    review?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    price_range?: StringFieldUpdateOperationsInput | string
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    review?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    priceRange?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    entree?: NullableStringFieldUpdateOperationsInput | string | null
+    main?: NullableStringFieldUpdateOperationsInput | string | null
+    dessert?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RestaurantUploadUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    entree?: StringFieldUpdateOperationsInput | string
-    main?: StringFieldUpdateOperationsInput | string
-    dessert?: StringFieldUpdateOperationsInput | string
-    rating?: IntFieldUpdateOperationsInput | number
-    review?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    price_range?: StringFieldUpdateOperationsInput | string
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    review?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    priceRange?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    entree?: NullableStringFieldUpdateOperationsInput | string | null
+    main?: NullableStringFieldUpdateOperationsInput | string | null
+    dessert?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RestaurantUploadCreateManyInput = {
-    id?: string
-    created_at?: Date | string
-    title: string
-    description: string
-    entree: string
-    main: string
-    dessert: string
-    rating: number
-    review: string
-    location: string
-    price_range: string
+    id?: bigint | number
+    createdAt?: Date | string
+    title?: string | null
+    rating?: number | null
+    review?: string | null
+    location?: string | null
+    priceRange?: string | null
+    description?: string | null
+    entree?: string | null
+    main?: string | null
+    dessert?: string | null
+    imageUrl?: string | null
   }
 
   export type RestaurantUploadUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    entree?: StringFieldUpdateOperationsInput | string
-    main?: StringFieldUpdateOperationsInput | string
-    dessert?: StringFieldUpdateOperationsInput | string
-    rating?: IntFieldUpdateOperationsInput | number
-    review?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    price_range?: StringFieldUpdateOperationsInput | string
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    review?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    priceRange?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    entree?: NullableStringFieldUpdateOperationsInput | string | null
+    main?: NullableStringFieldUpdateOperationsInput | string | null
+    dessert?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RestaurantUploadUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    entree?: StringFieldUpdateOperationsInput | string
-    main?: StringFieldUpdateOperationsInput | string
-    dessert?: StringFieldUpdateOperationsInput | string
-    rating?: IntFieldUpdateOperationsInput | number
-    review?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    price_range?: StringFieldUpdateOperationsInput | string
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
+    review?: NullableStringFieldUpdateOperationsInput | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    priceRange?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    entree?: NullableStringFieldUpdateOperationsInput | string | null
+    main?: NullableStringFieldUpdateOperationsInput | string | null
+    dessert?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type StringFilter<$PrismaModel = never> = {
+  export type UuidFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
     notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -3570,11 +3648,8 @@ export namespace Prisma {
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
     gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
-    not?: NestedStringFilter<$PrismaModel> | string
+    not?: NestedUuidFilter<$PrismaModel> | string
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -3588,59 +3663,10 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type RecipeUploadCountOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    recipe?: SortOrder
-    method?: SortOrder
-    rating?: SortOrder
-  }
-
-  export type RecipeUploadAvgOrderByAggregateInput = {
-    rating?: SortOrder
-  }
-
-  export type RecipeUploadMaxOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    recipe?: SortOrder
-    method?: SortOrder
-    rating?: SortOrder
-  }
-
-  export type RecipeUploadMinOrderByAggregateInput = {
-    id?: SortOrder
-    created_at?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    recipe?: SortOrder
-    method?: SortOrder
-    rating?: SortOrder
-  }
-
-  export type RecipeUploadSumOrderByAggregateInput = {
-    rating?: SortOrder
-  }
-
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -3649,7 +3675,76 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type RecipeUploadCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    recipe?: SortOrder
+    method?: SortOrder
+    rating?: SortOrder
+    imageUrl?: SortOrder
+  }
+
+  export type RecipeUploadAvgOrderByAggregateInput = {
+    rating?: SortOrder
+  }
+
+  export type RecipeUploadMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    recipe?: SortOrder
+    method?: SortOrder
+    rating?: SortOrder
+    imageUrl?: SortOrder
+  }
+
+  export type RecipeUploadMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    recipe?: SortOrder
+    method?: SortOrder
+    rating?: SortOrder
+    imageUrl?: SortOrder
+  }
+
+  export type RecipeUploadSumOrderByAggregateInput = {
+    rating?: SortOrder
+  }
+
+  export type UuidWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedUuidWithAggregatesFilter<$PrismaModel> | string
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
@@ -3669,70 +3764,120 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type BigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
   }
 
   export type RestaurantUploadCountOrderByAggregateInput = {
     id?: SortOrder
-    created_at?: SortOrder
+    createdAt?: SortOrder
     title?: SortOrder
+    rating?: SortOrder
+    review?: SortOrder
+    location?: SortOrder
+    priceRange?: SortOrder
     description?: SortOrder
     entree?: SortOrder
     main?: SortOrder
     dessert?: SortOrder
-    rating?: SortOrder
-    review?: SortOrder
-    location?: SortOrder
-    price_range?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type RestaurantUploadAvgOrderByAggregateInput = {
+    id?: SortOrder
     rating?: SortOrder
   }
 
   export type RestaurantUploadMaxOrderByAggregateInput = {
     id?: SortOrder
-    created_at?: SortOrder
+    createdAt?: SortOrder
     title?: SortOrder
+    rating?: SortOrder
+    review?: SortOrder
+    location?: SortOrder
+    priceRange?: SortOrder
     description?: SortOrder
     entree?: SortOrder
     main?: SortOrder
     dessert?: SortOrder
-    rating?: SortOrder
-    review?: SortOrder
-    location?: SortOrder
-    price_range?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type RestaurantUploadMinOrderByAggregateInput = {
     id?: SortOrder
-    created_at?: SortOrder
+    createdAt?: SortOrder
     title?: SortOrder
+    rating?: SortOrder
+    review?: SortOrder
+    location?: SortOrder
+    priceRange?: SortOrder
     description?: SortOrder
     entree?: SortOrder
     main?: SortOrder
     dessert?: SortOrder
-    rating?: SortOrder
-    review?: SortOrder
-    location?: SortOrder
-    price_range?: SortOrder
+    imageUrl?: SortOrder
   }
 
   export type RestaurantUploadSumOrderByAggregateInput = {
+    id?: SortOrder
     rating?: SortOrder
+  }
+
+  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3743,12 +3888,96 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type BigIntFieldUpdateOperationsInput = {
+    set?: bigint | number
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
+  }
+
+  export type NestedUuidFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedUuidFilter<$PrismaModel> | string
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedUuidWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedUuidWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3765,45 +3994,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -3818,20 +4008,75 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     lt?: number | IntFieldRefInput<$PrismaModel>
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  }
+
+  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
     _count?: NestedIntFilter<$PrismaModel>
     _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {

@@ -15,16 +15,37 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 
+    // Check if recipe or restaurant
+    const content = formData.get('content')?.toString() 
+
     const data = {
       title: formData.get('title')?.toString() || '',
       description: formData.get('description')?.toString() || '',
-      recipe: formData.get('recipe')?.toString() || '',
-      method: formData.get('method')?.toString() || '',
       rating: parseInt(formData.get('rating')?.toString() || '0'),
+      ...(content === 'recipes' && {
+        recipe: formData.get('recipe')?.toString() || '',
+        method: formData.get('method')?.toString() || '',
+
+      }),
+      ...(content === 'restaurants' && {
+        entree: formData.get('entree')?.toString() || '',
+        main: formData.get('main')?.toString() || '',
+        dessert: formData.get('dessert')?.toString() || '',
+        review: formData.get('review')?.toString() || '',
+        location: formData.get('location')?.toString() || '',
+        priceRange: formData.get('price_range')?.toString() || '',
+      }),
+      imageUrl,
     }
 
     // Insert into DB
-    const result = await prisma.RecipeUpload.create({ data })
+    let result;
+    console.log('content', content)
+    if (content === 'restaurants') {
+      result = await prisma.restaurantUpload.create({ data })
+    } else {
+      result = await prisma.recipeUpload.create({ data })
+    }
 
     return NextResponse.json({ message: 'Upload saved!', result })
   } catch (error) {
