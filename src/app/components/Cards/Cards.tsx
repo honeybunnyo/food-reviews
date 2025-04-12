@@ -12,9 +12,9 @@ const Cards = async () => {
       {recipes.map((recipe) => (
         <Card
           key={recipe.id}
+          id={recipe.id}
           title={recipe.title}
           date={new Date(recipe.createdAt).toDateString()}
-          url={recipe.title.toLowerCase().replace(/\s+/g, '-')}
           imageUrl={recipe.imageUrl}
         />
       ))}

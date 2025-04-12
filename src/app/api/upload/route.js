@@ -21,10 +21,11 @@ export async function POST(req) {
     let imageUrl = ''
     if (imageFile && imageFile.size > 0) {
       const fileName = `${Date.now()}-${imageFile.name}`
+      const filePath = `${content}/${fileName}`
 
       const { data, error } = await supabase.storage
         .from('images') 
-        .upload(`${content}/${fileName}`, imageFile)
+        .upload(filePath, imageFile)
 
       if (error) {
         console.error('Image upload failed:', error)
@@ -34,7 +35,7 @@ export async function POST(req) {
       const { data: publicUrlData } = supabase
         .storage
         .from('images')
-        .getPublicUrl(`uploads/${content}/${fileName}`)
+        .getPublicUrl(filePath)
 
       imageUrl = publicUrlData.publicUrl
     }
