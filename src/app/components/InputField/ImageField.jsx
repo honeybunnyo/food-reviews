@@ -16,6 +16,7 @@ const ImageField = ({ imageFile, handleImageSelect }) => {
     <div className="gap-6 mb-6 w-1/2 min-w-[20rem] max-w-[30rem]">
       <input
         ref={fileInputRef}
+        name="imageFile"
         type="file"
         accept="image/*"
         onChange={handleFileChange}

@@ -5,14 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 
-const Card = ({ title, date, url }) => {
+const Card = ({ title, date, url, imageUrl }) => {
   const pathname = usePathname()
-
+  console.log('imageUrl', imageUrl)
   return (
     <Link href={`${pathname}/${url}`} className='rounded-lg shadow-md flex flex-row overflow-hidden hover:shadow-lg hover:bg-gray-50 hover:scale-[1.01]'>
       <div className="relative w-1/3 aspect-square min-w-24 max-w-64">
         <Image
-          src="/pancakes.jpg"
+          src={ "/pancakes.jpg"}
           fill
           alt="Picture pancakes"
           className="object-cover"

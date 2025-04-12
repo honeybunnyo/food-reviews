@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '../../lib/prisma'
+import { supabase } from '../../lib/supabase'
 
 export async function POST(req) {
   try {
@@ -7,8 +8,6 @@ export async function POST(req) {
     const username = formData.get('username')?.toString() || ''
     const password = formData.get('password')?.toString() || ''
 
-    console.log(process.env.USER)
-    console.log(process.env.PASSWORD)
 
     // Auth check
     if (username !== process.env.USER || password !== process.env.PASSWORD) {
@@ -17,6 +16,30 @@ export async function POST(req) {
 
     // Check if recipe or restaurant
     const content = formData.get('content')?.toString() 
+
+    const imageFile = formData.get('imageFile')
+
+    let imageUrl = ''
+    if (imageFile && imageFile.size > 0) {
+      const fileName = `${Date.now()}-${imageFile.name}`
+
+      const { data, error } = await supabase.storage
+        .from('images') 
+        .upload(`${content}/${fileName}`, imageFile)
+
+      if (error) {
+        console.error('Image upload failed:', error)
+        return NextResponse.json({ error: 'Image upload failed' }, { status: 500 })
+      }
+
+      const { data: publicUrlData } = supabase
+        .storage
+        .from('images')
+        .getPublicUrl(`uploads/${content}/${fileName}`)
+
+      imageUrl = publicUrlData.publicUrl
+    }
+
 
     const data = {
       title: formData.get('title')?.toString() || '',

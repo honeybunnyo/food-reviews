@@ -37,7 +37,7 @@ const page = () => {
     Object.entries(formData).forEach(([key, value]) => {
       formToSend.append(key, value);
     });
-    formData.append('imageUrl', imageFile)
+    formToSend.append('imageFile', imageFile)
 
     const res = await fetch('http://localhost:3000/api/upload', {
       method: 'POST',
