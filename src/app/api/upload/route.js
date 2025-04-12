@@ -8,7 +8,6 @@ export async function POST(req) {
     const username = formData.get('username')?.toString() || ''
     const password = formData.get('password')?.toString() || ''
 
-
     // Auth check
     if (username !== process.env.USER || password !== process.env.PASSWORD) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })

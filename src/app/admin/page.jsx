@@ -20,6 +20,14 @@ const page = () => {
     dessert: '',
     rating: 0,
   });
+
+  const [errors, setErrors] = useState({
+    username: false,
+    password: false,
+    content: false,
+    title: false,
+    rating: false,
+  })
   
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -31,6 +39,9 @@ const page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateField()) {
+      return
+    }
     const formToSend = new FormData();
     formToSend.append('username', username);
     formToSend.append('password', password);
@@ -39,23 +50,42 @@ const page = () => {
     });
     formToSend.append('imageFile', imageFile)
 
+
     const res = await fetch('http://localhost:3000/api/upload', {
       method: 'POST',
       body: formToSend,
     });
     const data = await res.json();
     console.log(data);
-  };
+
+  }
+
+  const validateField = () => {
+    const newErrors = {
+      username: !username.trim(),
+      password: !password.trim(),
+      content: formData.content === 'content type',
+      title: !formData.title.trim(),
+      rating: formData.rating === 0,
+      file: !imageFile
+    }
+  
+    setErrors(newErrors)
+    const hasErrors = Object.values(newErrors).some(Boolean)
+    console.log('hasErrors', newErrors)
+    if (hasErrors) return false
+    return true
+  }
 
   const handleImageSelect = (file) => {
     setImageFile(file)
   };
 
   return (
-    <form className="m-10" autoComplete="off" onSubmit={handleSubmit}>
-      <ContentDropdown content={formData.content} setContent={handleChange('content')} />
-      <InputField label="title" content={formData.title} setContent={handleChange('title')} />
-      <TextAreaField label="description" content={formData.description} setContent={handleChange('description')} />
+    <form className="m-10" autoComplete="off" onSubmit={handleSubmit} noValidate>
+      <ContentDropdown content={formData.content} setContent={handleChange('content')} hasError={errors.content}/>
+      <InputField label="title" content={formData.title} setContent={handleChange('title')} hasError={errors.title}/>
+      <TextAreaField label="description" content={formData.description} setContent={handleChange('description')}/>
 
       {formData.content === 'recipes' && (
         <>
@@ -71,11 +101,10 @@ const page = () => {
           <TextAreaField label="dessert" content={formData.dessert} setContent={handleChange('dessert')} />
         </>
       )}
-
-      <RatingField rating={formData.rating} setRating={handleChange('rating')} />
+      <RatingField rating={formData.rating} setRating={handleChange('rating')} hasError={errors.rating}/>
       <label className="block text-sm font-medium mb-2">background image</label>
-      <ImageField imageFile={imageFile} handleImageSelect={handleImageSelect}/>
-      <PasswordField setUsername={setUsername} setPassword={setPassword}/>
+      <ImageField imageFile={imageFile} handleImageSelect={handleImageSelect} hasError={errors.file}/>
+      <PasswordField setUsername={setUsername} setPassword={setPassword} hasUsernameError={errors.username} hasPasswordError={errors.password}/>
       <button type="submit" className="text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
         Upload
       </button>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useRef } from 'react'
 
-const ImageField = ({ imageFile, handleImageSelect }) => {
+const ImageField = ({ imageFile, handleImageSelect, hasError }) => {
   const fileInputRef = useRef(null)
 
   const handleFileChange = (e) => {
@@ -20,7 +20,7 @@ const ImageField = ({ imageFile, handleImageSelect }) => {
         type="file"
         accept="image/*"
         onChange={handleFileChange}
-        className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+        className={`${hasError ? 'bg-red-200': ''} block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50`}
       />
       {imageFile && (
         <img

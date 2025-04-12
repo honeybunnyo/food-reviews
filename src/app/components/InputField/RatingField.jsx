@@ -1,10 +1,18 @@
 import React from 'react'
 
-const RatingField = ({ rating, setRating }) => {
+const RatingField = ({ rating, setRating, hasError }) => {
 
   return (
     <div className="mb-6">
-      <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">rating</label>
+      <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        {hasError ? 
+        <div className="text-red-500">
+          select rating
+        </div>
+        :
+          'rating'
+        }
+        </label>
 
       <div className="flex items-center">
         {[1, 2, 3, 4, 5].map((index) => (
