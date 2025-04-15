@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import HeadingTwo from '../lib/HeadingTwo'
+import { headingFont } from '../lib/fonts'
 
 const ContentDropdown = ({ content, setContent, hasError }) => {
   const [open, setOpen] = useState(false)
@@ -11,7 +11,10 @@ const ContentDropdown = ({ content, setContent, hasError }) => {
   }
 
   return <div className="mb-6">
-    <HeadingTwo content="upload new content"/>
+    <h1 className={`!text-lg ${headingFont}`}>
+      upload new content
+    </h1>
+  
     <br/>
     <button onClick={() => setOpen(!open)} id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className={`${hasError ? 'bg-red-200': ''} text-black bg-gray-100 hover:bg-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center`} type="button">
       {content}

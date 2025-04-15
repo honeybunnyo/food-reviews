@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout';
-import HeadingTwo from '../lib/HeadingTwo';
 import Cards from '../components/Cards/Cards';
 
 const Recipes = () => {

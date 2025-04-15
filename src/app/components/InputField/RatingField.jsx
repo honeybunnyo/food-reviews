@@ -7,7 +7,7 @@ const RatingField = ({ rating, setRating, hasError }) => {
       <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
         {hasError ? 
         <div className="text-red-500">
-          select rating
+           select rating
         </div>
         :
           'rating'
