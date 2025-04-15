@@ -20,7 +20,7 @@ model RecipeUpload {
 }
 
 model RestaurantUpload {
-  id          BigInt   @id @default(autoincrement())
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   createdAt   DateTime @default(now()) @db.Timestamptz(6)
   title       String?
   rating      Int?     @db.SmallInt

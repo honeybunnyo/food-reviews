@@ -2041,17 +2041,15 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadAvgAggregateOutputType = {
-    id: number | null
     rating: number | null
   }
 
   export type RestaurantUploadSumAggregateOutputType = {
-    id: bigint | null
     rating: number | null
   }
 
   export type RestaurantUploadMinAggregateOutputType = {
-    id: bigint | null
+    id: string | null
     createdAt: Date | null
     title: string | null
     rating: number | null
@@ -2066,7 +2064,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadMaxAggregateOutputType = {
-    id: bigint | null
+    id: string | null
     createdAt: Date | null
     title: string | null
     rating: number | null
@@ -2098,12 +2096,10 @@ export namespace Prisma {
 
 
   export type RestaurantUploadAvgAggregateInputType = {
-    id?: true
     rating?: true
   }
 
   export type RestaurantUploadSumAggregateInputType = {
-    id?: true
     rating?: true
   }
 
@@ -2240,7 +2236,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadGroupByOutputType = {
-    id: bigint
+    id: string
     createdAt: Date
     title: string | null
     rating: number | null
@@ -2339,7 +2335,7 @@ export namespace Prisma {
     name: "RestaurantUpload"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: bigint
+      id: string
       createdAt: Date
       title: string | null
       rating: number | null
@@ -2774,7 +2770,7 @@ export namespace Prisma {
    * Fields of the RestaurantUpload model
    */
   interface RestaurantUploadFieldRefs {
-    readonly id: FieldRef<"RestaurantUpload", 'BigInt'>
+    readonly id: FieldRef<"RestaurantUpload", 'String'>
     readonly createdAt: FieldRef<"RestaurantUpload", 'DateTime'>
     readonly title: FieldRef<"RestaurantUpload", 'String'>
     readonly rating: FieldRef<"RestaurantUpload", 'Int'>
@@ -3270,20 +3266,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt'
-   */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-  /**
-   * Reference to a field of type 'BigInt[]'
-   */
-  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3373,7 +3355,7 @@ export namespace Prisma {
     AND?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
     OR?: RestaurantUploadWhereInput[]
     NOT?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
-    id?: BigIntFilter<"RestaurantUpload"> | bigint | number
+    id?: UuidFilter<"RestaurantUpload"> | string
     createdAt?: DateTimeFilter<"RestaurantUpload"> | Date | string
     title?: StringNullableFilter<"RestaurantUpload"> | string | null
     rating?: IntNullableFilter<"RestaurantUpload"> | number | null
@@ -3403,7 +3385,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadWhereUniqueInput = Prisma.AtLeast<{
-    id?: bigint | number
+    id?: string
     AND?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
     OR?: RestaurantUploadWhereInput[]
     NOT?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
@@ -3444,7 +3426,7 @@ export namespace Prisma {
     AND?: RestaurantUploadScalarWhereWithAggregatesInput | RestaurantUploadScalarWhereWithAggregatesInput[]
     OR?: RestaurantUploadScalarWhereWithAggregatesInput[]
     NOT?: RestaurantUploadScalarWhereWithAggregatesInput | RestaurantUploadScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"RestaurantUpload"> | bigint | number
+    id?: UuidWithAggregatesFilter<"RestaurantUpload"> | string
     createdAt?: DateTimeWithAggregatesFilter<"RestaurantUpload"> | Date | string
     title?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
     rating?: IntNullableWithAggregatesFilter<"RestaurantUpload"> | number | null
@@ -3536,7 +3518,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadCreateInput = {
-    id?: bigint | number
+    id?: string
     createdAt?: Date | string
     title?: string | null
     rating?: number | null
@@ -3551,7 +3533,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadUncheckedCreateInput = {
-    id?: bigint | number
+    id?: string
     createdAt?: Date | string
     title?: string | null
     rating?: number | null
@@ -3566,7 +3548,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
@@ -3581,7 +3563,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadUncheckedUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
@@ -3596,7 +3578,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadCreateManyInput = {
-    id?: bigint | number
+    id?: string
     createdAt?: Date | string
     title?: string | null
     rating?: number | null
@@ -3611,7 +3593,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadUpdateManyMutationInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
@@ -3626,7 +3608,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadUncheckedUpdateManyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
@@ -3798,17 +3780,6 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type BigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
   export type RestaurantUploadCountOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
@@ -3825,7 +3796,6 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadAvgOrderByAggregateInput = {
-    id?: SortOrder
     rating?: SortOrder
   }
 
@@ -3860,24 +3830,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadSumOrderByAggregateInput = {
-    id?: SortOrder
     rating?: SortOrder
-  }
-
-  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3898,14 +3851,6 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
   }
 
   export type NestedUuidFilter<$PrismaModel = never> = {
@@ -4050,44 +3995,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedBigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
-  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
 
