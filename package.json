@@ -9,15 +9,32 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.782.0",
+    "@prisma/client": "^6.6.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "@tiptap/extension-color": "^2.11.5",
+    "@tiptap/pm": "^2.11.5",
+    "@tiptap/react": "^2.11.5",
+    "@tiptap/starter-kit": "^2.11.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "flowbite-react": "^0.10.2",
+    "formidable": "^3.5.2",
+    "formidable-serverless": "^1.1.1",
+    "multer": "^1.4.5-lts.2",
     "next": "15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "prisma": "^6.6.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/node": "22.13.0",
+    "@types/react": "19.0.8",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
+    "sass": "^1.85.0",
     "tailwindcss": "^3.4.1"
   }
 }

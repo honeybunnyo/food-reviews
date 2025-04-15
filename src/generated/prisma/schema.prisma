@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model RecipeUpload {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  title       String?
+  description String?
+  recipe      String?
+  method      String?
+  rating      Int?     @db.SmallInt
+  imageUrl    String?
+}
+
+model RestaurantUpload {
+  id          BigInt   @id @default(autoincrement())
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  title       String?
+  rating      Int?     @db.SmallInt
+  review      String?
+  location    String?
+  priceRange  String?
+  description String?
+  entree      String?
+  main        String?
+  dessert     String?
+  imageUrl    String?
+}
