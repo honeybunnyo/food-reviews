@@ -13,10 +13,15 @@ model RecipeUpload {
   createdAt   DateTime @default(now()) @db.Timestamptz(6)
   title       String?
   description String?
+  rating      Int?     @db.SmallInt
   recipe      String?
   method      String?
-  rating      Int?     @db.SmallInt
-  imageUrl    String?
+
+  backgroundImageUrl   String?  // string
+  descriptionImageUrls String?  // JSON stringified array
+
+  recipeImageUrls      String? 
+  methodImageUrls      String? 
 }
 
 model RestaurantUpload {
@@ -31,5 +36,11 @@ model RestaurantUpload {
   entree      String?
   main        String?
   dessert     String?
-  imageUrl    String?
+
+  backgroundImageUrl   String?  // background image
+  descriptionImageUrls String?  // JSON stringified array
+
+  entreeImageUrls      String?
+  mainImageUrls        String?
+  dessertImageUrls     String?
 }

@@ -15,7 +15,7 @@ export default async function Page({ params }) {
   }
 
   return (
-    <Layout imageSrc={data.imageUrl} title={data.title}>
+    <Layout imageSrc={data.backgroundImageUrl} title={data.title}>
       <div className="justify-center h-full w-full p-4">
         <div className="p-4">
           <h2 className="text-2xl font-bold">{data.title}</h2>

@@ -14,8 +14,14 @@ export default async function Page({ params }) {
     return <div className="p-10 text-red-600">data not found.</div>;
   }
 
+  const methodImages = JSON.parse(data.methodImageUrls || '[]');
+  const recipeImages = JSON.parse(data.recipeImageUrls || '[]');
+  const backgroundImage = data.backgroundImageUrl
+  ? JSON.parse(data.backgroundImageUrl)[0]
+  : '/pancakes.jpg';
+
   return (
-    <Layout imageSrc={data.imageUrl} title={data.title}>
+    <Layout imageSrc={backgroundImage} title={data.title}>
       <div className="justify-center h-full w-full p-4">
         <div className="p-4">
           <h2 className="text-2xl font-bold">{data.title}</h2>

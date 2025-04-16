@@ -9,7 +9,7 @@ const ImageField = ({ imageFiles = [], setImagesByCategory, hasError = false, mu
     }));
   };
 
-  const handleImageSelect = (newFiles) => {
+  const handleImageAdd = (newFiles) => {
     setImagesByCategory(prev => ({
       ...prev,
       [category]: [...(prev[category] || []), ...newFiles],
@@ -17,22 +17,23 @@ const ImageField = ({ imageFiles = [], setImagesByCategory, hasError = false, mu
   };
     
   return (
-    <div className="gap-6 mb-6 w-1/2 min-w-[20rem] max-w-[30rem]">
-      {category && <label className="block text-sm font-medium mb-2">{category}</label>}
-      <Dropzone category={category} handleImageSelect={handleImageSelect} multiple={multiple} />
-      {imageFiles.length > 0 && (
-        <div className="flex gap-2 mt-4 flex-wrap">
+    <div className="flex flex-row items-start gap-10 mt-7 mb-6">
+      <div className="w-32 min-w-[8rem]">
+        <Dropzone category={category} handleImageAdd={handleImageAdd} multiple={multiple} />
+      </div>
+      {imageFiles && imageFiles.length > 0 && (
+        <div className="flex flex-row gap-1">
           {imageFiles.map((file, idx) => (
             <div key={idx} className="relative">
               <img
                 src={URL.createObjectURL(file)}
                 alt={`Preview ${idx}`}
-                className="rounded-lg max-h-32 object-cover"
+                className="rounded-lg max-h-32 object-cover min-w-[6rem]"
               />
               <button
                 type="button"
                 onClick={() => handleImageRemove(category, idx)}
-                className="absolute top-1 right-1 bg-white text-black-600 rounded-full p-1 px-2 text-xs font-bold shadow hover:bg-red-100 hover:text-red-500"
+                className="absolute top-1 right-1 bg-white text-black rounded-full p-1 px-2 text-xs font-bold shadow hover:bg-red-100 hover:text-red-500"
               >
                 ✕
               </button>

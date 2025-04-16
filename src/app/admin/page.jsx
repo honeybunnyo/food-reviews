@@ -32,16 +32,17 @@ const page = () => {
   })
 
   const [imagesByCategory, setImagesByCategory] = useState({
+    description: [],
+    background: null,
+    recipe: [],
+    method: [],
     entree: [],
     main: [],
     dessert: [],
-    background: [],
   });
-  
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [imageFile, setImageFile] = useState(null);
   const [successToast, setSuccessToast] = useState(false);
   const [failToast, setFailToast] = useState(false);
 
@@ -60,9 +61,13 @@ const page = () => {
     Object.entries(formData).forEach(([key, value]) => {
       formToSend.append(key, value);
     });
-    formToSend.append('imageFile', imageFile)
 
-
+    Object.entries(imagesByCategory).forEach(([category, files]) => {
+      files.forEach((file) => {
+        formToSend.append(`${category}Images`, file);
+      });
+    });
+  
     const res = await fetch('http://localhost:3000/api/upload', {
       method: 'POST',
       body: formToSend,
@@ -81,7 +86,7 @@ const page = () => {
       content: formData.content === 'content type',
       title: !formData.title.trim(),
       rating: formData.rating === 0,
-      file: !imageFile
+      file: !imagesByCategory.background
     }
   
     setErrors(newErrors)
@@ -95,20 +100,20 @@ const page = () => {
       <form className="m-10" autoComplete="off" onSubmit={handleSubmit} noValidate>
         <ContentDropdown content={formData.content} setContent={handleChange('content')} hasError={errors.content}/>
         <InputField label="title" content={formData.title} setContent={handleChange('title')} hasError={errors.title}/>
-        <TextAreaField label="description" content={formData.description} setContent={handleChange('description')}/>
+        <TextAreaField label="description" content={formData.description} setContent={handleChange('description')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
 
         {formData.content === 'recipes' && (
           <>
-            <TextAreaField label="recipe" content={formData.recipe} setContent={handleChange('recipe')} />
-            <TextAreaField label="method" content={formData.method} setContent={handleChange('method')} />
+            <TextAreaField label="recipe" content={formData.recipe} setContent={handleChange('recipe')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
+            <TextAreaField label="method" content={formData.method} setContent={handleChange('method')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
           </>
         )}
 
         {formData.content === 'restaurants' && (
           <>
-            <TextAreaField label="entree" content={formData.entree} setContent={handleChange('entree')} />
-            <TextAreaField label="main" content={formData.main} setContent={handleChange('main')} />
-            <TextAreaField label="dessert" content={formData.dessert} setContent={handleChange('dessert')} />
+            <TextAreaField label="entree" content={formData.entree} setContent={handleChange('entree')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
+            <TextAreaField label="main" content={formData.main} setContent={handleChange('main')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
+            <TextAreaField label="dessert" content={formData.dessert} setContent={handleChange('dessert')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
           </>
         )}
         <RatingField rating={formData.rating} setRating={handleChange('rating')} hasError={errors.rating}/>
@@ -120,26 +125,6 @@ const page = () => {
           category='background'
         />
 
-        <ImageField
-          imageFiles={imagesByCategory.entree}
-          setImagesByCategory={setImagesByCategory}
-          multiple
-          category='entree'
-        />
-
-        <ImageField
-          imageFiles={imagesByCategory.main}
-          setImagesByCategory={setImagesByCategory}
-          multiple
-          category='main'
-        />
-
-        <ImageField
-          imageFiles={imagesByCategory.dessert}
-          setImagesByCategory={setImagesByCategory}
-          multiple
-          category='dessert'
-        />
         <PasswordField setUsername={setUsername} setPassword={setPassword} hasUsernameError={errors.username} hasPasswordError={errors.password}/>
         <button type="submit" className="text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
           Upload
