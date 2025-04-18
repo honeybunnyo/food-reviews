@@ -45,6 +45,7 @@ const page = () => {
   const [password, setPassword] = useState('')
   const [successToast, setSuccessToast] = useState(false);
   const [failToast, setFailToast] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   const handleChange = (field) => (value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -55,6 +56,7 @@ const page = () => {
     if (!validateField()) {
       return
     }
+    setUploading(true)
     const formToSend = new FormData();
     formToSend.append('username', username);
     formToSend.append('password', password);
@@ -74,9 +76,13 @@ const page = () => {
     });
     if (res.ok) {
       setSuccessToast(true)
+      setTimeout(() => setSuccessToast(false), 5000);
+
     } else {
       setFailToast(true)
+      setTimeout(() => setFailToast(false), 5000);
     }
+    setUploading(false)
   }
 
   const validateField = () => {
@@ -126,14 +132,20 @@ const page = () => {
         />
 
         <PasswordField setUsername={setUsername} setPassword={setPassword} hasUsernameError={errors.username} hasPasswordError={errors.password}/>
-        <button type="submit" className="text-white bg-gray-700 hover:bg-gray-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
-          Upload
+        <button
+          type="submit"
+          disabled={uploading}
+          className={`text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center transition ${
+            uploading ? 'bg-gray-400 cursor-not-allowed' : 'bg-gray-700 hover:bg-gray-800'
+          }`}
+        >
+          {uploading ? 'Uploading...' : 'Upload'}
         </button>
       </form>
       <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
         {successToast && ( <SuccessToast setVisible={setSuccessToast}/> )}
         {failToast && ( <ErrorToast setVisible={setFailToast}/> )}
-        </div>
+      </div>
     </div>
   );
 }

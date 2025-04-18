@@ -2,6 +2,8 @@ import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
+import ImageDisplay from '../../components/ImageGallery/ImageDisplay';
+import { Button } from 'flowbite-react';
 
 export default async function Page({ params }) {
   const id = await params?.id?.toString();
@@ -14,11 +16,28 @@ export default async function Page({ params }) {
     return <div className="p-10 text-red-600">data not found.</div>;
   }
 
+  const backgroundImage = data.backgroundImageUrl
+  ? JSON.parse(data.backgroundImageUrl)[0]
+  : '/restaurant.jpg';
+
+  const entreeImages = data.entreeImageUrls
+  ? JSON.parse(data.entreeImageUrls)
+  : [];
+
+  const mainImages = data.mainImageUrls
+  ? JSON.parse(data.mainImageUrls)
+  : [];
+
+  const dessertImages = data.dessertImageUrls
+  ? JSON.parse(data.dessertImageUrls)
+  : [];
+
   return (
-    <Layout imageSrc={data.backgroundImageUrl} title={data.title}>
+    <Layout imageSrc={backgroundImage} title={data.title}>
       <div className="justify-center h-full w-full p-4">
         <div className="p-4">
           <h2 className="text-2xl font-bold">{data.title}</h2>
+          <button type="button" className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 font-medium rounded-lg text-sm px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">edit</button>
           <div className="flex items-center mt-3">
             {[1, 2, 3, 4, 5].map((index) => (
               <svg
@@ -36,11 +55,14 @@ export default async function Page({ params }) {
             ))}
           </div>
           <p className="mt-2">{data.description}</p>
-          <DetailSection label="recipe" content={data.recipe} />
-          <DetailSection label="method" content={data.method} />
+          <DetailSection label="entrée" content={data.entree} />
+          <DetailSection label="main" content={data.main} />
+          <DetailSection label="dessert" content={data.dessert} />
+          <ImageDisplay images={entreeImages}/>
+          <ImageDisplay images={mainImages}/>
+          <ImageDisplay images={dessertImages}/>
         </div>
       </div>
     </Layout>
   )
 }
-
