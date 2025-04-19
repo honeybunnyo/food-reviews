@@ -122,10 +122,13 @@ exports.Prisma.RecipeUploadScalarFieldEnum = {
   createdAt: 'createdAt',
   title: 'title',
   description: 'description',
+  rating: 'rating',
   recipe: 'recipe',
   method: 'method',
-  rating: 'rating',
-  imageUrl: 'imageUrl'
+  backgroundImageUrl: 'backgroundImageUrl',
+  descriptionImageUrls: 'descriptionImageUrls',
+  recipeImageUrls: 'recipeImageUrls',
+  methodImageUrls: 'methodImageUrls'
 };
 
 exports.Prisma.RestaurantUploadScalarFieldEnum = {
@@ -140,7 +143,11 @@ exports.Prisma.RestaurantUploadScalarFieldEnum = {
   entree: 'entree',
   main: 'main',
   dessert: 'dessert',
-  imageUrl: 'imageUrl'
+  backgroundImageUrl: 'backgroundImageUrl',
+  descriptionImageUrls: 'descriptionImageUrls',
+  entreeImageUrls: 'entreeImageUrls',
+  mainImageUrls: 'mainImageUrls',
+  dessertImageUrls: 'dessertImageUrls'
 };
 
 exports.Prisma.SortOrder = {

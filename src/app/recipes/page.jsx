@@ -1,12 +1,16 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout';
 import Cards from '../components/Cards/Cards';
+import { prisma } from '../lib/prisma'
 
-const Recipes = () => {
+const Recipes = async () => {
+  const posts = await prisma.recipeUpload.findMany({
+    orderBy: { createdAt: 'desc' },
+  })
   return (
-    <Layout imageSrc="/pancakes.jpg" title='Recipes'>
+    <Layout imageSrc="/cinnamonroll.jpg" title='Recipes'>
       <div className="h-full w-full p-4">
-        <Cards/>
+        <Cards posts={posts}/>
       </div>
     </Layout>
   )

@@ -15,40 +15,39 @@ export async function POST(req) {
 
     // Check if recipe or restaurant
     const content = formData.get('content')?.toString() 
+    const categoryKeys = ['description', 'background', 'recipe', 'method', 'entree', 'main', 'dessert'];
+    const uploadedImageUrls = {};
 
-    const imageFile = formData.get('imageFile')
-
-    let imageUrl = ''
-    if (imageFile && imageFile.size > 0) {
-      const fileName = `${Date.now()}-${imageFile.name}`
-      const filePath = `${content}/${fileName}`
-
-      const { data, error } = await supabase.storage
-        .from('images') 
-        .upload(filePath, imageFile)
-
-      if (error) {
-        console.error('Image upload failed:', error)
-        return NextResponse.json({ error: 'Image upload failed' }, { status: 500 })
+    for (const category of categoryKeys) {
+      const files = formData.getAll(`${category}Images`);
+    
+      uploadedImageUrls[category] = [];
+    
+      for (const file of files) {
+        const fileName = `${Date.now()}-${file.name}`
+        const filePath = `${content}/${category}/${fileName}`
+        const { error } = await supabase.storage.from('images').upload(filePath, file);
+        if (error) continue;
+    
+        const { data: publicUrlData } = supabase.storage
+          .from('images')
+          .getPublicUrl(filePath);
+    
+        uploadedImageUrls[category].push(publicUrlData.publicUrl);
       }
-
-      const { data: publicUrlData } = supabase
-        .storage
-        .from('images')
-        .getPublicUrl(filePath)
-
-      imageUrl = publicUrlData.publicUrl
     }
-
 
     const data = {
       title: formData.get('title')?.toString() || '',
       description: formData.get('description')?.toString() || '',
       rating: parseInt(formData.get('rating')?.toString() || '0'),
+      descriptionImageUrls: JSON.stringify(uploadedImageUrls.description),
+      backgroundImageUrl: JSON.stringify(uploadedImageUrls.background),
       ...(content === 'recipes' && {
         recipe: formData.get('recipe')?.toString() || '',
         method: formData.get('method')?.toString() || '',
-
+        recipeImageUrls: JSON.stringify(uploadedImageUrls.recipe),
+        methodImageUrls: JSON.stringify(uploadedImageUrls.method),
       }),
       ...(content === 'restaurants' && {
         entree: formData.get('entree')?.toString() || '',
@@ -57,8 +56,10 @@ export async function POST(req) {
         review: formData.get('review')?.toString() || '',
         location: formData.get('location')?.toString() || '',
         priceRange: formData.get('price_range')?.toString() || '',
+        entreeImageUrls: JSON.stringify(uploadedImageUrls.entree),
+        mainImageUrls: JSON.stringify(uploadedImageUrls.main),
+        dessertImageUrls: JSON.stringify(uploadedImageUrls.dessert),
       }),
-      imageUrl,
     }
 
     // Insert into DB

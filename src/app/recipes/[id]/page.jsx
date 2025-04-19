@@ -1,38 +1,36 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
-import { headingFont } from '../../lib/fonts'
 import { prisma } from '../../lib/prisma'
-import { GetServerSidePropsContext } from 'next';
+import DetailSection from '../../components/Layout/DetailSection';
 
-type Props = {
-  params: { id: string };
-};
-
-
-export default async function Page({ params }: GetServerSidePropsContext) {
-  const id = params?.id?.toString();
+export default async function Page({ params }) {
+  const { id } = await params;
   
-  const recipe = await prisma.recipeUpload.findUnique({
+  const data = await prisma.recipeUpload.findUnique({
     where: { id },
   });
 
-  console.log("params.id:", params.id)
-
-  if (!recipe) {
-    return <div className="p-10 text-red-600">Recipe not found.</div>;
+  if (!data) {
+    return <div className="p-10 text-red-600">data not found.</div>;
   }
 
+  const methodImages = JSON.parse(data.methodImageUrls || '[]');
+  const recipeImages = JSON.parse(data.recipeImageUrls || '[]');
+  const backgroundImage = data.backgroundImageUrl
+  ? JSON.parse(data.backgroundImageUrl)[0]
+  : '/pancakes.jpg';
+
   return (
-    <Layout imageSrc={recipe.imageUrl} title={recipe.title}>
+    <Layout imageSrc={backgroundImage} title={data.title}>
       <div className="justify-center h-full w-full p-4">
         <div className="p-4">
-          <h2 className="text-2xl font-bold">{recipe.title}</h2>
+          <h2 className="text-2xl font-bold">{data.title}</h2>
           <div className="flex items-center mt-3">
             {[1, 2, 3, 4, 5].map((index) => (
               <svg
                 key={index}
                 className={`w-4 h-4 ms-1 ${
-                  recipe.rating >= index ? 'text-yellow-300' : 'text-gray-300 dark:text-gray-500'
+                  data.rating >= index ? 'text-yellow-300' : 'text-gray-300 dark:text-gray-500'
                 }`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,10 +41,9 @@ export default async function Page({ params }: GetServerSidePropsContext) {
               </svg>
             ))}
           </div>
-          <p className="mt-2">{recipe.description}</p>
-          <h1 className={`!text-lg ${headingFont}`}>
-            description
-          </h1>
+          <p className="mt-2">{data.description}</p>
+          <DetailSection label="recipe" content={data.recipe} />
+          <DetailSection label="method" content={data.method} />
         </div>
       </div>
     </Layout>

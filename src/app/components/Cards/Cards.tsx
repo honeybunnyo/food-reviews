@@ -1,22 +1,17 @@
 import React from 'react'
 import Card from './Card'
-import { prisma } from '../../lib/prisma'
 
-const Cards = async () => {
-  const recipes = await prisma.recipeUpload.findMany({
-    orderBy: { createdAt: 'desc' }, // optional
-  })
-
+const Cards = async ({ posts }) => {
   return (
     <div className='flex flex-col gap-4'>
-      {recipes.map((recipe) => (
+      {posts.map((post) => (
         <Card
-          key={recipe.id}
-          id={recipe.id}
-          title={recipe.title}
-          date={new Date(recipe.createdAt).toDateString()}
-          imageUrl={recipe.imageUrl}
-        />
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          date={new Date(post.createdAt).toDateString()}
+          imageUrl={JSON.parse(post.backgroundImageUrl || '[]')[0] || '/cinnamonroll.jpg'}
+          />
       ))}
     </div>
   )

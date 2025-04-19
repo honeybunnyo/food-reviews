@@ -1,36 +1,49 @@
 import React from 'react'
+import Dropzone from './Dropzone';
 
-import { useRef } from 'react'
+const ImageField = ({ imageFiles = [], setImagesByCategory, hasError = false, multiple = false, category }) => {
+  const handleImageRemove = (category, indexToRemove) => {
+    setImagesByCategory(prev => ({
+      ...prev,
+      [category]: prev[category].filter((_, i) => i !== indexToRemove),
+    }));
+  };
 
-const ImageField = ({ imageFile, handleImageSelect, hasError }) => {
-  const fileInputRef = useRef(null)
-
-  const handleFileChange = (e) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      handleImageSelect(file)
-    }
-  }
-
+  const handleImageAdd = (newFiles) => {
+    setImagesByCategory(prev => ({
+      ...prev,
+      [category]: [...(prev[category] || []), ...newFiles],
+    }));
+  };
+    
   return (
-    <div className="gap-6 mb-6 w-1/2 min-w-[20rem] max-w-[30rem]">
-      <input
-        ref={fileInputRef}
-        name="imageFile"
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        className={`${hasError ? 'bg-red-200': ''} block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50`}
-      />
-      {imageFile && (
-        <img
-          src={URL.createObjectURL(imageFile)}
-          alt="Preview"
-          className="mt-4 rounded-lg w-full max-w-xs"
-        />
+    <div className="flex flex-row items-start gap-10 mt-7 mb-6">
+      <div className="w-32 min-w-[8rem]">
+        <Dropzone category={category} handleImageAdd={handleImageAdd} multiple={multiple} />
+      </div>
+      {imageFiles && imageFiles.length > 0 && (
+        <div className="flex flex-row gap-1">
+          {imageFiles.map((file, idx) => (
+            <div key={idx} className="relative">
+              <img
+                src={URL.createObjectURL(file)}
+                alt={`Preview ${idx}`}
+                className="rounded-lg max-h-32 object-cover min-w-[6rem]"
+              />
+              <button
+                type="button"
+                onClick={() => handleImageRemove(category, idx)}
+                className="absolute top-1 right-1 bg-white text-black rounded-full p-1 px-2 text-xs font-bold shadow hover:bg-red-100 hover:text-red-500"
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+        </div>
       )}
     </div>
-  )
-}
+  );
+};
+
 
 export default ImageField

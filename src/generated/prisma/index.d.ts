@@ -985,10 +985,13 @@ export namespace Prisma {
     createdAt: Date | null
     title: string | null
     description: string | null
+    rating: number | null
     recipe: string | null
     method: string | null
-    rating: number | null
-    imageUrl: string | null
+    backgroundImageUrl: string | null
+    descriptionImageUrls: string | null
+    recipeImageUrls: string | null
+    methodImageUrls: string | null
   }
 
   export type RecipeUploadMaxAggregateOutputType = {
@@ -996,10 +999,13 @@ export namespace Prisma {
     createdAt: Date | null
     title: string | null
     description: string | null
+    rating: number | null
     recipe: string | null
     method: string | null
-    rating: number | null
-    imageUrl: string | null
+    backgroundImageUrl: string | null
+    descriptionImageUrls: string | null
+    recipeImageUrls: string | null
+    methodImageUrls: string | null
   }
 
   export type RecipeUploadCountAggregateOutputType = {
@@ -1007,10 +1013,13 @@ export namespace Prisma {
     createdAt: number
     title: number
     description: number
+    rating: number
     recipe: number
     method: number
-    rating: number
-    imageUrl: number
+    backgroundImageUrl: number
+    descriptionImageUrls: number
+    recipeImageUrls: number
+    methodImageUrls: number
     _all: number
   }
 
@@ -1028,10 +1037,13 @@ export namespace Prisma {
     createdAt?: true
     title?: true
     description?: true
+    rating?: true
     recipe?: true
     method?: true
-    rating?: true
-    imageUrl?: true
+    backgroundImageUrl?: true
+    descriptionImageUrls?: true
+    recipeImageUrls?: true
+    methodImageUrls?: true
   }
 
   export type RecipeUploadMaxAggregateInputType = {
@@ -1039,10 +1051,13 @@ export namespace Prisma {
     createdAt?: true
     title?: true
     description?: true
+    rating?: true
     recipe?: true
     method?: true
-    rating?: true
-    imageUrl?: true
+    backgroundImageUrl?: true
+    descriptionImageUrls?: true
+    recipeImageUrls?: true
+    methodImageUrls?: true
   }
 
   export type RecipeUploadCountAggregateInputType = {
@@ -1050,10 +1065,13 @@ export namespace Prisma {
     createdAt?: true
     title?: true
     description?: true
+    rating?: true
     recipe?: true
     method?: true
-    rating?: true
-    imageUrl?: true
+    backgroundImageUrl?: true
+    descriptionImageUrls?: true
+    recipeImageUrls?: true
+    methodImageUrls?: true
     _all?: true
   }
 
@@ -1148,10 +1166,13 @@ export namespace Prisma {
     createdAt: Date
     title: string | null
     description: string | null
+    rating: number | null
     recipe: string | null
     method: string | null
-    rating: number | null
-    imageUrl: string | null
+    backgroundImageUrl: string | null
+    descriptionImageUrls: string | null
+    recipeImageUrls: string | null
+    methodImageUrls: string | null
     _count: RecipeUploadCountAggregateOutputType | null
     _avg: RecipeUploadAvgAggregateOutputType | null
     _sum: RecipeUploadSumAggregateOutputType | null
@@ -1178,10 +1199,13 @@ export namespace Prisma {
     createdAt?: boolean
     title?: boolean
     description?: boolean
+    rating?: boolean
     recipe?: boolean
     method?: boolean
-    rating?: boolean
-    imageUrl?: boolean
+    backgroundImageUrl?: boolean
+    descriptionImageUrls?: boolean
+    recipeImageUrls?: boolean
+    methodImageUrls?: boolean
   }, ExtArgs["result"]["recipeUpload"]>
 
   export type RecipeUploadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1189,10 +1213,13 @@ export namespace Prisma {
     createdAt?: boolean
     title?: boolean
     description?: boolean
+    rating?: boolean
     recipe?: boolean
     method?: boolean
-    rating?: boolean
-    imageUrl?: boolean
+    backgroundImageUrl?: boolean
+    descriptionImageUrls?: boolean
+    recipeImageUrls?: boolean
+    methodImageUrls?: boolean
   }, ExtArgs["result"]["recipeUpload"]>
 
   export type RecipeUploadSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1200,10 +1227,13 @@ export namespace Prisma {
     createdAt?: boolean
     title?: boolean
     description?: boolean
+    rating?: boolean
     recipe?: boolean
     method?: boolean
-    rating?: boolean
-    imageUrl?: boolean
+    backgroundImageUrl?: boolean
+    descriptionImageUrls?: boolean
+    recipeImageUrls?: boolean
+    methodImageUrls?: boolean
   }, ExtArgs["result"]["recipeUpload"]>
 
   export type RecipeUploadSelectScalar = {
@@ -1211,13 +1241,16 @@ export namespace Prisma {
     createdAt?: boolean
     title?: boolean
     description?: boolean
+    rating?: boolean
     recipe?: boolean
     method?: boolean
-    rating?: boolean
-    imageUrl?: boolean
+    backgroundImageUrl?: boolean
+    descriptionImageUrls?: boolean
+    recipeImageUrls?: boolean
+    methodImageUrls?: boolean
   }
 
-  export type RecipeUploadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "title" | "description" | "recipe" | "method" | "rating" | "imageUrl", ExtArgs["result"]["recipeUpload"]>
+  export type RecipeUploadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "title" | "description" | "rating" | "recipe" | "method" | "backgroundImageUrl" | "descriptionImageUrls" | "recipeImageUrls" | "methodImageUrls", ExtArgs["result"]["recipeUpload"]>
 
   export type $RecipeUploadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "RecipeUpload"
@@ -1227,10 +1260,13 @@ export namespace Prisma {
       createdAt: Date
       title: string | null
       description: string | null
+      rating: number | null
       recipe: string | null
       method: string | null
-      rating: number | null
-      imageUrl: string | null
+      backgroundImageUrl: string | null
+      descriptionImageUrls: string | null
+      recipeImageUrls: string | null
+      methodImageUrls: string | null
     }, ExtArgs["result"]["recipeUpload"]>
     composites: {}
   }
@@ -1658,10 +1694,13 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"RecipeUpload", 'DateTime'>
     readonly title: FieldRef<"RecipeUpload", 'String'>
     readonly description: FieldRef<"RecipeUpload", 'String'>
+    readonly rating: FieldRef<"RecipeUpload", 'Int'>
     readonly recipe: FieldRef<"RecipeUpload", 'String'>
     readonly method: FieldRef<"RecipeUpload", 'String'>
-    readonly rating: FieldRef<"RecipeUpload", 'Int'>
-    readonly imageUrl: FieldRef<"RecipeUpload", 'String'>
+    readonly backgroundImageUrl: FieldRef<"RecipeUpload", 'String'>
+    readonly descriptionImageUrls: FieldRef<"RecipeUpload", 'String'>
+    readonly recipeImageUrls: FieldRef<"RecipeUpload", 'String'>
+    readonly methodImageUrls: FieldRef<"RecipeUpload", 'String'>
   }
     
 
@@ -2041,17 +2080,15 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadAvgAggregateOutputType = {
-    id: number | null
     rating: number | null
   }
 
   export type RestaurantUploadSumAggregateOutputType = {
-    id: bigint | null
     rating: number | null
   }
 
   export type RestaurantUploadMinAggregateOutputType = {
-    id: bigint | null
+    id: string | null
     createdAt: Date | null
     title: string | null
     rating: number | null
@@ -2062,11 +2099,15 @@ export namespace Prisma {
     entree: string | null
     main: string | null
     dessert: string | null
-    imageUrl: string | null
+    backgroundImageUrl: string | null
+    descriptionImageUrls: string | null
+    entreeImageUrls: string | null
+    mainImageUrls: string | null
+    dessertImageUrls: string | null
   }
 
   export type RestaurantUploadMaxAggregateOutputType = {
-    id: bigint | null
+    id: string | null
     createdAt: Date | null
     title: string | null
     rating: number | null
@@ -2077,7 +2118,11 @@ export namespace Prisma {
     entree: string | null
     main: string | null
     dessert: string | null
-    imageUrl: string | null
+    backgroundImageUrl: string | null
+    descriptionImageUrls: string | null
+    entreeImageUrls: string | null
+    mainImageUrls: string | null
+    dessertImageUrls: string | null
   }
 
   export type RestaurantUploadCountAggregateOutputType = {
@@ -2092,18 +2137,20 @@ export namespace Prisma {
     entree: number
     main: number
     dessert: number
-    imageUrl: number
+    backgroundImageUrl: number
+    descriptionImageUrls: number
+    entreeImageUrls: number
+    mainImageUrls: number
+    dessertImageUrls: number
     _all: number
   }
 
 
   export type RestaurantUploadAvgAggregateInputType = {
-    id?: true
     rating?: true
   }
 
   export type RestaurantUploadSumAggregateInputType = {
-    id?: true
     rating?: true
   }
 
@@ -2119,7 +2166,11 @@ export namespace Prisma {
     entree?: true
     main?: true
     dessert?: true
-    imageUrl?: true
+    backgroundImageUrl?: true
+    descriptionImageUrls?: true
+    entreeImageUrls?: true
+    mainImageUrls?: true
+    dessertImageUrls?: true
   }
 
   export type RestaurantUploadMaxAggregateInputType = {
@@ -2134,7 +2185,11 @@ export namespace Prisma {
     entree?: true
     main?: true
     dessert?: true
-    imageUrl?: true
+    backgroundImageUrl?: true
+    descriptionImageUrls?: true
+    entreeImageUrls?: true
+    mainImageUrls?: true
+    dessertImageUrls?: true
   }
 
   export type RestaurantUploadCountAggregateInputType = {
@@ -2149,7 +2204,11 @@ export namespace Prisma {
     entree?: true
     main?: true
     dessert?: true
-    imageUrl?: true
+    backgroundImageUrl?: true
+    descriptionImageUrls?: true
+    entreeImageUrls?: true
+    mainImageUrls?: true
+    dessertImageUrls?: true
     _all?: true
   }
 
@@ -2240,7 +2299,7 @@ export namespace Prisma {
   }
 
   export type RestaurantUploadGroupByOutputType = {
-    id: bigint
+    id: string
     createdAt: Date
     title: string | null
     rating: number | null
@@ -2251,7 +2310,11 @@ export namespace Prisma {
     entree: string | null
     main: string | null
     dessert: string | null
-    imageUrl: string | null
+    backgroundImageUrl: string | null
+    descriptionImageUrls: string | null
+    entreeImageUrls: string | null
+    mainImageUrls: string | null
+    dessertImageUrls: string | null
     _count: RestaurantUploadCountAggregateOutputType | null
     _avg: RestaurantUploadAvgAggregateOutputType | null
     _sum: RestaurantUploadSumAggregateOutputType | null
@@ -2285,7 +2348,11 @@ export namespace Prisma {
     entree?: boolean
     main?: boolean
     dessert?: boolean
-    imageUrl?: boolean
+    backgroundImageUrl?: boolean
+    descriptionImageUrls?: boolean
+    entreeImageUrls?: boolean
+    mainImageUrls?: boolean
+    dessertImageUrls?: boolean
   }, ExtArgs["result"]["restaurantUpload"]>
 
   export type RestaurantUploadSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2300,7 +2367,11 @@ export namespace Prisma {
     entree?: boolean
     main?: boolean
     dessert?: boolean
-    imageUrl?: boolean
+    backgroundImageUrl?: boolean
+    descriptionImageUrls?: boolean
+    entreeImageUrls?: boolean
+    mainImageUrls?: boolean
+    dessertImageUrls?: boolean
   }, ExtArgs["result"]["restaurantUpload"]>
 
   export type RestaurantUploadSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2315,7 +2386,11 @@ export namespace Prisma {
     entree?: boolean
     main?: boolean
     dessert?: boolean
-    imageUrl?: boolean
+    backgroundImageUrl?: boolean
+    descriptionImageUrls?: boolean
+    entreeImageUrls?: boolean
+    mainImageUrls?: boolean
+    dessertImageUrls?: boolean
   }, ExtArgs["result"]["restaurantUpload"]>
 
   export type RestaurantUploadSelectScalar = {
@@ -2330,16 +2405,20 @@ export namespace Prisma {
     entree?: boolean
     main?: boolean
     dessert?: boolean
-    imageUrl?: boolean
+    backgroundImageUrl?: boolean
+    descriptionImageUrls?: boolean
+    entreeImageUrls?: boolean
+    mainImageUrls?: boolean
+    dessertImageUrls?: boolean
   }
 
-  export type RestaurantUploadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "title" | "rating" | "review" | "location" | "priceRange" | "description" | "entree" | "main" | "dessert" | "imageUrl", ExtArgs["result"]["restaurantUpload"]>
+  export type RestaurantUploadOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "title" | "rating" | "review" | "location" | "priceRange" | "description" | "entree" | "main" | "dessert" | "backgroundImageUrl" | "descriptionImageUrls" | "entreeImageUrls" | "mainImageUrls" | "dessertImageUrls", ExtArgs["result"]["restaurantUpload"]>
 
   export type $RestaurantUploadPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "RestaurantUpload"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: bigint
+      id: string
       createdAt: Date
       title: string | null
       rating: number | null
@@ -2350,7 +2429,11 @@ export namespace Prisma {
       entree: string | null
       main: string | null
       dessert: string | null
-      imageUrl: string | null
+      backgroundImageUrl: string | null
+      descriptionImageUrls: string | null
+      entreeImageUrls: string | null
+      mainImageUrls: string | null
+      dessertImageUrls: string | null
     }, ExtArgs["result"]["restaurantUpload"]>
     composites: {}
   }
@@ -2774,7 +2857,7 @@ export namespace Prisma {
    * Fields of the RestaurantUpload model
    */
   interface RestaurantUploadFieldRefs {
-    readonly id: FieldRef<"RestaurantUpload", 'BigInt'>
+    readonly id: FieldRef<"RestaurantUpload", 'String'>
     readonly createdAt: FieldRef<"RestaurantUpload", 'DateTime'>
     readonly title: FieldRef<"RestaurantUpload", 'String'>
     readonly rating: FieldRef<"RestaurantUpload", 'Int'>
@@ -2785,7 +2868,11 @@ export namespace Prisma {
     readonly entree: FieldRef<"RestaurantUpload", 'String'>
     readonly main: FieldRef<"RestaurantUpload", 'String'>
     readonly dessert: FieldRef<"RestaurantUpload", 'String'>
-    readonly imageUrl: FieldRef<"RestaurantUpload", 'String'>
+    readonly backgroundImageUrl: FieldRef<"RestaurantUpload", 'String'>
+    readonly descriptionImageUrls: FieldRef<"RestaurantUpload", 'String'>
+    readonly entreeImageUrls: FieldRef<"RestaurantUpload", 'String'>
+    readonly mainImageUrls: FieldRef<"RestaurantUpload", 'String'>
+    readonly dessertImageUrls: FieldRef<"RestaurantUpload", 'String'>
   }
     
 
@@ -3171,10 +3258,13 @@ export namespace Prisma {
     createdAt: 'createdAt',
     title: 'title',
     description: 'description',
+    rating: 'rating',
     recipe: 'recipe',
     method: 'method',
-    rating: 'rating',
-    imageUrl: 'imageUrl'
+    backgroundImageUrl: 'backgroundImageUrl',
+    descriptionImageUrls: 'descriptionImageUrls',
+    recipeImageUrls: 'recipeImageUrls',
+    methodImageUrls: 'methodImageUrls'
   };
 
   export type RecipeUploadScalarFieldEnum = (typeof RecipeUploadScalarFieldEnum)[keyof typeof RecipeUploadScalarFieldEnum]
@@ -3192,7 +3282,11 @@ export namespace Prisma {
     entree: 'entree',
     main: 'main',
     dessert: 'dessert',
-    imageUrl: 'imageUrl'
+    backgroundImageUrl: 'backgroundImageUrl',
+    descriptionImageUrls: 'descriptionImageUrls',
+    entreeImageUrls: 'entreeImageUrls',
+    mainImageUrls: 'mainImageUrls',
+    dessertImageUrls: 'dessertImageUrls'
   };
 
   export type RestaurantUploadScalarFieldEnum = (typeof RestaurantUploadScalarFieldEnum)[keyof typeof RestaurantUploadScalarFieldEnum]
@@ -3270,20 +3364,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt'
-   */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-  /**
-   * Reference to a field of type 'BigInt[]'
-   */
-  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3308,10 +3388,13 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"RecipeUpload"> | Date | string
     title?: StringNullableFilter<"RecipeUpload"> | string | null
     description?: StringNullableFilter<"RecipeUpload"> | string | null
+    rating?: IntNullableFilter<"RecipeUpload"> | number | null
     recipe?: StringNullableFilter<"RecipeUpload"> | string | null
     method?: StringNullableFilter<"RecipeUpload"> | string | null
-    rating?: IntNullableFilter<"RecipeUpload"> | number | null
-    imageUrl?: StringNullableFilter<"RecipeUpload"> | string | null
+    backgroundImageUrl?: StringNullableFilter<"RecipeUpload"> | string | null
+    descriptionImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
+    recipeImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
+    methodImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
   }
 
   export type RecipeUploadOrderByWithRelationInput = {
@@ -3319,10 +3402,13 @@ export namespace Prisma {
     createdAt?: SortOrder
     title?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
     recipe?: SortOrderInput | SortOrder
     method?: SortOrderInput | SortOrder
-    rating?: SortOrderInput | SortOrder
-    imageUrl?: SortOrderInput | SortOrder
+    backgroundImageUrl?: SortOrderInput | SortOrder
+    descriptionImageUrls?: SortOrderInput | SortOrder
+    recipeImageUrls?: SortOrderInput | SortOrder
+    methodImageUrls?: SortOrderInput | SortOrder
   }
 
   export type RecipeUploadWhereUniqueInput = Prisma.AtLeast<{
@@ -3333,10 +3419,13 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"RecipeUpload"> | Date | string
     title?: StringNullableFilter<"RecipeUpload"> | string | null
     description?: StringNullableFilter<"RecipeUpload"> | string | null
+    rating?: IntNullableFilter<"RecipeUpload"> | number | null
     recipe?: StringNullableFilter<"RecipeUpload"> | string | null
     method?: StringNullableFilter<"RecipeUpload"> | string | null
-    rating?: IntNullableFilter<"RecipeUpload"> | number | null
-    imageUrl?: StringNullableFilter<"RecipeUpload"> | string | null
+    backgroundImageUrl?: StringNullableFilter<"RecipeUpload"> | string | null
+    descriptionImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
+    recipeImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
+    methodImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
   }, "id">
 
   export type RecipeUploadOrderByWithAggregationInput = {
@@ -3344,10 +3433,13 @@ export namespace Prisma {
     createdAt?: SortOrder
     title?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
+    rating?: SortOrderInput | SortOrder
     recipe?: SortOrderInput | SortOrder
     method?: SortOrderInput | SortOrder
-    rating?: SortOrderInput | SortOrder
-    imageUrl?: SortOrderInput | SortOrder
+    backgroundImageUrl?: SortOrderInput | SortOrder
+    descriptionImageUrls?: SortOrderInput | SortOrder
+    recipeImageUrls?: SortOrderInput | SortOrder
+    methodImageUrls?: SortOrderInput | SortOrder
     _count?: RecipeUploadCountOrderByAggregateInput
     _avg?: RecipeUploadAvgOrderByAggregateInput
     _max?: RecipeUploadMaxOrderByAggregateInput
@@ -3363,17 +3455,20 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"RecipeUpload"> | Date | string
     title?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
     description?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    rating?: IntNullableWithAggregatesFilter<"RecipeUpload"> | number | null
     recipe?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
     method?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
-    rating?: IntNullableWithAggregatesFilter<"RecipeUpload"> | number | null
-    imageUrl?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    backgroundImageUrl?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    descriptionImageUrls?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    recipeImageUrls?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    methodImageUrls?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
   }
 
   export type RestaurantUploadWhereInput = {
     AND?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
     OR?: RestaurantUploadWhereInput[]
     NOT?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
-    id?: BigIntFilter<"RestaurantUpload"> | bigint | number
+    id?: UuidFilter<"RestaurantUpload"> | string
     createdAt?: DateTimeFilter<"RestaurantUpload"> | Date | string
     title?: StringNullableFilter<"RestaurantUpload"> | string | null
     rating?: IntNullableFilter<"RestaurantUpload"> | number | null
@@ -3384,7 +3479,11 @@ export namespace Prisma {
     entree?: StringNullableFilter<"RestaurantUpload"> | string | null
     main?: StringNullableFilter<"RestaurantUpload"> | string | null
     dessert?: StringNullableFilter<"RestaurantUpload"> | string | null
-    imageUrl?: StringNullableFilter<"RestaurantUpload"> | string | null
+    backgroundImageUrl?: StringNullableFilter<"RestaurantUpload"> | string | null
+    descriptionImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
+    entreeImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
+    mainImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
+    dessertImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
   }
 
   export type RestaurantUploadOrderByWithRelationInput = {
@@ -3399,11 +3498,15 @@ export namespace Prisma {
     entree?: SortOrderInput | SortOrder
     main?: SortOrderInput | SortOrder
     dessert?: SortOrderInput | SortOrder
-    imageUrl?: SortOrderInput | SortOrder
+    backgroundImageUrl?: SortOrderInput | SortOrder
+    descriptionImageUrls?: SortOrderInput | SortOrder
+    entreeImageUrls?: SortOrderInput | SortOrder
+    mainImageUrls?: SortOrderInput | SortOrder
+    dessertImageUrls?: SortOrderInput | SortOrder
   }
 
   export type RestaurantUploadWhereUniqueInput = Prisma.AtLeast<{
-    id?: bigint | number
+    id?: string
     AND?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
     OR?: RestaurantUploadWhereInput[]
     NOT?: RestaurantUploadWhereInput | RestaurantUploadWhereInput[]
@@ -3417,7 +3520,11 @@ export namespace Prisma {
     entree?: StringNullableFilter<"RestaurantUpload"> | string | null
     main?: StringNullableFilter<"RestaurantUpload"> | string | null
     dessert?: StringNullableFilter<"RestaurantUpload"> | string | null
-    imageUrl?: StringNullableFilter<"RestaurantUpload"> | string | null
+    backgroundImageUrl?: StringNullableFilter<"RestaurantUpload"> | string | null
+    descriptionImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
+    entreeImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
+    mainImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
+    dessertImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
   }, "id">
 
   export type RestaurantUploadOrderByWithAggregationInput = {
@@ -3432,7 +3539,11 @@ export namespace Prisma {
     entree?: SortOrderInput | SortOrder
     main?: SortOrderInput | SortOrder
     dessert?: SortOrderInput | SortOrder
-    imageUrl?: SortOrderInput | SortOrder
+    backgroundImageUrl?: SortOrderInput | SortOrder
+    descriptionImageUrls?: SortOrderInput | SortOrder
+    entreeImageUrls?: SortOrderInput | SortOrder
+    mainImageUrls?: SortOrderInput | SortOrder
+    dessertImageUrls?: SortOrderInput | SortOrder
     _count?: RestaurantUploadCountOrderByAggregateInput
     _avg?: RestaurantUploadAvgOrderByAggregateInput
     _max?: RestaurantUploadMaxOrderByAggregateInput
@@ -3444,7 +3555,7 @@ export namespace Prisma {
     AND?: RestaurantUploadScalarWhereWithAggregatesInput | RestaurantUploadScalarWhereWithAggregatesInput[]
     OR?: RestaurantUploadScalarWhereWithAggregatesInput[]
     NOT?: RestaurantUploadScalarWhereWithAggregatesInput | RestaurantUploadScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"RestaurantUpload"> | bigint | number
+    id?: UuidWithAggregatesFilter<"RestaurantUpload"> | string
     createdAt?: DateTimeWithAggregatesFilter<"RestaurantUpload"> | Date | string
     title?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
     rating?: IntNullableWithAggregatesFilter<"RestaurantUpload"> | number | null
@@ -3455,7 +3566,11 @@ export namespace Prisma {
     entree?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
     main?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
     dessert?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    imageUrl?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    backgroundImageUrl?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    descriptionImageUrls?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    entreeImageUrls?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    mainImageUrls?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    dessertImageUrls?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
   }
 
   export type RecipeUploadCreateInput = {
@@ -3463,10 +3578,13 @@ export namespace Prisma {
     createdAt?: Date | string
     title?: string | null
     description?: string | null
+    rating?: number | null
     recipe?: string | null
     method?: string | null
-    rating?: number | null
-    imageUrl?: string | null
+    backgroundImageUrl?: string | null
+    descriptionImageUrls?: string | null
+    recipeImageUrls?: string | null
+    methodImageUrls?: string | null
   }
 
   export type RecipeUploadUncheckedCreateInput = {
@@ -3474,10 +3592,13 @@ export namespace Prisma {
     createdAt?: Date | string
     title?: string | null
     description?: string | null
+    rating?: number | null
     recipe?: string | null
     method?: string | null
-    rating?: number | null
-    imageUrl?: string | null
+    backgroundImageUrl?: string | null
+    descriptionImageUrls?: string | null
+    recipeImageUrls?: string | null
+    methodImageUrls?: string | null
   }
 
   export type RecipeUploadUpdateInput = {
@@ -3485,10 +3606,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
     recipe?: NullableStringFieldUpdateOperationsInput | string | null
     method?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    recipeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    methodImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RecipeUploadUncheckedUpdateInput = {
@@ -3496,10 +3620,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
     recipe?: NullableStringFieldUpdateOperationsInput | string | null
     method?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    recipeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    methodImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RecipeUploadCreateManyInput = {
@@ -3507,10 +3634,13 @@ export namespace Prisma {
     createdAt?: Date | string
     title?: string | null
     description?: string | null
+    rating?: number | null
     recipe?: string | null
     method?: string | null
-    rating?: number | null
-    imageUrl?: string | null
+    backgroundImageUrl?: string | null
+    descriptionImageUrls?: string | null
+    recipeImageUrls?: string | null
+    methodImageUrls?: string | null
   }
 
   export type RecipeUploadUpdateManyMutationInput = {
@@ -3518,10 +3648,13 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
     recipe?: NullableStringFieldUpdateOperationsInput | string | null
     method?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    recipeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    methodImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RecipeUploadUncheckedUpdateManyInput = {
@@ -3529,14 +3662,17 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    rating?: NullableIntFieldUpdateOperationsInput | number | null
     recipe?: NullableStringFieldUpdateOperationsInput | string | null
     method?: NullableStringFieldUpdateOperationsInput | string | null
-    rating?: NullableIntFieldUpdateOperationsInput | number | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    recipeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    methodImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RestaurantUploadCreateInput = {
-    id?: bigint | number
+    id?: string
     createdAt?: Date | string
     title?: string | null
     rating?: number | null
@@ -3547,11 +3683,15 @@ export namespace Prisma {
     entree?: string | null
     main?: string | null
     dessert?: string | null
-    imageUrl?: string | null
+    backgroundImageUrl?: string | null
+    descriptionImageUrls?: string | null
+    entreeImageUrls?: string | null
+    mainImageUrls?: string | null
+    dessertImageUrls?: string | null
   }
 
   export type RestaurantUploadUncheckedCreateInput = {
-    id?: bigint | number
+    id?: string
     createdAt?: Date | string
     title?: string | null
     rating?: number | null
@@ -3562,11 +3702,15 @@ export namespace Prisma {
     entree?: string | null
     main?: string | null
     dessert?: string | null
-    imageUrl?: string | null
+    backgroundImageUrl?: string | null
+    descriptionImageUrls?: string | null
+    entreeImageUrls?: string | null
+    mainImageUrls?: string | null
+    dessertImageUrls?: string | null
   }
 
   export type RestaurantUploadUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
@@ -3577,11 +3721,15 @@ export namespace Prisma {
     entree?: NullableStringFieldUpdateOperationsInput | string | null
     main?: NullableStringFieldUpdateOperationsInput | string | null
     dessert?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    entreeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    mainImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    dessertImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RestaurantUploadUncheckedUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
@@ -3592,11 +3740,15 @@ export namespace Prisma {
     entree?: NullableStringFieldUpdateOperationsInput | string | null
     main?: NullableStringFieldUpdateOperationsInput | string | null
     dessert?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    entreeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    mainImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    dessertImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RestaurantUploadCreateManyInput = {
-    id?: bigint | number
+    id?: string
     createdAt?: Date | string
     title?: string | null
     rating?: number | null
@@ -3607,11 +3759,15 @@ export namespace Prisma {
     entree?: string | null
     main?: string | null
     dessert?: string | null
-    imageUrl?: string | null
+    backgroundImageUrl?: string | null
+    descriptionImageUrls?: string | null
+    entreeImageUrls?: string | null
+    mainImageUrls?: string | null
+    dessertImageUrls?: string | null
   }
 
   export type RestaurantUploadUpdateManyMutationInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
@@ -3622,11 +3778,15 @@ export namespace Prisma {
     entree?: NullableStringFieldUpdateOperationsInput | string | null
     main?: NullableStringFieldUpdateOperationsInput | string | null
     dessert?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    entreeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    mainImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    dessertImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type RestaurantUploadUncheckedUpdateManyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
@@ -3637,7 +3797,11 @@ export namespace Prisma {
     entree?: NullableStringFieldUpdateOperationsInput | string | null
     main?: NullableStringFieldUpdateOperationsInput | string | null
     dessert?: NullableStringFieldUpdateOperationsInput | string | null
-    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    entreeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    mainImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    dessertImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UuidFilter<$PrismaModel = never> = {
@@ -3699,10 +3863,13 @@ export namespace Prisma {
     createdAt?: SortOrder
     title?: SortOrder
     description?: SortOrder
+    rating?: SortOrder
     recipe?: SortOrder
     method?: SortOrder
-    rating?: SortOrder
-    imageUrl?: SortOrder
+    backgroundImageUrl?: SortOrder
+    descriptionImageUrls?: SortOrder
+    recipeImageUrls?: SortOrder
+    methodImageUrls?: SortOrder
   }
 
   export type RecipeUploadAvgOrderByAggregateInput = {
@@ -3714,10 +3881,13 @@ export namespace Prisma {
     createdAt?: SortOrder
     title?: SortOrder
     description?: SortOrder
+    rating?: SortOrder
     recipe?: SortOrder
     method?: SortOrder
-    rating?: SortOrder
-    imageUrl?: SortOrder
+    backgroundImageUrl?: SortOrder
+    descriptionImageUrls?: SortOrder
+    recipeImageUrls?: SortOrder
+    methodImageUrls?: SortOrder
   }
 
   export type RecipeUploadMinOrderByAggregateInput = {
@@ -3725,10 +3895,13 @@ export namespace Prisma {
     createdAt?: SortOrder
     title?: SortOrder
     description?: SortOrder
+    rating?: SortOrder
     recipe?: SortOrder
     method?: SortOrder
-    rating?: SortOrder
-    imageUrl?: SortOrder
+    backgroundImageUrl?: SortOrder
+    descriptionImageUrls?: SortOrder
+    recipeImageUrls?: SortOrder
+    methodImageUrls?: SortOrder
   }
 
   export type RecipeUploadSumOrderByAggregateInput = {
@@ -3798,17 +3971,6 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type BigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
   export type RestaurantUploadCountOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
@@ -3821,11 +3983,14 @@ export namespace Prisma {
     entree?: SortOrder
     main?: SortOrder
     dessert?: SortOrder
-    imageUrl?: SortOrder
+    backgroundImageUrl?: SortOrder
+    descriptionImageUrls?: SortOrder
+    entreeImageUrls?: SortOrder
+    mainImageUrls?: SortOrder
+    dessertImageUrls?: SortOrder
   }
 
   export type RestaurantUploadAvgOrderByAggregateInput = {
-    id?: SortOrder
     rating?: SortOrder
   }
 
@@ -3841,7 +4006,11 @@ export namespace Prisma {
     entree?: SortOrder
     main?: SortOrder
     dessert?: SortOrder
-    imageUrl?: SortOrder
+    backgroundImageUrl?: SortOrder
+    descriptionImageUrls?: SortOrder
+    entreeImageUrls?: SortOrder
+    mainImageUrls?: SortOrder
+    dessertImageUrls?: SortOrder
   }
 
   export type RestaurantUploadMinOrderByAggregateInput = {
@@ -3856,28 +4025,15 @@ export namespace Prisma {
     entree?: SortOrder
     main?: SortOrder
     dessert?: SortOrder
-    imageUrl?: SortOrder
+    backgroundImageUrl?: SortOrder
+    descriptionImageUrls?: SortOrder
+    entreeImageUrls?: SortOrder
+    mainImageUrls?: SortOrder
+    dessertImageUrls?: SortOrder
   }
 
   export type RestaurantUploadSumOrderByAggregateInput = {
-    id?: SortOrder
     rating?: SortOrder
-  }
-
-  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3898,14 +4054,6 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
   }
 
   export type NestedUuidFilter<$PrismaModel = never> = {
@@ -4050,44 +4198,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedBigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
-  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
 
