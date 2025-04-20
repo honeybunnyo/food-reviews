@@ -2,6 +2,8 @@
 
 A full-stack food reviews platform that allows users to browse, filter, and sort restaurant reviews. Built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **Prisma** with a **PostgreSQL** backend. This project focuses on delivering a responsive and intuitive user experience, supported by a clean and scalable backend architecture.
 
+[Deployed website HERE](https://honeybunny-food-reviews.vercel.app/)
+
 ## 🚀 Features
 
 - 🧾 **Review Listings & Details**  
@@ -24,7 +26,7 @@ A full-stack food reviews platform that allows users to browse, filter, and sort
 - **Frontend:** Next.js, React, TypeScript, Tailwind CSS  
 - **Backend:** Next.js API routes, Prisma  
 - **Database:** PostgreSQL  
-- **Deployment:** Vercel (or specify if hosted elsewhere)
+- **Deployment:** Vercel
 
 ## 📦 Getting Started
 
