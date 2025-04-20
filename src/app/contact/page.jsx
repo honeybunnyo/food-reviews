@@ -4,6 +4,7 @@ import React from 'react'
 import Layout from '../components/Layout/Layout';
 
 const Contact = () => {
+  
   return (
     <Layout imageSrc="/restaurant.jpg" title='Contact'>
       <div className="h-full w-full p-8 flex items-center justify-center">
