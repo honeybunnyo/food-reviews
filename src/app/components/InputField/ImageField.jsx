@@ -1,5 +1,6 @@
 import React from 'react'
 import Dropzone from './Dropzone';
+import Image from 'next/image';
 
 const ImageField = ({ imageFiles = [], setImagesByCategory, hasError = false, multiple = false, category }) => {
   const handleImageRemove = (category, indexToRemove) => {
@@ -25,9 +26,11 @@ const ImageField = ({ imageFiles = [], setImagesByCategory, hasError = false, mu
         <div className="flex flex-row gap-1">
           {imageFiles.map((file, idx) => (
             <div key={idx} className="relative">
-              <img
+              <Image
                 src={URL.createObjectURL(file)}
                 alt={`Preview ${idx}`}
+                width={96}
+                height={96}
                 className="rounded-lg max-h-32 object-cover min-w-[6rem]"
               />
               <button
