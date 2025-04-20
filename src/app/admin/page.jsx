@@ -10,7 +10,7 @@ import ImageField from './../components/InputField/ImageField';
 import ErrorToast from './../components/Toast/ErrorToast';
 import SuccessToast from './../components/Toast/SuccessToast';
 
-const page = () => {
+const Page = () => {
   const [formData, setFormData] = useState({
     content: 'content type',
     title: '',
@@ -150,4 +150,4 @@ const page = () => {
   );
 }
 
-export default page
+export default Page
