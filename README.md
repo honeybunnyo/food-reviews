@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Food Reviews Web Application 🍽️
 
-## Getting Started
+A full-stack food reviews platform that allows users to browse, filter, and sort restaurant reviews. Built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **Prisma** with a **PostgreSQL** backend. This project focuses on delivering a responsive and intuitive user experience, supported by a clean and scalable backend architecture.
 
-First, run the development server:
+## 🚀 Features
+
+- 🧾 **Review Listings & Details**  
+  View all reviews in a paginated grid or click into individual reviews for detailed content.
+
+- 🖥️ **Responsive UI**  
+  Fully responsive layout built with Tailwind CSS to ensure usability across all device sizes.
+
+- ⚙️ **Server-Side Rendering (SSR)**  
+  Optimised for performance and SEO using Next.js' server-side rendering capabilities.
+
+- 🗃️ **Database Integration**  
+  Uses Prisma ORM to interact with a PostgreSQL database in a type-safe and scalable way.
+
+- 🔍 **Dynamic Filtering & Sorting (TBD)**  
+  Users can filter reviews by rating, cuisine, and date, with server-side pagination and sorting for performance and scalability.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS  
+- **Backend:** Next.js API routes, Prisma  
+- **Database:** PostgreSQL  
+- **Deployment:** Vercel (or specify if hosted elsewhere)
+
+## 📦 Getting Started
 
 ```bash
+git clone https://github.com/honeybunnyo/food-reviews.git
+cd food-reviews
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
