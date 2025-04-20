@@ -16,8 +16,8 @@ A full-stack food reviews platform that allows users to browse, filter, and sort
 - 🗃️ **Database Integration**  
   Uses Prisma ORM to interact with a PostgreSQL database in a type-safe and scalable way.
 
-- 🔍 **Dynamic Filtering & Sorting (TBD)**  
-  Users can filter reviews by rating, cuisine, and date, with server-side pagination and sorting for performance and scalability.
+- 🔍 **Dynamic Sorting**  
+  Users can sort reviews by rating and date, with server-side pagination and sorting for performance and scalability.
 
 ## 🛠️ Tech Stack
 

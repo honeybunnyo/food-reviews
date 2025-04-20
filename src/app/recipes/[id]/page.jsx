@@ -4,7 +4,7 @@ import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
 
 export default async function Page({ params }) {
-  const { id } = await params;
+  const { id } = await params
   
   const data = await prisma.recipeUpload.findUnique({
     where: { id },
