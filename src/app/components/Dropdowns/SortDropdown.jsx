@@ -20,11 +20,11 @@ const SortDropdown = ({ currentSort }) => {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50"
+        className="inline-flex justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-normal text-gray-600 shadow-xs hover:underline"
       >
-        Sort: {currentSort === 'rating' ? 'Rating' : 'Date'}
+        sort by {currentSort === 'rating' ? 'rating' : 'date'}
         <svg
-          className="-mr-1 h-5 w-5 text-gray-400"
+          className="-mr-1 h-5 w-5 text-gray-600"
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true"
@@ -46,7 +46,7 @@ const SortDropdown = ({ currentSort }) => {
                 currentSort === 'createdAt' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'
               }`}
             >
-              Sort by Date
+              sort by date
             </button>
             <button
               onClick={() => handleChange('rating')}
@@ -54,7 +54,7 @@ const SortDropdown = ({ currentSort }) => {
                 currentSort === 'rating' ? 'bg-gray-100 text-gray-900' : 'text-gray-700'
               }`}
             >
-              Sort by Rating
+              sort by rating
             </button>
           </div>
         </div>

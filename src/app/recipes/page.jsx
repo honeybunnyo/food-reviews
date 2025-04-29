@@ -1,7 +1,6 @@
 export const revalidate = 60; 
 
-import { cache } from 'react';
-import React from 'react'
+import React, { cache } from 'react'
 import Layout from '../components/Layout/Layout';
 import Cards from '../components/Cards/Cards';
 import { prisma } from '../lib/prisma'
