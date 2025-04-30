@@ -1,4 +1,4 @@
-import React, { cache } from 'react'
+import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
@@ -6,7 +6,9 @@ import { Carousel } from '../../components/Carousel/Carousel';
 
 export default async function Page({ params }) {
   const { id } = await params
-  const data = getRecipe(id);
+  const data = await prisma.recipeUpload.findUnique({
+    where: { id },
+  });
 
   if (!data) {
     return <div className="p-10 text-red-600">data not found.</div>;
@@ -51,9 +53,3 @@ export default async function Page({ params }) {
     </Layout>
   )
 }
-
-const getRecipe = cache(async (id) => {
-  return await prisma.recipeUpload.findUnique({
-    where: { id },
-  });
-});
