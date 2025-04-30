@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
-import ImageDisplay from '../../components/ImageGallery/ImageDisplay';
+import { Carousel } from '../../components/Carousel/Carousel';
 
 export default async function Page({ params }) {
   const { id } = await params;
@@ -56,11 +56,11 @@ export default async function Page({ params }) {
           </div>
           <p className="mt-2">{data.description}</p>
           <DetailSection label="entrée" content={data.entree} />
+          <Carousel images={entreeImages} />
           <DetailSection label="main" content={data.main} />
+          <Carousel images={mainImages} />
           <DetailSection label="dessert" content={data.dessert} />
-          <ImageDisplay images={entreeImages}/>
-          <ImageDisplay images={mainImages}/>
-          <ImageDisplay images={dessertImages}/>
+          <Carousel images={dessertImages} />
         </div>
       </div>
     </Layout>
