@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
+import { Carousel } from '../../components/Carousel/Carousel';
 
 export default async function Page({ params }) {
   const { id } = await params
@@ -16,6 +17,8 @@ export default async function Page({ params }) {
   const backgroundImage = data.backgroundImageUrl
   ? JSON.parse(data.backgroundImageUrl)[0]
   : '/pancakes.jpg';
+
+
 
   return (
     <Layout imageSrc={backgroundImage} title={data.title}>
@@ -40,7 +43,9 @@ export default async function Page({ params }) {
           </div>
           <p className="mt-2">{data.description}</p>
           <DetailSection label="recipe" content={data.recipe} />
+          <Carousel images={recipeImages}/>
           <DetailSection label="method" content={data.method} />
+          <Carousel images={methodImages}/>
         </div>
       </div>
     </Layout>
