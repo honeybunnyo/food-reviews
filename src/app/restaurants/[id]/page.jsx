@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { cache } from 'react'
 import Layout from '../../components/Layout/Layout'
 import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
