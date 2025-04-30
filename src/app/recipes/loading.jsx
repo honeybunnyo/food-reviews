@@ -4,7 +4,9 @@ import Layout from "../layout";
 export default function Loading() {
   return (
     <Layout imageSrc="black" title='Recipes'>
-      LOADING
+      <div className="relative w-full h-full overflow-hidden bg-gray-200">
+        <div className="absolute inset-0 animate-pulse bg-gray-300" />
+      </div>
     </Layout>
   );
 }

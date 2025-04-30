@@ -20,8 +20,7 @@ const PasswordField = ({ setUsername, setPassword, hasUsernameError, hasPassword
           id="username"
           onChange={handleUsernameChange}
           className={`bg-gray-50 border ${hasUsernameError ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:${
-            hasUsernameError ? 'border-red-500' : 'border-gray-600'
-          } dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+            hasUsernameError ? 'border-red-500' : 'border-gray-600'}`}
           required
         />
       </div>
@@ -34,8 +33,7 @@ const PasswordField = ({ setUsername, setPassword, hasUsernameError, hasPassword
           id="password"
           onChange={handlePasswordChange}
           className={`bg-gray-50 border ${hasPasswordError ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:${
-            hasPasswordError ? 'border-red-500' : 'border-gray-600'
-          } dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+            hasPasswordError ? 'border-red-500' : 'border-gray-600'}`}
           required
         />
       </div>
