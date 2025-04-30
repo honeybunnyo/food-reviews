@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import Title from './Title'
+import PropTypes from 'prop-types';
 
 const Layout = ({ imageSrc, title, children }) => {
   const [imageLoaded, setImageLoaded] = React.useState(false);
