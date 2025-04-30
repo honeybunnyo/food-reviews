@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
 import Title from './Title'
-import PropTypes from 'prop-types';
 
 const Layout = ({ imageSrc, title, children }) => {
   const [imageLoaded, setImageLoaded] = React.useState(false);
@@ -23,8 +22,7 @@ const Layout = ({ imageSrc, title, children }) => {
           }`}
           width={1000}
           height={1000}
-        >
-        </Image>
+        />
       </div>
       <div className="md:w-1/2 h-3/5 md:h-full p-4 overflow-y-auto bg-white">
         {children}
