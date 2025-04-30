@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
-import ImageDisplay from '../../components/ImageGallery/ImageDisplay';
 import { Carousel } from '../../components/Carousel/Carousel';
 
 export default async function Page({ params }) {
