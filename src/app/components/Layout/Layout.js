@@ -6,7 +6,6 @@ import Title from './Title'
 
 const Layout = ({ imageSrc, title, children }) => {
   const [imageLoaded, setImageLoaded] = React.useState(false);
-  const isPlaceholder = imageSrc === 'black';
 
   return (
     <div className="flex flex-col md:flex-row h-screen w-screen bg-black min-h-10">
