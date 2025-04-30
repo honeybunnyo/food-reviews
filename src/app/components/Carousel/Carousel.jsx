@@ -10,7 +10,7 @@ export function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [fullscreenSrc, setFullscreenSrc] = useState(null);
-
+  const single = images.length == 1
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
@@ -32,8 +32,9 @@ export function Carousel({ images }) {
 
   return (
     <div className="flex flex-row">
-      <LeftArrow prevSlide={prevSlide}/>
-      <div className="relative w-full max-w-4xl mx-auto overflow-hidden m-20" 
+      { !single && <LeftArrow prevSlide={prevSlide}/>}
+
+      <div className="relative w-full mx-auto overflow-hidden m-20" 
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}>
         <div className="flex flex-col">
@@ -47,7 +48,7 @@ export function Carousel({ images }) {
                 className="min-w-full flex items-center justify-center"
                 onClick={() => setFullscreenSrc(src)}
                 >
-                  <div className="relative aspect-square w-full max-w-[500px] overflow-hidden">
+                  <div className="relative aspect-square w-full max-w-[300px] overflow-hidden">
                   <Image
                     src={src}
                     alt={`Slide ${index}`}
@@ -60,11 +61,10 @@ export function Carousel({ images }) {
               ))}
           </div>     
           {/* Dots */}
-          <Dots images={images} goToSlide={goToSlide} currentIndex={currentIndex}/>
+          { !single && <Dots images={images} goToSlide={goToSlide} currentIndex={currentIndex}/>}
         </div>
       </div>
-
-      <RightArrow nextSlide={nextSlide}/>
+      { !single && <RightArrow nextSlide={nextSlide}/>}
       {fullscreenSrc && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"

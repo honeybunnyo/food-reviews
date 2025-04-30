@@ -31,8 +31,6 @@ export default async function Page({ params }) {
   ? JSON.parse(data.dessertImageUrls)
   : [];
 
-  const images = [...entreeImages, ...mainImages, ...dessertImages]
-
   return (
     <Layout imageSrc={backgroundImage} title={data.title}>
       <div className="justify-center h-full w-full p-4">
@@ -58,9 +56,11 @@ export default async function Page({ params }) {
           </div>
           <p className="mt-2">{data.description}</p>
           <DetailSection label="entrée" content={data.entree} />
+          <Carousel images={entreeImages} />
           <DetailSection label="main" content={data.main} />
+          <Carousel images={mainImages} />
           <DetailSection label="dessert" content={data.dessert} />
-          <Carousel images={images} />
+          <Carousel images={dessertImages} />
         </div>
       </div>
     </Layout>
