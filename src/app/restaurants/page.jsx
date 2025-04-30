@@ -10,7 +10,6 @@ export default async function Restaurants({ searchParams }) {
   const resolvedSearchParams = await searchParams;
   const { sort } = resolvedSearchParams || {};
   const sortField = sort === 'rating' ? 'rating' : 'createdAt';
-  
   const posts = await getRestaurants(sortField);
 
   return (

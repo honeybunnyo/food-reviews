@@ -13,21 +13,17 @@ const Layout = ({ imageSrc, title, children }) => {
       <div className="relative md:w-1/2 h-2/5 md:h-full">
         <Title title={title}/>
         <Navbar/>
-        {isPlaceholder ? (
-              <div className="absolute inset-0 bg-black" />
-            ) : (
-          <Image
-            src={imageSrc}
-            alt="Responsive Image"
-            priority
-            onLoad={() => setImageLoaded(true)}
-            className={`w-full h-full object-cover filter brightness-[0.6] absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            width={1000}
-            height={1000}
-          />
-        )}
+        <Image
+          src={imageSrc}
+          alt="Responsive Image"
+          priority
+          onLoad={() => setImageLoaded(true)}
+          className={`w-full h-full object-cover filter brightness-[0.6] absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            imageLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          width={1000}
+          height={1000}
+        />
       </div>
       <div className="md:w-1/2 h-3/5 md:h-full p-4 overflow-y-auto bg-white">
         {children}
