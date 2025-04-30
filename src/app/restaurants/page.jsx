@@ -1,4 +1,6 @@
-import React from 'react'
+export const revalidate = 60; 
+
+import React, { cache } from 'react'
 import Layout from '../components/Layout/Layout';
 import Cards from '../components/Cards/Cards';
 import { prisma } from '../lib/prisma'
@@ -9,9 +11,7 @@ export default async function Restaurants({ searchParams }) {
   const { sort } = resolvedSearchParams || {};
   const sortField = sort === 'rating' ? 'rating' : 'createdAt';
   
-  const posts = await prisma.restaurantUpload.findMany({
-    orderBy: { [sortField]: 'desc' },
-  })
+  const posts = await getRestaurants(sortField);
 
   return (
     <Layout imageSrc="/restaurant.jpg" title='Restaurants'>
@@ -25,3 +25,8 @@ export default async function Restaurants({ searchParams }) {
   )
 }
 
+const getRestaurants = cache(async (sortField) => {
+  return await prisma.restaurantUpload.findMany({
+    orderBy: { [sortField]: 'desc' },
+  });
+});

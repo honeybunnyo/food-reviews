@@ -8,8 +8,8 @@ const Layout = ({ imageSrc, title, children }) => {
   const [imageLoaded, setImageLoaded] = React.useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row h-screen w-screen bg-black">
-      <div className="relative md:w-1/2 h-1/2 md:h-full">
+    <div className="flex flex-col md:flex-row h-screen w-screen bg-black min-h-10">
+      <div className="relative md:w-1/2 h-2/5 md:h-full">
         <Title title={title}/>
         <Navbar/>
         <Image
@@ -25,7 +25,7 @@ const Layout = ({ imageSrc, title, children }) => {
         >
         </Image>
       </div>
-      <div className="md:w-1/2 h-1/2 md:h-full p-4 overflow-y-auto bg-white">
+      <div className="md:w-1/2 h-3/5 md:h-full p-4 overflow-y-auto bg-white">
         {children}
       </div>
     </div>
