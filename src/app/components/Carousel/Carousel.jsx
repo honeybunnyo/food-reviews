@@ -10,7 +10,7 @@ export function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [fullscreenSrc, setFullscreenSrc] = useState(null);
-  const single = images.length == 1
+  const single = images.length <= 1
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
