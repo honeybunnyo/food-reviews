@@ -6,10 +6,7 @@ import ImageDisplay from '../../components/ImageGallery/ImageDisplay';
 
 export default async function Page({ params }) {
   const { id } = await params;
-
-  const data = await prisma.restaurantUpload.findUnique({
-    where: { id },
-  });
+  const data = getRestaurant(id);
 
   if (!data) {
     return <div className="p-10 text-red-600">data not found.</div>;
@@ -66,3 +63,9 @@ export default async function Page({ params }) {
     </Layout>
   )
 }
+
+const getRestaurant = cache(async (id) => {
+  return await prisma.restaurantUpload.findUnique({
+    where: { id },
+  });
+});
