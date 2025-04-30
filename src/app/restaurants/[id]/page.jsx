@@ -3,6 +3,7 @@ import Layout from '../../components/Layout/Layout'
 import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
 import ImageDisplay from '../../components/ImageGallery/ImageDisplay';
+import { Carousel } from '../../components/Carousel/Carousel';
 
 export default async function Page({ params }) {
   const { id } = await params;
@@ -31,6 +32,8 @@ export default async function Page({ params }) {
   ? JSON.parse(data.dessertImageUrls)
   : [];
 
+  const images = [...entreeImages, ...mainImages, ...dessertImages]
+
   return (
     <Layout imageSrc={backgroundImage} title={data.title}>
       <div className="justify-center h-full w-full p-4">
@@ -58,9 +61,7 @@ export default async function Page({ params }) {
           <DetailSection label="entrée" content={data.entree} />
           <DetailSection label="main" content={data.main} />
           <DetailSection label="dessert" content={data.dessert} />
-          <ImageDisplay images={entreeImages}/>
-          <ImageDisplay images={mainImages}/>
-          <ImageDisplay images={dessertImages}/>
+          <Carousel images={images} />
         </div>
       </div>
     </Layout>
