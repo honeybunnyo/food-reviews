@@ -4,14 +4,13 @@ import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
 import { Carousel } from '../../components/Carousel/Carousel';
 
-
 // Prerender paths at build time
 export async function generateStaticParams() {
-  const restaurants = await prisma.recipeUpload.findMany({
+  const recipes = await prisma.recipeUpload.findMany({
     select: { id: true },
   });
 
-  return restaurants.map((r) => ({
+  return recipes.map((r) => ({
     id: r.id,
   }));
 }
