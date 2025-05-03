@@ -4,6 +4,19 @@ import { prisma } from '../../lib/prisma'
 import DetailSection from '../../components/Layout/DetailSection';
 import { Carousel } from '../../components/Carousel/Carousel';
 
+// Prerender paths at build time
+export async function generateStaticParams() {
+  const recipes = await prisma.recipeUpload.findMany({
+    select: { id: true },
+  });
+
+  return recipes.map((r) => ({
+    id: r.id,
+  }));
+}
+
+export const revalidate = 60;
+
 export default async function Page({ params }) {
   const { id } = await params
   const data = await prisma.recipeUpload.findUnique({
@@ -19,8 +32,6 @@ export default async function Page({ params }) {
   const backgroundImage = data.backgroundImageUrl
   ? JSON.parse(data.backgroundImageUrl)[0]
   : '/pancakes.jpg';
-
-
 
   return (
     <Layout imageSrc={backgroundImage} title={data.title}>
