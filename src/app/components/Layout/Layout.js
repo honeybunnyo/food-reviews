@@ -24,7 +24,7 @@ const Layout = ({ imageSrc, title, children }) => {
           height={1000}
         />
       </div>
-      <div className="md:w-1/2 h-3/5 md:h-full p-4 overflow-y-auto bg-white">
+      <div className="md:w-1/2 h-3/5 md:h-full p-4 pt-2 overflow-y-auto bg-white">
         {children}
       </div>
     </div>

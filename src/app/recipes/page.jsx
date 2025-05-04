@@ -15,10 +15,10 @@ export default async function Recipes({ searchParams }) {
   return (
     <Layout imageSrc="/cinnamonroll.jpg" title='Recipes'>
       <div className="h-full w-full p-4">
-      <div className="flex justify-end">
-        <SortDropdown currentSort={sortField} />
-      </div>
-      <Cards posts={posts}/>
+        <div className="flex justify-end">
+          <SortDropdown currentSort={sortField} />
+        </div>
+        <Cards posts={posts}/>
       </div>
     </Layout>
   )
