@@ -7,11 +7,11 @@ import LeftArrow from './LeftArrow';
 import Dots from './Dots';
 
 export function Carousel({ images }) {
-  if (!images || images.length === 0) return null;
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [fullscreenSrc, setFullscreenSrc] = useState(null);
+
+  if (!images || images.length === 0) return null;
   const single = images.length <= 1
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
