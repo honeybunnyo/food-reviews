@@ -7,6 +7,8 @@ import LeftArrow from './LeftArrow';
 import Dots from './Dots';
 
 export function Carousel({ images }) {
+  if (!images || images.length === 0) return null;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [fullscreenSrc, setFullscreenSrc] = useState(null);
@@ -23,7 +25,6 @@ export function Carousel({ images }) {
     setCurrentIndex(index);
   };
 
-  
   useEffect(() => {
     if (isHovering) return;
     const interval = setInterval(() => nextSlide(), 5000);
@@ -33,8 +34,7 @@ export function Carousel({ images }) {
   return (
     <div className="flex flex-row">
       { !single && <LeftArrow prevSlide={prevSlide}/>}
-
-      <div className="relative w-full mx-auto overflow-hidden m-20" 
+      <div className="relative w-full mx-auto overflow-hidden m-10" 
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}>
         <div className="flex flex-col">
