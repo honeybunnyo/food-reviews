@@ -29,6 +29,8 @@ export default async function Page({ params }) {
 
   const methodImages = JSON.parse(data.methodImageUrls || '[]');
   const recipeImages = JSON.parse(data.recipeImageUrls || '[]');
+  const descriptionImages = JSON.parse(data.descriptionImageUrls|| '[]');
+
   const backgroundImage = data.backgroundImageUrl
   ? JSON.parse(data.backgroundImageUrl)[0]
   : '/pancakes.jpg';
@@ -55,6 +57,7 @@ export default async function Page({ params }) {
             ))}
           </div>
           <p className="mt-2">{data.description}</p>
+          <Carousel images={descriptionImages}/>
           <DetailSection label="recipe" content={data.recipe} />
           <Carousel images={recipeImages}/>
           <DetailSection label="method" content={data.method} />
