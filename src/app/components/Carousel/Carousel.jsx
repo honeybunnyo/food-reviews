@@ -11,7 +11,14 @@ export function Carousel({ images }) {
   const [isHovering, setIsHovering] = useState(false);
   const [fullscreenSrc, setFullscreenSrc] = useState(null);
 
+  useEffect(() => {
+    if (isHovering) return;
+    const interval = setInterval(() => nextSlide(), 5000);
+    return () => clearInterval(interval);
+  }, [isHovering, images.length]);
+  
   if (!images || images.length === 0) return null;
+
   const single = images.length <= 1
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -24,12 +31,6 @@ export function Carousel({ images }) {
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
-
-  useEffect(() => {
-    if (isHovering) return;
-    const interval = setInterval(() => nextSlide(), 5000);
-    return () => clearInterval(interval);
-  }, [isHovering, images.length]);
 
   return (
     <div className="flex flex-row">
