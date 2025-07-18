@@ -9,7 +9,7 @@ const Card = ({ id, title, date, imageUrl, rating }) => {
   const pathname = usePathname()
   return (
     <Link href={`${pathname}/${id}`} className='flex flex-row overflow-hidden hover:bg-gray-50'>
-      <div className="relative w-1/3 aspect-square min-w-24 max-w-64">
+      <div className="relative aspect-square w-32 sm:w-36 md:w-40 lg:w-48 shrink-0">
         <SkeletonImage
           src={imageUrl || "/pancakes.jpg"}
           alt={title}
@@ -20,7 +20,7 @@ const Card = ({ id, title, date, imageUrl, rating }) => {
       </div>
       <div className='flex flex-col'>
         <div className='p-2'>
-          <h1 className={`!text-xl ${headingFont}`}>
+          <h1 className={`md:!text-lg !text-md ${headingFont}`}>
           {title}
           </h1>
           <p className='text-sm text-gray-500'>{date}</p>

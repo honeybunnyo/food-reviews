@@ -13,7 +13,7 @@ export function SkeletonImage({
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-gray-200">
+    <div className="relative w-full aspect-square overflow-hidden bg-gray-200">
       {/* Skeleton background */}
       {isLoading && (
         <div className="absolute inset-0 animate-pulse bg-gray-300" />
