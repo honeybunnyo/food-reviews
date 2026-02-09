@@ -14,14 +14,14 @@ model RecipeUpload {
   title       String?
   description String?
   rating      Int?     @db.SmallInt
-  recipe      String?
-  method      String?
 
-  backgroundImageUrl   String? // string
-  descriptionImageUrls String? // JSON stringified array
+  recipe Json? // array of strings (ingredients / bullet points)
+  method Json? // array of steps
 
-  recipeImageUrls String?
-  methodImageUrls String?
+  backgroundImageUrl   Json?
+  descriptionImageUrls Json?
+  recipeImageUrls      Json?
+  methodImageUrls      Json?
 }
 
 model RestaurantUpload {
@@ -33,14 +33,14 @@ model RestaurantUpload {
   location    String?
   priceRange  String?
   description String?
-  entree      String?
-  main        String?
-  dessert     String?
 
-  backgroundImageUrl   String? // background image
-  descriptionImageUrls String? // JSON stringified array
+  entree  Json?
+  main    Json?
+  dessert Json?
 
-  entreeImageUrls  String?
-  mainImageUrls    String?
-  dessertImageUrls String?
+  backgroundImageUrl   Json?
+  descriptionImageUrls Json?
+  entreeImageUrls      Json?
+  mainImageUrls        Json?
+  dessertImageUrls     Json?
 }

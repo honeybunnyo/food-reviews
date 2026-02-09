@@ -986,12 +986,6 @@ export namespace Prisma {
     title: string | null
     description: string | null
     rating: number | null
-    recipe: string | null
-    method: string | null
-    backgroundImageUrl: string | null
-    descriptionImageUrls: string | null
-    recipeImageUrls: string | null
-    methodImageUrls: string | null
   }
 
   export type RecipeUploadMaxAggregateOutputType = {
@@ -1000,12 +994,6 @@ export namespace Prisma {
     title: string | null
     description: string | null
     rating: number | null
-    recipe: string | null
-    method: string | null
-    backgroundImageUrl: string | null
-    descriptionImageUrls: string | null
-    recipeImageUrls: string | null
-    methodImageUrls: string | null
   }
 
   export type RecipeUploadCountAggregateOutputType = {
@@ -1038,12 +1026,6 @@ export namespace Prisma {
     title?: true
     description?: true
     rating?: true
-    recipe?: true
-    method?: true
-    backgroundImageUrl?: true
-    descriptionImageUrls?: true
-    recipeImageUrls?: true
-    methodImageUrls?: true
   }
 
   export type RecipeUploadMaxAggregateInputType = {
@@ -1052,12 +1034,6 @@ export namespace Prisma {
     title?: true
     description?: true
     rating?: true
-    recipe?: true
-    method?: true
-    backgroundImageUrl?: true
-    descriptionImageUrls?: true
-    recipeImageUrls?: true
-    methodImageUrls?: true
   }
 
   export type RecipeUploadCountAggregateInputType = {
@@ -1167,12 +1143,12 @@ export namespace Prisma {
     title: string | null
     description: string | null
     rating: number | null
-    recipe: string | null
-    method: string | null
-    backgroundImageUrl: string | null
-    descriptionImageUrls: string | null
-    recipeImageUrls: string | null
-    methodImageUrls: string | null
+    recipe: JsonValue | null
+    method: JsonValue | null
+    backgroundImageUrl: JsonValue | null
+    descriptionImageUrls: JsonValue | null
+    recipeImageUrls: JsonValue | null
+    methodImageUrls: JsonValue | null
     _count: RecipeUploadCountAggregateOutputType | null
     _avg: RecipeUploadAvgAggregateOutputType | null
     _sum: RecipeUploadSumAggregateOutputType | null
@@ -1261,12 +1237,12 @@ export namespace Prisma {
       title: string | null
       description: string | null
       rating: number | null
-      recipe: string | null
-      method: string | null
-      backgroundImageUrl: string | null
-      descriptionImageUrls: string | null
-      recipeImageUrls: string | null
-      methodImageUrls: string | null
+      recipe: Prisma.JsonValue | null
+      method: Prisma.JsonValue | null
+      backgroundImageUrl: Prisma.JsonValue | null
+      descriptionImageUrls: Prisma.JsonValue | null
+      recipeImageUrls: Prisma.JsonValue | null
+      methodImageUrls: Prisma.JsonValue | null
     }, ExtArgs["result"]["recipeUpload"]>
     composites: {}
   }
@@ -1695,12 +1671,12 @@ export namespace Prisma {
     readonly title: FieldRef<"RecipeUpload", 'String'>
     readonly description: FieldRef<"RecipeUpload", 'String'>
     readonly rating: FieldRef<"RecipeUpload", 'Int'>
-    readonly recipe: FieldRef<"RecipeUpload", 'String'>
-    readonly method: FieldRef<"RecipeUpload", 'String'>
-    readonly backgroundImageUrl: FieldRef<"RecipeUpload", 'String'>
-    readonly descriptionImageUrls: FieldRef<"RecipeUpload", 'String'>
-    readonly recipeImageUrls: FieldRef<"RecipeUpload", 'String'>
-    readonly methodImageUrls: FieldRef<"RecipeUpload", 'String'>
+    readonly recipe: FieldRef<"RecipeUpload", 'Json'>
+    readonly method: FieldRef<"RecipeUpload", 'Json'>
+    readonly backgroundImageUrl: FieldRef<"RecipeUpload", 'Json'>
+    readonly descriptionImageUrls: FieldRef<"RecipeUpload", 'Json'>
+    readonly recipeImageUrls: FieldRef<"RecipeUpload", 'Json'>
+    readonly methodImageUrls: FieldRef<"RecipeUpload", 'Json'>
   }
     
 
@@ -2096,14 +2072,6 @@ export namespace Prisma {
     location: string | null
     priceRange: string | null
     description: string | null
-    entree: string | null
-    main: string | null
-    dessert: string | null
-    backgroundImageUrl: string | null
-    descriptionImageUrls: string | null
-    entreeImageUrls: string | null
-    mainImageUrls: string | null
-    dessertImageUrls: string | null
   }
 
   export type RestaurantUploadMaxAggregateOutputType = {
@@ -2115,14 +2083,6 @@ export namespace Prisma {
     location: string | null
     priceRange: string | null
     description: string | null
-    entree: string | null
-    main: string | null
-    dessert: string | null
-    backgroundImageUrl: string | null
-    descriptionImageUrls: string | null
-    entreeImageUrls: string | null
-    mainImageUrls: string | null
-    dessertImageUrls: string | null
   }
 
   export type RestaurantUploadCountAggregateOutputType = {
@@ -2163,14 +2123,6 @@ export namespace Prisma {
     location?: true
     priceRange?: true
     description?: true
-    entree?: true
-    main?: true
-    dessert?: true
-    backgroundImageUrl?: true
-    descriptionImageUrls?: true
-    entreeImageUrls?: true
-    mainImageUrls?: true
-    dessertImageUrls?: true
   }
 
   export type RestaurantUploadMaxAggregateInputType = {
@@ -2182,14 +2134,6 @@ export namespace Prisma {
     location?: true
     priceRange?: true
     description?: true
-    entree?: true
-    main?: true
-    dessert?: true
-    backgroundImageUrl?: true
-    descriptionImageUrls?: true
-    entreeImageUrls?: true
-    mainImageUrls?: true
-    dessertImageUrls?: true
   }
 
   export type RestaurantUploadCountAggregateInputType = {
@@ -2307,14 +2251,14 @@ export namespace Prisma {
     location: string | null
     priceRange: string | null
     description: string | null
-    entree: string | null
-    main: string | null
-    dessert: string | null
-    backgroundImageUrl: string | null
-    descriptionImageUrls: string | null
-    entreeImageUrls: string | null
-    mainImageUrls: string | null
-    dessertImageUrls: string | null
+    entree: JsonValue | null
+    main: JsonValue | null
+    dessert: JsonValue | null
+    backgroundImageUrl: JsonValue | null
+    descriptionImageUrls: JsonValue | null
+    entreeImageUrls: JsonValue | null
+    mainImageUrls: JsonValue | null
+    dessertImageUrls: JsonValue | null
     _count: RestaurantUploadCountAggregateOutputType | null
     _avg: RestaurantUploadAvgAggregateOutputType | null
     _sum: RestaurantUploadSumAggregateOutputType | null
@@ -2426,14 +2370,14 @@ export namespace Prisma {
       location: string | null
       priceRange: string | null
       description: string | null
-      entree: string | null
-      main: string | null
-      dessert: string | null
-      backgroundImageUrl: string | null
-      descriptionImageUrls: string | null
-      entreeImageUrls: string | null
-      mainImageUrls: string | null
-      dessertImageUrls: string | null
+      entree: Prisma.JsonValue | null
+      main: Prisma.JsonValue | null
+      dessert: Prisma.JsonValue | null
+      backgroundImageUrl: Prisma.JsonValue | null
+      descriptionImageUrls: Prisma.JsonValue | null
+      entreeImageUrls: Prisma.JsonValue | null
+      mainImageUrls: Prisma.JsonValue | null
+      dessertImageUrls: Prisma.JsonValue | null
     }, ExtArgs["result"]["restaurantUpload"]>
     composites: {}
   }
@@ -2865,14 +2809,14 @@ export namespace Prisma {
     readonly location: FieldRef<"RestaurantUpload", 'String'>
     readonly priceRange: FieldRef<"RestaurantUpload", 'String'>
     readonly description: FieldRef<"RestaurantUpload", 'String'>
-    readonly entree: FieldRef<"RestaurantUpload", 'String'>
-    readonly main: FieldRef<"RestaurantUpload", 'String'>
-    readonly dessert: FieldRef<"RestaurantUpload", 'String'>
-    readonly backgroundImageUrl: FieldRef<"RestaurantUpload", 'String'>
-    readonly descriptionImageUrls: FieldRef<"RestaurantUpload", 'String'>
-    readonly entreeImageUrls: FieldRef<"RestaurantUpload", 'String'>
-    readonly mainImageUrls: FieldRef<"RestaurantUpload", 'String'>
-    readonly dessertImageUrls: FieldRef<"RestaurantUpload", 'String'>
+    readonly entree: FieldRef<"RestaurantUpload", 'Json'>
+    readonly main: FieldRef<"RestaurantUpload", 'Json'>
+    readonly dessert: FieldRef<"RestaurantUpload", 'Json'>
+    readonly backgroundImageUrl: FieldRef<"RestaurantUpload", 'Json'>
+    readonly descriptionImageUrls: FieldRef<"RestaurantUpload", 'Json'>
+    readonly entreeImageUrls: FieldRef<"RestaurantUpload", 'Json'>
+    readonly mainImageUrls: FieldRef<"RestaurantUpload", 'Json'>
+    readonly dessertImageUrls: FieldRef<"RestaurantUpload", 'Json'>
   }
     
 
@@ -3300,12 +3244,29 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   export const NullsOrder: {
@@ -3364,6 +3325,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3389,12 +3364,12 @@ export namespace Prisma {
     title?: StringNullableFilter<"RecipeUpload"> | string | null
     description?: StringNullableFilter<"RecipeUpload"> | string | null
     rating?: IntNullableFilter<"RecipeUpload"> | number | null
-    recipe?: StringNullableFilter<"RecipeUpload"> | string | null
-    method?: StringNullableFilter<"RecipeUpload"> | string | null
-    backgroundImageUrl?: StringNullableFilter<"RecipeUpload"> | string | null
-    descriptionImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
-    recipeImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
-    methodImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
+    recipe?: JsonNullableFilter<"RecipeUpload">
+    method?: JsonNullableFilter<"RecipeUpload">
+    backgroundImageUrl?: JsonNullableFilter<"RecipeUpload">
+    descriptionImageUrls?: JsonNullableFilter<"RecipeUpload">
+    recipeImageUrls?: JsonNullableFilter<"RecipeUpload">
+    methodImageUrls?: JsonNullableFilter<"RecipeUpload">
   }
 
   export type RecipeUploadOrderByWithRelationInput = {
@@ -3420,12 +3395,12 @@ export namespace Prisma {
     title?: StringNullableFilter<"RecipeUpload"> | string | null
     description?: StringNullableFilter<"RecipeUpload"> | string | null
     rating?: IntNullableFilter<"RecipeUpload"> | number | null
-    recipe?: StringNullableFilter<"RecipeUpload"> | string | null
-    method?: StringNullableFilter<"RecipeUpload"> | string | null
-    backgroundImageUrl?: StringNullableFilter<"RecipeUpload"> | string | null
-    descriptionImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
-    recipeImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
-    methodImageUrls?: StringNullableFilter<"RecipeUpload"> | string | null
+    recipe?: JsonNullableFilter<"RecipeUpload">
+    method?: JsonNullableFilter<"RecipeUpload">
+    backgroundImageUrl?: JsonNullableFilter<"RecipeUpload">
+    descriptionImageUrls?: JsonNullableFilter<"RecipeUpload">
+    recipeImageUrls?: JsonNullableFilter<"RecipeUpload">
+    methodImageUrls?: JsonNullableFilter<"RecipeUpload">
   }, "id">
 
   export type RecipeUploadOrderByWithAggregationInput = {
@@ -3456,12 +3431,12 @@ export namespace Prisma {
     title?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
     description?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
     rating?: IntNullableWithAggregatesFilter<"RecipeUpload"> | number | null
-    recipe?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
-    method?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
-    backgroundImageUrl?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
-    descriptionImageUrls?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
-    recipeImageUrls?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
-    methodImageUrls?: StringNullableWithAggregatesFilter<"RecipeUpload"> | string | null
+    recipe?: JsonNullableWithAggregatesFilter<"RecipeUpload">
+    method?: JsonNullableWithAggregatesFilter<"RecipeUpload">
+    backgroundImageUrl?: JsonNullableWithAggregatesFilter<"RecipeUpload">
+    descriptionImageUrls?: JsonNullableWithAggregatesFilter<"RecipeUpload">
+    recipeImageUrls?: JsonNullableWithAggregatesFilter<"RecipeUpload">
+    methodImageUrls?: JsonNullableWithAggregatesFilter<"RecipeUpload">
   }
 
   export type RestaurantUploadWhereInput = {
@@ -3476,14 +3451,14 @@ export namespace Prisma {
     location?: StringNullableFilter<"RestaurantUpload"> | string | null
     priceRange?: StringNullableFilter<"RestaurantUpload"> | string | null
     description?: StringNullableFilter<"RestaurantUpload"> | string | null
-    entree?: StringNullableFilter<"RestaurantUpload"> | string | null
-    main?: StringNullableFilter<"RestaurantUpload"> | string | null
-    dessert?: StringNullableFilter<"RestaurantUpload"> | string | null
-    backgroundImageUrl?: StringNullableFilter<"RestaurantUpload"> | string | null
-    descriptionImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
-    entreeImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
-    mainImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
-    dessertImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
+    entree?: JsonNullableFilter<"RestaurantUpload">
+    main?: JsonNullableFilter<"RestaurantUpload">
+    dessert?: JsonNullableFilter<"RestaurantUpload">
+    backgroundImageUrl?: JsonNullableFilter<"RestaurantUpload">
+    descriptionImageUrls?: JsonNullableFilter<"RestaurantUpload">
+    entreeImageUrls?: JsonNullableFilter<"RestaurantUpload">
+    mainImageUrls?: JsonNullableFilter<"RestaurantUpload">
+    dessertImageUrls?: JsonNullableFilter<"RestaurantUpload">
   }
 
   export type RestaurantUploadOrderByWithRelationInput = {
@@ -3517,14 +3492,14 @@ export namespace Prisma {
     location?: StringNullableFilter<"RestaurantUpload"> | string | null
     priceRange?: StringNullableFilter<"RestaurantUpload"> | string | null
     description?: StringNullableFilter<"RestaurantUpload"> | string | null
-    entree?: StringNullableFilter<"RestaurantUpload"> | string | null
-    main?: StringNullableFilter<"RestaurantUpload"> | string | null
-    dessert?: StringNullableFilter<"RestaurantUpload"> | string | null
-    backgroundImageUrl?: StringNullableFilter<"RestaurantUpload"> | string | null
-    descriptionImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
-    entreeImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
-    mainImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
-    dessertImageUrls?: StringNullableFilter<"RestaurantUpload"> | string | null
+    entree?: JsonNullableFilter<"RestaurantUpload">
+    main?: JsonNullableFilter<"RestaurantUpload">
+    dessert?: JsonNullableFilter<"RestaurantUpload">
+    backgroundImageUrl?: JsonNullableFilter<"RestaurantUpload">
+    descriptionImageUrls?: JsonNullableFilter<"RestaurantUpload">
+    entreeImageUrls?: JsonNullableFilter<"RestaurantUpload">
+    mainImageUrls?: JsonNullableFilter<"RestaurantUpload">
+    dessertImageUrls?: JsonNullableFilter<"RestaurantUpload">
   }, "id">
 
   export type RestaurantUploadOrderByWithAggregationInput = {
@@ -3563,14 +3538,14 @@ export namespace Prisma {
     location?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
     priceRange?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
     description?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    entree?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    main?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    dessert?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    backgroundImageUrl?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    descriptionImageUrls?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    entreeImageUrls?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    mainImageUrls?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
-    dessertImageUrls?: StringNullableWithAggregatesFilter<"RestaurantUpload"> | string | null
+    entree?: JsonNullableWithAggregatesFilter<"RestaurantUpload">
+    main?: JsonNullableWithAggregatesFilter<"RestaurantUpload">
+    dessert?: JsonNullableWithAggregatesFilter<"RestaurantUpload">
+    backgroundImageUrl?: JsonNullableWithAggregatesFilter<"RestaurantUpload">
+    descriptionImageUrls?: JsonNullableWithAggregatesFilter<"RestaurantUpload">
+    entreeImageUrls?: JsonNullableWithAggregatesFilter<"RestaurantUpload">
+    mainImageUrls?: JsonNullableWithAggregatesFilter<"RestaurantUpload">
+    dessertImageUrls?: JsonNullableWithAggregatesFilter<"RestaurantUpload">
   }
 
   export type RecipeUploadCreateInput = {
@@ -3579,12 +3554,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     rating?: number | null
-    recipe?: string | null
-    method?: string | null
-    backgroundImageUrl?: string | null
-    descriptionImageUrls?: string | null
-    recipeImageUrls?: string | null
-    methodImageUrls?: string | null
+    recipe?: NullableJsonNullValueInput | InputJsonValue
+    method?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    recipeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    methodImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RecipeUploadUncheckedCreateInput = {
@@ -3593,12 +3568,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     rating?: number | null
-    recipe?: string | null
-    method?: string | null
-    backgroundImageUrl?: string | null
-    descriptionImageUrls?: string | null
-    recipeImageUrls?: string | null
-    methodImageUrls?: string | null
+    recipe?: NullableJsonNullValueInput | InputJsonValue
+    method?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    recipeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    methodImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RecipeUploadUpdateInput = {
@@ -3607,12 +3582,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
-    recipe?: NullableStringFieldUpdateOperationsInput | string | null
-    method?: NullableStringFieldUpdateOperationsInput | string | null
-    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    recipeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    methodImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    recipe?: NullableJsonNullValueInput | InputJsonValue
+    method?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    recipeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    methodImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RecipeUploadUncheckedUpdateInput = {
@@ -3621,12 +3596,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
-    recipe?: NullableStringFieldUpdateOperationsInput | string | null
-    method?: NullableStringFieldUpdateOperationsInput | string | null
-    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    recipeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    methodImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    recipe?: NullableJsonNullValueInput | InputJsonValue
+    method?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    recipeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    methodImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RecipeUploadCreateManyInput = {
@@ -3635,12 +3610,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     rating?: number | null
-    recipe?: string | null
-    method?: string | null
-    backgroundImageUrl?: string | null
-    descriptionImageUrls?: string | null
-    recipeImageUrls?: string | null
-    methodImageUrls?: string | null
+    recipe?: NullableJsonNullValueInput | InputJsonValue
+    method?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    recipeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    methodImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RecipeUploadUpdateManyMutationInput = {
@@ -3649,12 +3624,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
-    recipe?: NullableStringFieldUpdateOperationsInput | string | null
-    method?: NullableStringFieldUpdateOperationsInput | string | null
-    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    recipeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    methodImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    recipe?: NullableJsonNullValueInput | InputJsonValue
+    method?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    recipeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    methodImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RecipeUploadUncheckedUpdateManyInput = {
@@ -3663,12 +3638,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     rating?: NullableIntFieldUpdateOperationsInput | number | null
-    recipe?: NullableStringFieldUpdateOperationsInput | string | null
-    method?: NullableStringFieldUpdateOperationsInput | string | null
-    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    recipeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    methodImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    recipe?: NullableJsonNullValueInput | InputJsonValue
+    method?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    recipeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    methodImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RestaurantUploadCreateInput = {
@@ -3680,14 +3655,14 @@ export namespace Prisma {
     location?: string | null
     priceRange?: string | null
     description?: string | null
-    entree?: string | null
-    main?: string | null
-    dessert?: string | null
-    backgroundImageUrl?: string | null
-    descriptionImageUrls?: string | null
-    entreeImageUrls?: string | null
-    mainImageUrls?: string | null
-    dessertImageUrls?: string | null
+    entree?: NullableJsonNullValueInput | InputJsonValue
+    main?: NullableJsonNullValueInput | InputJsonValue
+    dessert?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    entreeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    mainImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    dessertImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RestaurantUploadUncheckedCreateInput = {
@@ -3699,14 +3674,14 @@ export namespace Prisma {
     location?: string | null
     priceRange?: string | null
     description?: string | null
-    entree?: string | null
-    main?: string | null
-    dessert?: string | null
-    backgroundImageUrl?: string | null
-    descriptionImageUrls?: string | null
-    entreeImageUrls?: string | null
-    mainImageUrls?: string | null
-    dessertImageUrls?: string | null
+    entree?: NullableJsonNullValueInput | InputJsonValue
+    main?: NullableJsonNullValueInput | InputJsonValue
+    dessert?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    entreeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    mainImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    dessertImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RestaurantUploadUpdateInput = {
@@ -3718,14 +3693,14 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     priceRange?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    entree?: NullableStringFieldUpdateOperationsInput | string | null
-    main?: NullableStringFieldUpdateOperationsInput | string | null
-    dessert?: NullableStringFieldUpdateOperationsInput | string | null
-    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    entreeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    mainImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    dessertImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    entree?: NullableJsonNullValueInput | InputJsonValue
+    main?: NullableJsonNullValueInput | InputJsonValue
+    dessert?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    entreeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    mainImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    dessertImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RestaurantUploadUncheckedUpdateInput = {
@@ -3737,14 +3712,14 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     priceRange?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    entree?: NullableStringFieldUpdateOperationsInput | string | null
-    main?: NullableStringFieldUpdateOperationsInput | string | null
-    dessert?: NullableStringFieldUpdateOperationsInput | string | null
-    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    entreeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    mainImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    dessertImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    entree?: NullableJsonNullValueInput | InputJsonValue
+    main?: NullableJsonNullValueInput | InputJsonValue
+    dessert?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    entreeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    mainImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    dessertImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RestaurantUploadCreateManyInput = {
@@ -3756,14 +3731,14 @@ export namespace Prisma {
     location?: string | null
     priceRange?: string | null
     description?: string | null
-    entree?: string | null
-    main?: string | null
-    dessert?: string | null
-    backgroundImageUrl?: string | null
-    descriptionImageUrls?: string | null
-    entreeImageUrls?: string | null
-    mainImageUrls?: string | null
-    dessertImageUrls?: string | null
+    entree?: NullableJsonNullValueInput | InputJsonValue
+    main?: NullableJsonNullValueInput | InputJsonValue
+    dessert?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    entreeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    mainImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    dessertImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RestaurantUploadUpdateManyMutationInput = {
@@ -3775,14 +3750,14 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     priceRange?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    entree?: NullableStringFieldUpdateOperationsInput | string | null
-    main?: NullableStringFieldUpdateOperationsInput | string | null
-    dessert?: NullableStringFieldUpdateOperationsInput | string | null
-    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    entreeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    mainImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    dessertImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    entree?: NullableJsonNullValueInput | InputJsonValue
+    main?: NullableJsonNullValueInput | InputJsonValue
+    dessert?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    entreeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    mainImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    dessertImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type RestaurantUploadUncheckedUpdateManyInput = {
@@ -3794,14 +3769,14 @@ export namespace Prisma {
     location?: NullableStringFieldUpdateOperationsInput | string | null
     priceRange?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    entree?: NullableStringFieldUpdateOperationsInput | string | null
-    main?: NullableStringFieldUpdateOperationsInput | string | null
-    dessert?: NullableStringFieldUpdateOperationsInput | string | null
-    backgroundImageUrl?: NullableStringFieldUpdateOperationsInput | string | null
-    descriptionImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    entreeImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    mainImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
-    dessertImageUrls?: NullableStringFieldUpdateOperationsInput | string | null
+    entree?: NullableJsonNullValueInput | InputJsonValue
+    main?: NullableJsonNullValueInput | InputJsonValue
+    dessert?: NullableJsonNullValueInput | InputJsonValue
+    backgroundImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    descriptionImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    entreeImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    mainImageUrls?: NullableJsonNullValueInput | InputJsonValue
+    dessertImageUrls?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type UuidFilter<$PrismaModel = never> = {
@@ -3852,6 +3827,29 @@ export namespace Prisma {
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
 
   export type SortOrderInput = {
     sort: SortOrder
@@ -3882,12 +3880,6 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     rating?: SortOrder
-    recipe?: SortOrder
-    method?: SortOrder
-    backgroundImageUrl?: SortOrder
-    descriptionImageUrls?: SortOrder
-    recipeImageUrls?: SortOrder
-    methodImageUrls?: SortOrder
   }
 
   export type RecipeUploadMinOrderByAggregateInput = {
@@ -3896,12 +3888,6 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     rating?: SortOrder
-    recipe?: SortOrder
-    method?: SortOrder
-    backgroundImageUrl?: SortOrder
-    descriptionImageUrls?: SortOrder
-    recipeImageUrls?: SortOrder
-    methodImageUrls?: SortOrder
   }
 
   export type RecipeUploadSumOrderByAggregateInput = {
@@ -3970,6 +3956,32 @@ export namespace Prisma {
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
 
   export type RestaurantUploadCountOrderByAggregateInput = {
     id?: SortOrder
@@ -4003,14 +4015,6 @@ export namespace Prisma {
     location?: SortOrder
     priceRange?: SortOrder
     description?: SortOrder
-    entree?: SortOrder
-    main?: SortOrder
-    dessert?: SortOrder
-    backgroundImageUrl?: SortOrder
-    descriptionImageUrls?: SortOrder
-    entreeImageUrls?: SortOrder
-    mainImageUrls?: SortOrder
-    dessertImageUrls?: SortOrder
   }
 
   export type RestaurantUploadMinOrderByAggregateInput = {
@@ -4022,14 +4026,6 @@ export namespace Prisma {
     location?: SortOrder
     priceRange?: SortOrder
     description?: SortOrder
-    entree?: SortOrder
-    main?: SortOrder
-    dessert?: SortOrder
-    backgroundImageUrl?: SortOrder
-    descriptionImageUrls?: SortOrder
-    entreeImageUrls?: SortOrder
-    mainImageUrls?: SortOrder
-    dessertImageUrls?: SortOrder
   }
 
   export type RestaurantUploadSumOrderByAggregateInput = {
@@ -4198,6 +4194,29 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
 
