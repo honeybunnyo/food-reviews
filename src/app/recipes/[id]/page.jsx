@@ -22,31 +22,48 @@ export default async function Page({ params }) {
   const data = await prisma.recipeUpload.findUnique({
     where: { id },
   });
-
+  console.log(data)
   if (!data) {
     return <div className="p-10 text-red-600">data not found.</div>;
   }
 
-  const methodImages = JSON.parse(data.methodImageUrls || '[]');
-  const recipeImages = JSON.parse(data.recipeImageUrls || '[]');
-  const descriptionImages = JSON.parse(data.descriptionImageUrls|| '[]');
+  // const methodImages = JSON.parse(data.methodImageUrls || '[]');
+  // const recipeImages = JSON.parse(data.recipeImageUrls || '[]');
+  // const descriptionImages = JSON.parse(data.descriptionImageUrls || '[]');
 
-  const backgroundImage = data.backgroundImageUrl
-  ? JSON.parse(data.backgroundImageUrl)[0]
-  : '/pancakes.jpg';
+  // const backgroundImage = data.backgroundImageUrl
+  //   ? JSON.parse(data.backgroundImageUrl)[0]
+  //   : '/pancakes.jpg';
+
+  const recipeImages = Array.isArray(data.recipeImageUrls)
+    ? data.recipeImageUrls
+    : [];
+
+  const methodImages = Array.isArray(data.methodImageUrls)
+    ? data.methodImageUrls
+    : [];
+
+  const descriptionImages = Array.isArray(data.descriptionImageUrls)
+    ? data.descriptionImageUrls
+    : [];
+
+  const backgroundImage =
+    Array.isArray(data.backgroundImageUrl) && data.backgroundImageUrl.length > 0
+      ? data.backgroundImageUrl[0]
+      : '/pancakes.jpg';
+
 
   return (
-    <Layout imageSrc={backgroundImage} title={data.title}>
+    <Layout imageSrc={ backgroundImage } title={ data.title }>
       <div className="justify-center h-full w-full p-4">
         <div className="p-4">
-          <h2 className="text-2xl font-bold">{data.title}</h2>
+          <h2 className="text-2xl font-bold">{ data.title }</h2>
           <div className="flex items-center mt-3">
-            {[1, 2, 3, 4, 5].map((index) => (
+            { [1, 2, 3, 4, 5].map((index) => (
               <svg
-                key={index}
-                className={`w-4 h-4 ms-1 ${
-                  data.rating >= index ? 'text-yellow-300' : 'text-gray-300 dark:text-gray-500'
-                }`}
+                key={ index }
+                className={ `w-4 h-4 ms-1 ${data.rating >= index ? 'text-yellow-300' : 'text-gray-300 dark:text-gray-500'
+                  }` }
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -54,14 +71,14 @@ export default async function Page({ params }) {
               >
                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
               </svg>
-            ))}
+            )) }
           </div>
-          <p className="mt-2">{data.description}</p>
-          <Carousel images={descriptionImages}/>
-          <DetailSection label="recipe" content={data.recipe} />
-          <Carousel images={recipeImages}/>
-          <DetailSection label="method" content={data.method} />
-          <Carousel images={methodImages}/>
+          <p className="mt-2">{ data.description }</p>
+          <Carousel images={ descriptionImages } />
+          <DetailSection label="recipe" content={ data.recipe } />
+          <Carousel images={ recipeImages } />
+          <DetailSection label="method" content={ data.method } />
+          <Carousel images={ methodImages } />
         </div>
       </div>
     </Layout>

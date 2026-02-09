@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ContentDropdown from './ContentDropdown';
 import InputField from './../components/InputField/InputField';
 import PasswordField from './../components/InputField/PasswordField';
@@ -9,20 +9,23 @@ import TextAreaField from './../components/InputField/TextAreaField';
 import ImageField from './../components/InputField/ImageField';
 import ErrorToast from './../components/Toast/ErrorToast';
 import SuccessToast from './../components/Toast/SuccessToast';
+import ListField from './ListField';
 
 const Page = () => {
   const [formData, setFormData] = useState({
     content: 'content type',
     title: '',
     description: '',
-    recipe: '',
-    method: '',
-    entree: '',
-    main: '',
-    dessert: '',
+    recipe: [],
+    method: [],
+    entree: [],
+    main: [],
+    dessert: [],
     rating: 0,
   });
-
+  useEffect(() => {
+    console.log('formData', formData)
+  }, [formData])
   const [errors, setErrors] = useState({
     username: false,
     password: false,
@@ -60,8 +63,15 @@ const Page = () => {
     const formToSend = new FormData();
     formToSend.append('username', username);
     formToSend.append('password', password);
+    // Object.entries(formData).forEach(([key, value]) => {
+    //   formToSend.append(key, value);
+    // });
     Object.entries(formData).forEach(([key, value]) => {
-      formToSend.append(key, value);
+      if (Array.isArray(value)) {
+        formToSend.append(key, JSON.stringify(value));
+      } else {
+        formToSend.append(key, value);
+      }
     });
 
     Object.entries(imagesByCategory).forEach(([category, files]) => {
@@ -69,7 +79,7 @@ const Page = () => {
         formToSend.append(`${category}Images`, file);
       });
     });
-  
+
     const res = await fetch('/api/upload', {
       method: 'POST',
       body: formToSend,
@@ -94,7 +104,7 @@ const Page = () => {
       rating: formData.rating === 0,
       file: !imagesByCategory.background
     }
-  
+
     setErrors(newErrors)
     const hasErrors = Object.values(newErrors).some(Boolean)
     if (hasErrors) return false
@@ -103,48 +113,61 @@ const Page = () => {
 
   return (
     <div>
-      <form className="m-10" autoComplete="off" onSubmit={handleSubmit} noValidate>
-        <ContentDropdown content={formData.content} setContent={handleChange('content')} hasError={errors.content}/>
-        <InputField label="title" content={formData.title} setContent={handleChange('title')} hasError={errors.title}/>
-        <TextAreaField label="description" content={formData.description} setContent={handleChange('description')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
+      <form className="m-10" autoComplete="off" onSubmit={ handleSubmit } noValidate>
+        <ContentDropdown content={ formData.content } setContent={ handleChange('content') } hasError={ errors.content } />
+        <InputField label="title" content={ formData.title } setContent={ handleChange('title') } hasError={ errors.title } />
+        {/* <TextAreaField label="description" content={ formData.description } setContent={ handleChange('description') } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } /> */ }
 
-        {formData.content === 'recipes' && (
-          <>
-            <TextAreaField label="recipe" content={formData.recipe} setContent={handleChange('recipe')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
-            <TextAreaField label="method" content={formData.method} setContent={handleChange('method')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
-          </>
-        )}
 
-        {formData.content === 'restaurants' && (
+        { formData.content === 'recipes' && (
           <>
-            <TextAreaField label="entree" content={formData.entree} setContent={handleChange('entree')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
-            <TextAreaField label="main" content={formData.main} setContent={handleChange('main')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
-            <TextAreaField label="dessert" content={formData.dessert} setContent={handleChange('dessert')} imagesByCategory={imagesByCategory} setImagesByCategory={setImagesByCategory}/>
+            <ListField
+              label="recipe"
+              items={ formData.recipe }
+              setItems={ (items) => setFormData(prev => ({ ...prev, recipe: items })) }
+              imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory }
+            />
+            <ListField
+              label="method"
+              items={ formData.method }
+              setItems={ (items) => setFormData(prev => ({ ...prev, method: items })) }
+              imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory }
+            />
+
+            {/* <TextAreaField label="recipe" content={ formData.recipe } setContent={ handleChange('recipe') } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } /> */ }
+            {/* <TextAreaField label="method" content={ formData.method } setContent={ handleChange('method') } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } /> */ }
           </>
-        )}
-        <RatingField rating={formData.rating} setRating={handleChange('rating')} hasError={errors.rating}/>
+        ) }
+
+        { formData.content === 'restaurants' && (
+          <>
+            <ListField label="entree" items={ formData.entree } setItems={ (items) => setFormData(prev => ({ ...prev, entree: items })) } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } />
+            <ListField label="main" items={ formData.main } setItems={ (items) => setFormData(prev => ({ ...prev, main: items })) } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } />
+            <ListField label="dessert" items={ formData.dessert } setItems={ (items) => setFormData(prev => ({ ...prev, dessert: items })) } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } />
+          </>
+        ) }
+        <RatingField rating={ formData.rating } setRating={ handleChange('rating') } hasError={ errors.rating } />
         <label className="block text-sm font-medium mb-2">background image</label>
-        <ImageField 
-          imageFiles={imagesByCategory.background}
-          setImagesByCategory={setImagesByCategory}
-          hasError={errors.file}
+        <ImageField
+          imageFiles={ imagesByCategory.background }
+          setImagesByCategory={ setImagesByCategory }
+          hasError={ errors.file }
           category='background'
         />
 
-        <PasswordField setUsername={setUsername} setPassword={setPassword} hasUsernameError={errors.username} hasPasswordError={errors.password}/>
+        <PasswordField setUsername={ setUsername } setPassword={ setPassword } hasUsernameError={ errors.username } hasPasswordError={ errors.password } />
         <button
           type="submit"
-          disabled={uploading}
-          className={`text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center transition ${
-            uploading ? 'bg-gray-400 cursor-not-allowed' : 'bg-gray-700 hover:bg-gray-800'
-          }`}
+          disabled={ uploading }
+          className={ `text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center transition ${uploading ? 'bg-gray-400 cursor-not-allowed' : 'bg-gray-700 hover:bg-gray-800'
+            }` }
         >
-          {uploading ? 'Uploading...' : 'Upload'}
+          { uploading ? 'Uploading...' : 'Upload' }
         </button>
       </form>
       <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        {successToast && ( <SuccessToast setVisible={setSuccessToast}/> )}
-        {failToast && ( <ErrorToast setVisible={setFailToast}/> )}
+        { successToast && (<SuccessToast setVisible={ setSuccessToast } />) }
+        { failToast && (<ErrorToast setVisible={ setFailToast } />) }
       </div>
     </div>
   );
