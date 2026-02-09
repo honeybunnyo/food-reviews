@@ -11,15 +11,6 @@ export function Carousel({ images }) {
   const [isHovering, setIsHovering] = useState(false);
   const [fullscreenSrc, setFullscreenSrc] = useState(null);
 
-  useEffect(() => {
-    if (isHovering) return;
-    const interval = setInterval(() => nextSlide(), 5000);
-    return () => clearInterval(interval);
-  }, [isHovering, images.length]);
-  
-  if (!images || images.length === 0) return null;
-
-  const single = images.length <= 1
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
@@ -32,57 +23,68 @@ export function Carousel({ images }) {
     setCurrentIndex(index);
   };
 
+  useEffect(() => {
+    if (isHovering) return;
+    const interval = setInterval(() => nextSlide(), 5000);
+    return () => clearInterval(interval);
+  }, [isHovering, images.length]);
+
+  if (!images || images.length === 0) return null;
+
+  const single = images.length <= 1
+  const safeImages = Array.isArray(images) ? images : [];
+
   return (
     <div className="flex flex-row">
-      { !single && <LeftArrow prevSlide={prevSlide}/>}
-      <div className="relative w-full mx-auto overflow-hidden m-10" 
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}>
+      { !single && <LeftArrow prevSlide={ prevSlide } /> }
+      <div className="relative w-full mx-auto overflow-hidden m-10"
+        onMouseEnter={ () => setIsHovering(true) }
+        onMouseLeave={ () => setIsHovering(false) }>
         <div className="flex flex-col">
           <div
             className="flex transition-transform duration-500 w-full"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {images.map((src, index) => (
-                <div
-                key={index}
+            style={ { transform: `translateX(-${currentIndex * 100}%)` } }
+          >
+            { safeImages.map((src, index) => (
+              <div
+                key={ index }
                 className="min-w-full flex items-center justify-center"
-                onClick={() => setFullscreenSrc(src)}
-                >
-                  <div className="relative aspect-square w-full max-w-[300px] overflow-hidden">
+                onClick={ () => setFullscreenSrc(src) }
+              >
+                <div className="relative aspect-square w-full max-w-[300px] overflow-hidden">
                   <Image
-                    src={src}
-                    alt={`Slide ${index}`}
+                    src={ src }
+                    alt={ `Slide ${index}` }
                     fill
                     className="object-cover cursor-pointer"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
-                    />
-                  </div>
+                  />
                 </div>
-              ))}
-          </div>     
-          {/* Dots */}
-          { !single && <Dots images={images} goToSlide={goToSlide} currentIndex={currentIndex}/>}
+              </div>
+            )) }
+          </div>
+          {/* Dots */ }
+          { !single && <Dots images={ safeImages } goToSlide={ goToSlide } currentIndex={ currentIndex } /> }
         </div>
       </div>
-      { !single && <RightArrow nextSlide={nextSlide}/>}
-      {fullscreenSrc && (
+      { !single && <RightArrow nextSlide={ nextSlide } /> }
+      { fullscreenSrc && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-          onClick={() => setFullscreenSrc(null)}
-        > 
+          onClick={ () => setFullscreenSrc(null) }
+        >
           <div className="relative h-[60vh] w-[90vw]">
             <Image
-              src={fullscreenSrc}
+              src={ fullscreenSrc }
               alt="Fullscreen"
               fill
               className="object-contain"
               sizes="(min-width: 1024px) 60vh, 100vw"
-              quality={100}
+              quality={ 100 }
             />
           </div>
         </div>
-      )}
+      ) }
     </div>
   );
 }

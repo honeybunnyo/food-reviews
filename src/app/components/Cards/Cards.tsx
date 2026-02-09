@@ -10,13 +10,13 @@ const Cards = async ({ posts }) => {
           id={post.id}
           title={post.title}
           date={new Date(post.createdAt).toDateString()}
-          imageUrl={JSON.parse(post.backgroundImageUrl || '[]')[0] || '/cinnamonroll.jpg'}
+          imageUrl={post.backgroundImageUrl[0] || '/cinnamonroll.jpg'}
           rating={post.rating}
-          />
+        />
       ))}
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
     </div>
   )
 }
