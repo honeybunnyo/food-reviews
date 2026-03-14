@@ -22,6 +22,7 @@ export default async function Page({ params }) {
   const data = await prisma.recipeUpload.findUnique({
     where: { id },
   });
+
   console.log(data)
   if (!data) {
     return <div className="p-10 text-red-600">data not found.</div>;
@@ -60,6 +61,7 @@ export default async function Page({ params }) {
           <Carousel images={ recipeImages } />
           <DetailSection label="method" content={ data.method } />
           <Carousel images={ methodImages } />
+          <DetailSection label="notes" content={ data.notes } />
         </div>
       </div>
     </Layout>

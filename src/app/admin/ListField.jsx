@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ImageField from '../components/InputField/ImageField';
 import RatingField from '../components/InputField/RatingField';
 
@@ -7,10 +7,20 @@ const ListField = ({ label, items, setItems, imagesByCategory, setImagesByCatego
 	const safeItems = Array.isArray(items) ? items : [];
 
 	const [name, setName] = useState("");
+	const [nameInput, setNameInput] = useState("");
 	const [review, setReview] = useState("");
 	const [rating, setRating] = useState(0);
 
 	const isRestaurant = ["entree", "main", "dessert"].includes(label);
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setName(nameInput);
+		}, 300);
+
+		return () => clearTimeout(timer);
+	}, [nameInput]);
+
 
 	const addItem = () => {
 		if (!name.trim()) return;
@@ -37,8 +47,8 @@ const ListField = ({ label, items, setItems, imagesByCategory, setImagesByCatego
 
 			<div className="flex flex-col gap-2 mb-2">
 				<input
-					value={ name }
-					onChange={ (e) => setName(e.target.value) }
+					value={ nameInput }
+					onChange={ (e) => setNameInput(e.target.value) }
 					className="border p-2 rounded"
 					placeholder={ isRestaurant ? `Name` : `Add ${label} item` }
 				/>

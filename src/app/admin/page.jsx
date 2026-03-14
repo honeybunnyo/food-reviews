@@ -5,27 +5,34 @@ import ContentDropdown from './ContentDropdown';
 import InputField from './../components/InputField/InputField';
 import PasswordField from './../components/InputField/PasswordField';
 import RatingField from './../components/InputField/RatingField';
-import TextAreaField from './../components/InputField/TextAreaField';
 import ImageField from './../components/InputField/ImageField';
 import ErrorToast from './../components/Toast/ErrorToast';
 import SuccessToast from './../components/Toast/SuccessToast';
 import ListField from './ListField';
 
+const initialFormState = {
+  content: 'content type',
+  title: '',
+  description: '',
+  recipe: [],
+  method: [],
+  entree: [],
+  main: [],
+  dessert: [],
+  rating: 0,
+  notes: '',
+};
+const initialImageState = {
+  description: [],
+  background: null,
+  recipe: [],
+  method: [],
+  entree: [],
+  main: [],
+  dessert: [],
+}
+
 const Page = () => {
-  const [formData, setFormData] = useState({
-    content: 'content type',
-    title: '',
-    description: '',
-    recipe: [],
-    method: [],
-    entree: [],
-    main: [],
-    dessert: [],
-    rating: 0,
-  });
-  useEffect(() => {
-    console.log('formData', formData)
-  }, [formData])
   const [errors, setErrors] = useState({
     username: false,
     password: false,
@@ -34,22 +41,30 @@ const Page = () => {
     rating: false,
   })
 
-  const [imagesByCategory, setImagesByCategory] = useState({
-    description: [],
-    background: null,
-    recipe: [],
-    method: [],
-    entree: [],
-    main: [],
-    dessert: [],
-  });
-
+  const [formData, setFormData] = useState(initialFormState);
+  const [imagesByCategory, setImagesByCategory] = useState(initialImageState);
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [successToast, setSuccessToast] = useState(false);
   const [failToast, setFailToast] = useState(false);
   const [uploading, setUploading] = useState(false);
 
+  useEffect(() => {
+    console.log('formData', formData)
+  }, [formData])
+
+  const resetFormData = () => {
+    setFormData(initialFormState)
+    setImagesByCategory({
+      description: [],
+      background: null,
+      recipe: [],
+      method: [],
+      entree: [],
+      main: [],
+      dessert: [],
+    });
+  }
   const handleChange = (field) => (value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
@@ -63,9 +78,7 @@ const Page = () => {
     const formToSend = new FormData();
     formToSend.append('username', username);
     formToSend.append('password', password);
-    // Object.entries(formData).forEach(([key, value]) => {
-    //   formToSend.append(key, value);
-    // });
+
     Object.entries(formData).forEach(([key, value]) => {
       if (Array.isArray(value)) {
         formToSend.append(key, JSON.stringify(value));
@@ -92,7 +105,8 @@ const Page = () => {
       setFailToast(true)
       setTimeout(() => setFailToast(false), 5000);
     }
-    setUploading(false)
+    setUploading(false);
+    resetFormData();
   }
 
   const validateField = () => {
@@ -116,9 +130,6 @@ const Page = () => {
       <form className="m-10" autoComplete="off" onSubmit={ handleSubmit } noValidate>
         <ContentDropdown content={ formData.content } setContent={ handleChange('content') } hasError={ errors.content } />
         <InputField label="title" content={ formData.title } setContent={ handleChange('title') } hasError={ errors.title } />
-        {/* <TextAreaField label="description" content={ formData.description } setContent={ handleChange('description') } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } /> */ }
-
-
         { formData.content === 'recipes' && (
           <>
             <ListField
@@ -133,9 +144,6 @@ const Page = () => {
               setItems={ (items) => setFormData(prev => ({ ...prev, method: items })) }
               imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory }
             />
-
-            {/* <TextAreaField label="recipe" content={ formData.recipe } setContent={ handleChange('recipe') } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } /> */ }
-            {/* <TextAreaField label="method" content={ formData.method } setContent={ handleChange('method') } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } /> */ }
           </>
         ) }
 
@@ -146,6 +154,8 @@ const Page = () => {
             <ListField label="dessert" items={ formData.dessert } setItems={ (items) => setFormData(prev => ({ ...prev, dessert: items })) } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } />
           </>
         ) }
+        <InputField label="notes" content={ formData.notes } setContent={ handleChange('notes') } />
+
         <RatingField rating={ formData.rating } setRating={ handleChange('rating') } hasError={ errors.rating } />
         <label className="block text-sm font-medium mb-2">background image</label>
         <ImageField
