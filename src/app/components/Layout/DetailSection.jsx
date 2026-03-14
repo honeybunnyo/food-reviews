@@ -24,7 +24,7 @@ const DetailSection = ({ label, content }) => {
   const isArray = Array.isArray(content);
   const style = LIST_STYLES[label.toLowerCase()] || "text";
   return (
-    <>
+    <div className='px-12'>
       <h1 className={ `!text-lg mt-4 ${headingFont}` }>{ label }</h1>
 
       { isArray ? (
@@ -61,7 +61,7 @@ const DetailSection = ({ label, content }) => {
         <p className="mt-2 whitespace-pre-line">{ content }</p>
       ) }
 
-    </>
+    </div>
   );
 };
 

@@ -36,7 +36,9 @@ export function Carousel({ images }) {
 
   return (
     <div className="flex flex-row">
-      { !single && <LeftArrow prevSlide={ prevSlide } /> }
+      <div className="w-[30px] flex items-center justify-center">
+        { !single && <LeftArrow prevSlide={ prevSlide } /> }
+      </div>
       <div className="relative w-full mx-auto overflow-hidden m-10"
         onMouseEnter={ () => setIsHovering(true) }
         onMouseLeave={ () => setIsHovering(false) }>
@@ -51,7 +53,7 @@ export function Carousel({ images }) {
                 className="min-w-full flex items-center justify-center"
                 onClick={ () => setFullscreenSrc(src) }
               >
-                <div className="relative aspect-square w-full max-w-[300px] overflow-hidden">
+                <div className="relative aspect-square w-full max-w-[400px] min-w-[200px] overflow-hidden">
                   <Image
                     src={ src }
                     alt={ `Slide ${index}` }
@@ -67,7 +69,10 @@ export function Carousel({ images }) {
           { !single && <Dots images={ safeImages } goToSlide={ goToSlide } currentIndex={ currentIndex } /> }
         </div>
       </div>
-      { !single && <RightArrow nextSlide={ nextSlide } /> }
+      <div className="w-[30px] flex items-center justify-center">
+        { !single && <RightArrow nextSlide={ nextSlide } /> }
+      </div>
+
       { fullscreenSrc && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"

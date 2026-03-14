@@ -1,18 +1,24 @@
 import React from 'react'
 
-const StaticRating = ({ rating, size = "sm" }) => {
+const InteractiveRating = ({
+	rating,
+	setRating,
+	size = "md",
+	className = "",
+}) => {
 	const sizeClasses = {
-		sm: "w-3 h-3 md:w-4 md:h-4",
-		md: "w-4 h-4 md:w-5 md:h-5",
-		lg: "w-6 h-6",
+		sm: "w-4 h-4",
+		md: "w-6 h-6",
+		lg: "w-8 h-8",
 	};
 
 	return (
-		<div className="flex flex-row ml-1">
+		<div className={ `flex items-center ${className}` }>
 			{ [1, 2, 3, 4, 5].map((index) => (
 				<svg
 					key={ index }
-					className={ `${sizeClasses[size]} ms-1 ${rating >= index
+					onClick={ () => setRating(index) }
+					className={ `${sizeClasses[size]} ms-1 cursor-pointer ${rating >= index
 						? "text-yellow-300"
 						: "text-gray-300 dark:text-gray-500"
 						}` }
@@ -28,4 +34,4 @@ const StaticRating = ({ rating, size = "sm" }) => {
 	);
 }
 
-export default StaticRating
+export default InteractiveRating

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import { headingFont } from './../../lib/fonts'
 import { SkeletonImage } from './../ImageGallery/ImageSkeleton';
-import StaticRating from './../StaticRating/StaticRating'
+import StaticRating from '../Rating/StaticRating'
 
 const Card = ({ id, title, date, imageUrl, rating }) => {
   const pathname = usePathname()

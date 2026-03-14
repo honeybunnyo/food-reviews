@@ -9,23 +9,22 @@ const Layout = ({ imageSrc, title, children }) => {
 
   return (
     <div className="flex flex-col md:flex-row h-screen w-screen bg-black min-h-10">
-      <div className="relative md:w-1/2 h-2/5 md:h-full">
-        <Title title={title}/>
-        <Navbar/>
+      <div className="relative lg:w-2/3 md:w-1/2 h-2/5 md:h-full">
+        <Title title={ title } />
+        <Navbar />
         <Image
-          src={imageSrc}
+          src={ imageSrc }
           alt="Responsive Image"
           priority
-          onLoad={() => setImageLoaded(true)}
-          className={`w-full h-full object-cover filter brightness-[0.6] absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          width={1000}
-          height={1000}
+          onLoad={ () => setImageLoaded(true) }
+          className={ `w-full h-full object-cover filter brightness-[0.6] absolute inset-0 transition-opacity duration-1000 ease-in-out ${imageLoaded ? 'opacity-100' : 'opacity-0'
+            }` }
+          width={ 1000 }
+          height={ 1000 }
         />
       </div>
-      <div className="md:w-1/2 h-3/5 md:h-full p-4 pt-2 overflow-y-auto bg-white">
-        {children}
+      <div className="md:w-1/2 h-3/5 md:h-full p-4 pt-2 overflow-y-auto bg-white lg:w-1/3">
+        { children }
       </div>
     </div>
   )
