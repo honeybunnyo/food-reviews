@@ -6,6 +6,7 @@ import { headingFont } from './../../lib/fonts'
 import { SkeletonImage } from './../ImageGallery/ImageSkeleton';
 import StaticRating from '../Rating/StaticRating'
 import { deletePost } from '../../api/delete/deletePost'
+import { Trash2 } from 'lucide-react';
 
 const Card = ({ id, title, date, imageUrl, rating, edit, type }) => {
   const pathname = usePathname()
@@ -45,7 +46,7 @@ const Card = ({ id, title, date, imageUrl, rating, edit, type }) => {
           className="ml-auto p-3 text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors self-center"
           aria-label="Delete"
         >
-          🗑
+          <Trash2 />
         </button>
       ) }
 

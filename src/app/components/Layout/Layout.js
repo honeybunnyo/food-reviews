@@ -9,7 +9,7 @@ const Layout = ({ imageSrc, title, children }) => {
 
   return (
     <div className="flex flex-col md:flex-row h-screen w-screen bg-black min-h-10">
-      <div className="relative lg:w-2/3 md:w-1/2 h-2/5 md:h-full">
+      <div className="relative lg:w-3/5 md:w-1/2 h-2/5 md:h-full">
         <Title title={ title } />
         <Navbar />
         <Image
@@ -23,7 +23,7 @@ const Layout = ({ imageSrc, title, children }) => {
           height={ 1000 }
         />
       </div>
-      <div className="md:w-1/2 h-3/5 md:h-full p-4 pt-2 overflow-y-auto bg-white lg:w-1/3">
+      <div className="md:w-1/2 h-3/5 md:h-full p-4 pt-2 overflow-y-auto bg-white lg:w-2/5">
         { children }
       </div>
     </div>
