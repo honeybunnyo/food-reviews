@@ -107,6 +107,7 @@ const Page = () => {
     }
     setUploading(false);
     resetFormData();
+
   }
 
   const validateField = () => {
