@@ -1,9 +1,9 @@
 export const revalidate = 60;
 
-import React, { cache, Suspense } from 'react'
+import React, { cache } from 'react'
 import { prisma } from '../lib/prisma'
-import SortDropdown from '../components/Dropdowns/SortDropdown';
 import DynamicCards from './DynamicCards';
+import Layout from '../components/Layout/Layout';
 
 export default async function Posts({ searchParams }) {
 	const resolvedSearchParams = await searchParams;
@@ -13,13 +13,13 @@ export default async function Posts({ searchParams }) {
 	const recipes = await getRecipes(sortField);
 
 	return (
-		<div className="h-full w-full p-4 flex justify-center flex-col">
-			{/* <div className="flex">
-				<Suspense fallback={ <div>Loading...</div> }>
-					<SortDropdown currentSort={ sortField } />
-				</Suspense>			</div> */}
-			<DynamicCards recipes={ recipes } restaurants={ restaurants } />
-		</div>
+		<Layout imageSrc="/pancakes.jpg" title='Editing'>
+			<div className="h-full w-full p-4">
+				<div className="h-full w-full p-4 flex flex-col">
+					<DynamicCards recipes={ recipes } restaurants={ restaurants } />
+				</div>
+			</div>
+		</Layout>
 	)
 }
 

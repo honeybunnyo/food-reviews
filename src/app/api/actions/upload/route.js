@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '../../lib/prisma'
+import { prisma } from '../../../lib/prisma'
 import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { r2 } from "../../lib/r2";
+import { r2 } from "../../../lib/r2";
 
 export async function POST(req) {
   try {
