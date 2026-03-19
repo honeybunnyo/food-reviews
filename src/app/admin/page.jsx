@@ -93,7 +93,7 @@ const Page = () => {
       });
     });
 
-    const res = await fetch('/api/upload', {
+    const res = await fetch('/api/actions/upload', {
       method: 'POST',
       body: formToSend,
     });

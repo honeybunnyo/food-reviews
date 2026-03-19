@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { headingFont } from './../../lib/fonts'
 import { SkeletonImage } from './../ImageGallery/ImageSkeleton';
 import StaticRating from '../Rating/StaticRating'
-import { deletePost } from '../../api/delete/deletePost'
+import { deletePost } from '../../api/actions/delete/deletePost'
 import { Trash2 } from 'lucide-react';
 
 const Card = ({ id, title, date, imageUrl, rating, edit, type }) => {

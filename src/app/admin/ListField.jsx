@@ -33,6 +33,8 @@ const ListField = ({ label, items, setItems, imagesByCategory, setImagesByCatego
 		setItems([...safeItems, newItem]);
 
 		setName("");
+		setNameInput("");
+
 		setReview("");
 		setRating(0);
 	};
@@ -76,18 +78,18 @@ const ListField = ({ label, items, setItems, imagesByCategory, setImagesByCatego
 
 			<ul className="list-disc pl-5 space-y-1">
 				{ safeItems.map((item, i) => (
-					<li key={ i } className="flex justify-between items-start gap-4">
-						<div>
+					<div key={ i } className="flex justify-between items-start gap-4">
+						<li>
 							{ typeof item === "string" ? (
 								item
 							) : (
 								<>
 									<p className="font-semibold">{ item.name }</p>
 									<p className="text-sm opacity-80">{ item.review }</p>
-									<p className="text-sm opacity-80">{ item.rating }</p>
+									<p className="text-sm opacity-80">{ item.rating }/5</p>
 								</>
 							) }
-						</div>
+						</li>
 
 						<button
 							type="button"
@@ -96,7 +98,7 @@ const ListField = ({ label, items, setItems, imagesByCategory, setImagesByCatego
 						>
 							remove
 						</button>
-					</li>
+					</div>
 				)) }
 			</ul>
 
