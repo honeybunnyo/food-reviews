@@ -7,7 +7,7 @@ export const revalidate = 60;
 
 export async function generateStaticParams() {
   const recipes = await prisma.recipeUpload.findMany({ select: { id: true } });
-  return recipes.map((r) => { id: r.id });
+  return recipes.map((r) => ({ id: r.id }))
 }
 
 export default async function Page({ params }) {
@@ -28,10 +28,11 @@ export default async function Page({ params }) {
 
 
   return (
-    <DetailPage imageSrc={ backgroundImage } title={ data.title } rating={ data.rating } description={ data.description }>
+    <DetailPage imageSrc={ backgroundImage } title={ data.title } rating={ data.rating } description={ data.description } date={ new Date(data.createdAt).toDateString() }>
+      <DetailWithCarousel label="description" content={ data.notes } images={ data.descriptionImageUrls } />
       <DetailWithCarousel label="recipe" content={ data.recipe } images={ data.recipeImageUrls } />
       <DetailWithCarousel label="method" content={ data.method } images={ data.methodImageUrls } />
-      <DetailWithCarousel label="notes" content={ data.notes } images={ data.descriptionImageUrls } />
+      <DetailWithCarousel label="notes" content={ data.notes } />
     </DetailPage>
   )
 }

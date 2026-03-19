@@ -25,9 +25,11 @@ export default async function Page({ params }) {
 
   return (
     <DetailPage imageSrc={ backgroundImage } title={ data.title } rating={ data.rating } description={ data.description }>
+      <DetailWithCarousel label="description" content={ data.notes } images={ data.descriptionImageUrls } />
       <DetailWithCarousel label="entrée" content={ data.entree } images={ data.entreeImageUrls } />
       <DetailWithCarousel label="main" content={ data.main } images={ data.mainImageUrls } />
       <DetailWithCarousel label="dessert" content={ data.dessert } images={ data.dessertImageUrls } />
+      <DetailWithCarousel label="notes" content={ data.notes } />
     </DetailPage>
   )
 }
