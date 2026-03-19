@@ -166,7 +166,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\jxcqu\\Code\\projects\\food-reviews\\src\\generated\\prisma",
+      "value": "/vercel/sandbox/primary/src/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -175,17 +175,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "rhel-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\jxcqu\\Code\\projects\\food-reviews\\prisma\\schema.prisma",
+    "sourceFilePath": "/vercel/sandbox/primary/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../../prisma",
   "clientVersion": "6.6.0",
@@ -194,11 +193,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://neondb_owner:npg_6AgcRhpzZ4DC@ep-hidden-frog-a7kkaqax-pooler.ap-southeast-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+        "value": null
       }
     }
   },
