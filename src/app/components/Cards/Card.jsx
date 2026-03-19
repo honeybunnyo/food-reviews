@@ -29,26 +29,28 @@ const Card = ({ id, title, date, imageUrl, rating, edit, type }) => {
           className="object-cover"
         />
       </div>
-      <div className='flex flex-col'>
-        <div className='p-2'>
-          <h1 className={ `md:!text-lg !text-md ${headingFont}` }>
-            { title }
-          </h1>
+      <div className='flex flex-col w-full'>
+        <div className='p-2 w-full'>
+          <div className="flex flex-row justify-between w-full">
+            <h1 className={ `md:!text-lg !text-md ${headingFont}` }>
+              { title }
+            </h1>
+            { edit && (
+              <button
+                onClick={ handleDelete }
+                className="text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors self-center"
+                aria-label="Delete"
+              >
+                <Trash2 />
+              </button>
+            ) }
+          </div>
           <p className='text-sm text-gray-500'>{ date }</p>
         </div>
         <div className='flex flex-row ml-1'>
           <StaticRating rating={ rating } size="sm" />
         </div>
       </div>
-      { edit && (
-        <button
-          onClick={ handleDelete }
-          className="ml-auto p-3 text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors self-center"
-          aria-label="Delete"
-        >
-          <Trash2 />
-        </button>
-      ) }
 
     </Link>
   )
