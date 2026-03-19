@@ -22,6 +22,7 @@ model RecipeUpload {
   descriptionImageUrls Json?
   recipeImageUrls      Json?
   methodImageUrls      Json?
+  notes                String?
 }
 
 model RestaurantUpload {
@@ -43,4 +44,5 @@ model RestaurantUpload {
   entreeImageUrls      Json?
   mainImageUrls        Json?
   dessertImageUrls     Json?
+  notes                String?
 }
