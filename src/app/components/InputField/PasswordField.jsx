@@ -1,13 +1,9 @@
 import React from 'react'
+import { useDebounce } from '../../hooks/useDebounce'
 
-const PasswordField = ({ setUsername, setPassword, hasUsernameError, hasPasswordError}) => {
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+const PasswordField = ({ setUsername, setPassword, hasUsernameError, hasPasswordError }) => {
+  const [localUsername, handleUsernameChange] = useDebounce('', setUsername)
+  const [localPassword, handlePasswordChange] = useDebounce('', setPassword)
 
   return (
     <div className='w-1/3 min-w-[24rem]'>
@@ -18,9 +14,9 @@ const PasswordField = ({ setUsername, setPassword, hasUsernameError, hasPassword
         <input
           type="text"
           id="username"
-          onChange={handleUsernameChange}
-          className={`bg-gray-50 border ${hasUsernameError ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:${
-            hasUsernameError ? 'border-red-500' : 'border-gray-600'}`}
+          onChange={ handleUsernameChange }
+          value={ localUsername }
+          className={ `bg-gray-50 border ${hasUsernameError ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:${hasUsernameError ? 'border-red-500' : 'border-gray-600'}` }
           required
         />
       </div>
@@ -31,9 +27,9 @@ const PasswordField = ({ setUsername, setPassword, hasUsernameError, hasPassword
         <input
           type="password"
           id="password"
-          onChange={handlePasswordChange}
-          className={`bg-gray-50 border ${hasPasswordError ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:${
-            hasPasswordError ? 'border-red-500' : 'border-gray-600'}`}
+          onChange={ handlePasswordChange }
+          value={ localPassword }
+          className={ `bg-gray-50 border ${hasPasswordError ? 'border-red-500' : 'border-gray-300'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:${hasPasswordError ? 'border-red-500' : 'border-gray-600'}` }
           required
         />
       </div>
