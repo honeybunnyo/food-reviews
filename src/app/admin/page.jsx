@@ -6,6 +6,7 @@ import InputField from './../components/InputField/InputField';
 import PasswordField from './../components/InputField/PasswordField';
 import RatingField from './../components/InputField/RatingField';
 import ImageField from './../components/InputField/ImageField';
+import TextAreaField from './../components/InputField/TextAreaField';
 import ErrorToast from './../components/Toast/ErrorToast';
 import SuccessToast from './../components/Toast/SuccessToast';
 import ListField from './ListField';
@@ -52,6 +53,7 @@ const Page = () => {
   useEffect(() => {
     console.log('formData', formData)
   }, [formData])
+
 
   const resetFormData = () => {
     setFormData(initialFormState)
@@ -155,8 +157,7 @@ const Page = () => {
             <ListField label="dessert" items={ formData.dessert } setItems={ (items) => setFormData(prev => ({ ...prev, dessert: items })) } imagesByCategory={ imagesByCategory } setImagesByCategory={ setImagesByCategory } />
           </>
         ) }
-        <InputField label="notes" content={ formData.notes } setContent={ handleChange('notes') } />
-
+        <TextAreaField label="notes" content={ formData.notes } setContent={ handleChange('notes') } />
         <RatingField rating={ formData.rating } setRating={ handleChange('rating') } hasError={ errors.rating } />
         <label className="block text-sm font-medium mb-2">background image</label>
         <ImageField

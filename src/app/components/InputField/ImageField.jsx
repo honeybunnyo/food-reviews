@@ -16,34 +16,33 @@ const ImageField = ({ imageFiles = [], setImagesByCategory, hasError = false, mu
       [category]: [...(prev[category] || []), ...newFiles],
     }));
   };
-    
+
   return (
     <div className="flex flex-row items-start gap-10 mt-7 mb-6">
       <div className="w-32 min-w-[8rem]">
-        <Dropzone category={category} handleImageAdd={handleImageAdd} multiple={multiple} />
+        <Dropzone category={ category } handleImageAdd={ handleImageAdd } multiple={ multiple } />
       </div>
-      {imageFiles && imageFiles.length > 0 && (
+      { imageFiles && imageFiles.length > 0 && (
         <div className="flex flex-row gap-1">
-          {imageFiles.map((file, idx) => (
-            <div key={idx} className="relative">
+          { imageFiles.map((file, idx) => (
+            <div key={ idx } className="relative w-32 h-32">
               <Image
-                src={URL.createObjectURL(file)}
-                alt={`Preview ${idx}`}
-                width={96}
-                height={96}
+                src={ URL.createObjectURL(file) }
+                alt={ `Preview ${idx}` }
+                fill
                 className="rounded-lg max-h-32 object-cover min-w-[6rem]"
               />
               <button
                 type="button"
-                onClick={() => handleImageRemove(category, idx)}
+                onClick={ () => handleImageRemove(category, idx) }
                 className="absolute top-1 right-1 bg-white text-black rounded-full p-1 px-2 text-xs font-bold shadow hover:bg-red-100 hover:text-red-500"
               >
                 ✕
               </button>
             </div>
-          ))}
+          )) }
         </div>
-      )}
+      ) }
     </div>
   );
 };
