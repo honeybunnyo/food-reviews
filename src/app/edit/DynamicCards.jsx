@@ -9,7 +9,7 @@ const DynamicCards = ({ recipes, restaurants }) => {
 	return (
 		<div>
 			<button
-				className="mb-4 px-4 py-2 bg-blue-500 text-white rounded"
+				className="mb-4 px-4 py-2 bg-gray-600 text-white rounded-md"
 				onClick={ () => setShowRestaurants(!showRestaurants) }
 			>
 				{ showRestaurants ? 'Show Recipes' : 'Show Restaurants' }
